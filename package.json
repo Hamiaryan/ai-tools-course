@@ -1,0 +1,16 @@
+{
+  "name": "kursrum-ai-verktyg-clone",
+  "version": "1.0.0",
+  "description": "Exact clone of kursrum-ai-verktyg.pages.dev course website",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "ai-tools",
+    "kursmaterial",
+    "course"
+  ],
+  "author": "",
+  "license": "ISC"
+}

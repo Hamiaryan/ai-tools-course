@@ -1,0 +1,66 @@
+<!DOCTYPE html><html lang="sv"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex, nofollow"><meta name="color-scheme" content="dark"><meta name="theme-color" content="#14130f"><meta name="description" content="Övningar: Vad är en AI-agent?."><link rel="icon" type="image/svg+xml" href="/favicon.svg"><title>Vad är en AI-agent? · AI-verktyg för systemutvecklare</title><script>document.documentElement.classList.add("js");</script><link rel="stylesheet" href="/_astro/Layout.BIaf-YTx.css"></head><body><a class="skip" href="#innehall">Till innehållet</a><div class="shell"><header class="side"><a class="mark" href="/"><span class="mark-kicker">Kursmaterial</span><span class="mark-name">AI-verktyg för systemutvecklare</span></a><nav aria-label="Huvudmeny"><ul class="nav"><li><a href="/">Start</a></li><li><a href="/installation/">Installation</a></li><li><a href="/videos/">Videos</a></li><li><a href="/ovningar/" aria-current="page">Övningar</a></li><li><a href="/lasanvisningar/">Läsanvisningar</a></li><li><a href="/ordlista/">Ordlista</a></li><li><a href="/vanliga-fragor/">Vanliga frågor</a></li></ul></nav></header><main id="innehall"><p class="eyebrow"><a href="/ovningar/">Övningar</a><span class="sep">/</span>Modul 07</p><p class="big-num" aria-hidden="true">06</p><h1>Vad är en AI-agent?</h1><p class="lead">Fem övningar, ca 70 minuter sammanlagt.</p><div class="watch"><span class="watch-label">Video 06</span><a href="https://www.youtube.com/watch?v=JMldKsZCHkI" rel="noopener">Vad är en AI-Agent?<span class="ext" aria-hidden="true">↗</span></a><span class="watch-meta">17 min på YouTube · En chattassistent svarar på en fråga i taget.</span></div><div class="prose">
+<p>Övningarna bygger på varandra, så gör dem i ordning. Övning 1–3 är grunden och görs under passet. Övning 4 och 5 är fördjupning du kan göra efteråt. Ingen av övningarna betygsätts, men de tränar exakt det du behöver kunna i Kunskapskontroll A.</p>
+<p>Du använder samma agentverktyg som tidigare (Copilot i agentläge, Claude Code eller OpenCode) på ditt kvittoräknare-projekt från Lektion 2. Nästa lektion bygger du en egen agent från grunden — den här lektionen handlar om att först förstå hur en redan existerande agent faktiskt arbetar.</p>
+</div><div class="table-wrap"><table class="overview"><thead><tr><th>Övning</th><th>Nivå</th><th>Tid</th><th>Du tränar</th></tr></thead><tbody><tr><td><span class="n">1</span><a href="#ovning-1">Se loopen i praktiken</a></td><td><span class="level level-bas">Bas</span></td><td>10 min</td><td>Planera–agera–observera–upprepa, på riktigt</td></tr><tr><td><span class="n">2</span><a href="#ovning-2">Chatt vs. agent, samma bugg</a></td><td><span class="level level-bas">Bas</span></td><td>15 min</td><td>Jämföra arbetssätt och din egen insats</td></tr><tr><td><span class="n">3</span><a href="#ovning-3">Identifiera verktygen</a></td><td><span class="level level-bas">Bas</span></td><td>15 min</td><td>Vilka verktyg agenten faktiskt använde</td></tr><tr><td><span class="n">4</span><a href="#ovning-4">Var på autonomiskalan ligger du?</a></td><td><span class="level level-fordjupning">Fördjupning</span></td><td>15 min</td><td>Självständighet vs. kontroll</td></tr><tr><td><span class="n">5</span><a href="#ovning-5">Hitta en kandidatuppgift</a></td><td><span class="level level-utmaning">Utmaning</span></td><td>15 min</td><td>Reflektion inför nästa lektion (KK A)</td></tr></tbody></table></div><div class="prose"><h2 id="ovning-1"><span class="ex-num">Övning 1</span><span class="ex-title">Se loopen i praktiken</span></h2><p class="ex-meta"><span class="level level-bas">Bas</span><span>ca 10 min</span><span>Lärandemål 1, 2</span></p>
+<p>Du ska se agentloopen hända på riktigt, inte bara höra om den.</p>
+<ol>
+<li>Öppna ditt kvittoräknare-projekt och starta ditt agentverktyg (Copilot i agentläge, Claude Code eller OpenCode).</li>
+<li>Ge en liten, avgränsad uppgift: “Lägg till ett test som kontrollerar att ett negativt pris kastar ett fel.”</li>
+<li>Låt agenten jobba, men pausa gärna efter varje steg (om verktyget tillåter) och läs vad den faktiskt gör.</li>
+<li>Skriv ner, steg för steg, vilken del av loopen — planera, agera, observera, upprepa — varje handling motsvarar.</li>
+</ol>
+<aside class="callout callout-why" data-callout="why"><p class="callout-label">Ser du upprepningen?</p><div class="callout-body">
+<p>Om testet inte går igenom på första försöket bör du se agenten gå tillbaka och justera — läsa felmeddelandet, ändra koden, köra testet igen. Det är precis den upprepningen som skiljer en agent från ett enstaka AI-svar.</p>
+</div></aside>
+<h2 id="ovning-2"><span class="ex-num">Övning 2</span><span class="ex-title">Chatt vs. agent, samma bugg</span></h2><p class="ex-meta"><span class="level level-bas">Bas</span><span>ca 15 min</span><span>Lärandemål 1, 2</span></p>
+<p>Samma uppgift, två lägen — för att uppleva skillnaden snarare än att bara höra om den.</p>
+<ol>
+<li>Skriv in en medveten bugg i kvittoräknaren: låt momsen räknas på priset FÖRE rabatten istället för efter (fel ordning).</li>
+<li>Be ditt verktyg i CHATTLÄGE hitta och fixa buggen. Klistra in koden och testresultatet manuellt, och klistra sedan in det föreslagna svaret i din editor själv.</li>
+<li>Återställ buggen (t.ex. med git checkout), och ge exakt samma uppgift till AGENTLÄGE istället, med tillgång till filerna och möjlighet att köra tester.</li>
+<li>Jämför: hur många gånger behövde du klistra in text manuellt i respektive läge, och vem körde testerna?</li>
+</ol>
+<aside class="callout callout-tip" data-callout="tip"><p class="callout-label">Tips</p><div class="callout-body">
+<p>det är precis den här skillnaden som gör en uppgift “agentvänlig” — att resultatet går att verifiera automatiskt (testet går igenom eller inte) gör att agenten kan observera sitt eget resultat.</p>
+</div></aside>
+<h2 id="ovning-3"><span class="ex-num">Övning 3</span><span class="ex-title">Identifiera verktygen</span></h2><p class="ex-meta"><span class="level level-bas">Bas</span><span>ca 15 min</span><span>Lärandemål 1, 2</span></p>
+<p>Titta tillbaka på vad agenten gjorde i övning 1 eller 2, och koppla det till verktygstyperna från videon.</p>
+<ol>
+<li>Lista vilka av de fyra verktygstyperna — köra kod, läsa/skriva filer, söka på webben, anropa API:er — agenten faktiskt använde.</li>
+<li>För varje verktyg du listade: vad hade hänt om agenten inte haft tillgång till just det verktyget? Hade den kunnat lösa uppgiften ändå?</li>
+<li>Fundera: finns det ett verktyg agenten inte hade tillgång till, men som hade gjort den bättre på uppgiften?</li>
+</ol>
+<aside class="callout callout-why" data-callout="why"><p class="callout-label">Varför spelar det här någon roll?</p><div class="callout-body">
+<p>Vilka verktyg en agent har tillgång till avgör i praktiken vad den kan åstadkomma. En agent utan möjlighet att köra kod kan föreslå en lösning, men aldrig verifiera att den faktiskt fungerar.</p>
+</div></aside>
+<h2 id="ovning-4"><span class="ex-num">Övning 4</span><span class="ex-title">Var på autonomiskalan ligger du?</span></h2><p class="ex-meta"><span class="level level-fordjupning">Fördjupning</span><span>ca 15 min</span><span>Lärandemål 2, 9</span></p>
+<p>Nu reflekterar du över din egen roll i övningarna ovan, inte bara agentens.</p>
+<ol>
+<li>Tänk tillbaka på hur du körde agenten i övning 1 och 2: godkände du varje enskilt steg, eller lät du den köra flera steg i rad utan att stämma av?</li>
+<li>Placera dig själv på skalan: föreslår &#x26; väntar / delvis självständig / helt autonom.</li>
+</ol>
+<h3 id="resonera-skriv-35-meningar">Resonera (skriv 3–5 meningar)</h3>
+<ul>
+<li>Var det rätt nivå för uppgiften du gav den?</li>
+<li>Vad hade kunnat hända om du gett den mer frihet — fler steg i rad utan avstämning?</li>
+<li>Vad hade du förlorat om du gett den mindre frihet än du faktiskt gjorde?</li>
+</ul>
+<h2 id="ovning-5"><span class="ex-num">Övning 5</span><span class="ex-title">Hitta en kandidatuppgift</span></h2><p class="ex-meta"><span class="level level-utmaning">Utmaning</span><span>ca 15 min</span><span>Lärandemål 2, 9, 10</span></p>
+<p>Den här övningen är videons avslutande reflektion, fast skriftlig — och något du bygger vidare på nästa lektion, då du sätter upp en egen agent.</p>
+<ol>
+<li>Tänk på en uppgift i ditt arbete, dina studier eller kursprojektet som är repetitiv, väl avgränsad och lätt att kontrollera om den blev rätt.</li>
+<li>Beskriv uppgiften i 2–3 meningar.</li>
+<li>Lista vilka verktyg — köra kod, läsa/skriva filer, söka på webben, API:er — en agent skulle behöva för att klara den.</li>
+<li>Bedöm risken: vad är det värsta som kunde hända om agenten gjorde fel, och hur skulle du begränsa den risken (t.ex. sandlåda, begränsad behörighet)?</li>
+</ol>
+<aside class="callout callout-why" data-callout="why"><p class="callout-label">Spara den här idén</p><div class="callout-body">
+<p>Nästa lektion bygger du en egen, enkel AI-agent — och just den här uppgiften kan bli din utgångspunkt. Ju mer konkret och avgränsad idén är nu, desto lättare blir det att komma igång då.</p>
+</div></aside>
+<h2 id="tre-saker-att-ta-med-dig">Tre saker att ta med dig</h2>
+<ul>
+<li>Börja alltid i en isolerad miljö, aldrig i produktionskod.</li>
+<li>Ge agenten bara de verktyg och behörigheter den behöver.</li>
+<li>Granska vad agenten faktiskt gjorde, inte bara vad den säger att den gjorde.</li>
+</ul>
+<h2 id="spara-ditt-projekt">Spara ditt projekt</h2>
+<p>Nästa lektion bygger vi en egen, enkel AI-agent för automatisering. Ta med idén från övning 5 — den blir en bra utgångspunkt. Kör du fast innan dess? Skriv via meddelanden i Omniway.</p></div><nav class="pager" aria-label="Fler övningar"><a class="prev" href="/ovningar/05/"><span class="dir">← Föregående</span>Promptbaserad interaktion</a><a class="next" href="/ovningar/07/"><span class="dir">Nästa →</span>Bygg din första enkla AI-agent</a></nav></main></div><script type="module">document.addEventListener(`click`,async e=>{let t=e.target.closest(`[data-copy]`);if(!t)return;let n=t.closest(`figure, aside`)?.querySelector(`pre, .callout-body`);if(n){try{await navigator.clipboard.writeText(n.innerText.replace(/\n+$/,``)),t.textContent=`Kopierat`}catch{t.textContent=`Markera och kopiera`}setTimeout(()=>t.textContent=`Kopiera`,1800)}});</script></body></html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html><html lang="sv"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex, nofollow"><meta name="color-scheme" content="dark"><meta name="theme-color" content="#14130f"><meta name="description" content="Övningar: Kom igång med bygget."><link rel="icon" type="image/svg+xml" href="/favicon.svg"><title>Kom igång med bygget · AI-verktyg för systemutvecklare</title><script>document.documentElement.classList.add("js");</script><link rel="stylesheet" href="/_astro/Layout.BIaf-YTx.css"></head><body><a class="skip" href="#innehall">Till innehållet</a><div class="shell"><header class="side"><a class="mark" href="/"><span class="mark-kicker">Kursmaterial</span><span class="mark-name">AI-verktyg för systemutvecklare</span></a><nav aria-label="Huvudmeny"><ul class="nav"><li><a href="/">Start</a></li><li><a href="/installation/">Installation</a></li><li><a href="/videos/">Videos</a></li><li><a href="/ovningar/" aria-current="page">Övningar</a></li><li><a href="/lasanvisningar/">Läsanvisningar</a></li><li><a href="/ordlista/">Ordlista</a></li><li><a href="/vanliga-fragor/">Vanliga frågor</a></li></ul></nav></header><main id="innehall"><p class="eyebrow"><a href="/ovningar/">Övningar</a><span class="sep">/</span>Modul 15</p><p class="big-num" aria-hidden="true">15</p><h1>Kom igång med bygget</h1><p class="lead">Fem övningar, ca 75 minuter sammanlagt.</p><div class="prose">
+<p>Övningarna bygger på varandra, så gör dem i ordning. Övning 1–3 är grunden och görs under passet. Övning 4 och 5 är fördjupning du kan göra efteråt. Ingen av övningarna betygsätts, men de tränar exakt det du behöver kunna i Kunskapskontroll B.</p>
+<p>Det här är första handledningspasset. Du arbetar i ditt eget projekt med ditt eget AI-verktyg, och jag går runt och hjälper till. Övningarna ger dig en ordning att jobba i så att du inte sitter och undrar var du ska börja.</p>
+</div><div class="table-wrap"><table class="overview"><thead><tr><th>Övning</th><th>Nivå</th><th>Tid</th><th>Du tränar</th></tr></thead><tbody><tr><td><span class="n">1</span><a href="#ovning-1">Statusavstämning</a></td><td><span class="level level-bas">Bas</span></td><td>10 min</td><td>Följa upp och justera planen</td></tr><tr><td><span class="n">2</span><a href="#ovning-2">Ge AI:n ett minne</a></td><td><span class="level level-bas">Bas</span></td><td>15 min</td><td>Instruktionsfil, kontext</td></tr><tr><td><span class="n">3</span><a href="#ovning-3">Första vertikala skivan</a></td><td><span class="level level-bas">Bas</span></td><td>20 min</td><td>Bygga, testa och logga</td></tr><tr><td><span class="n">4</span><a href="#ovning-4">Granska diffen</a></td><td><span class="level level-fordjupning">Fördjupning</span></td><td>15 min</td><td>Kritisk läsning av AI-kod</td></tr><tr><td><span class="n">5</span><a href="#ovning-5">Be om motstånd</a></td><td><span class="level level-utmaning">Utmaning</span></td><td>15 min</td><td>Utvärdera AI:ns feedback (KK B)</td></tr></tbody></table></div><div class="prose"><h2 id="ovning-1"><span class="ex-num">Övning 1</span><span class="ex-title">Statusavstämning</span></h2><p class="ex-meta"><span class="level level-bas">Bas</span><span>ca 10 min</span><span>Lärandemål 7</span></p>
+<ol>
+<li>Öppna <code>projektplan.md</code>. Skriv tre rader överst: <em>Klart</em>, <em>Pågår</em>, <em>Blockerat</em>.</li>
+<li>Jämför med tidsplanen. Ligger du före, i fas eller efter?</li>
+<li>Justera planen. Flytta tid eller minska scope, men rör inte kvaliteten.</li>
+<li>Skriv en fråga du vill ha hjälp med idag och ha den redo när jag kommer förbi.</li>
+</ol>
+<aside class="callout callout-why" data-callout="why"><p class="callout-label">Att avvika är inte att misslyckas.</p><div class="callout-body">
+<p>Det är att ha en plan att avvika från. En ändring som du har skrivit ner och motiverat är dessutom precis den sortens dokumentation Väl Godkänt efterfrågar.</p>
+</div></aside>
+<h2 id="ovning-2"><span class="ex-num">Övning 2</span><span class="ex-title">Ge AI:n ett minne</span></h2><p class="ex-meta"><span class="level level-bas">Bas</span><span>ca 15 min</span><span>Lärandemål 5, 6, 8</span></p>
+<p>De flesta agentverktyg läser en instruktionsfil i projektets rot varje gång de startar. Då slipper du upprepa samma sak i varje prompt.</p>
+<ol>
+<li>Skapa filen som just ditt verktyg läser. Vanliga namn är <code>CLAUDE.md</code> (Claude Code), <code>.github/copilot-instructions.md</code> (Copilot) och <code>AGENTS.md</code> (OpenCode och flera andra). Är du osäker, kolla verktygets dokumentation.</li>
+<li>Skriv in fem saker: vad projektet är (2–3 meningar), språk och ramverk, kodstil och namnkonventioner, hur testerna körs och vad AI:n <strong>inte</strong> får göra (t.ex. ändra <code>.env</code> eller lägga till beroenden utan att fråga).</li>
+<li>Be verktyget skriva en liten funktion, utan att upprepa något av det ovan i din prompt. Följer det reglerna?</li>
+<li>Justera filen där verktyget tolkade fel. Det är där filen behöver bli tydligare.</li>
+</ol>
+<aside class="callout callout-why" data-callout="why"><p class="callout-label">Varför en instruktionsfil?</p><div class="callout-body">
+<p>Den är samma sak som en promptmall, fast permanent. Kontext och tydlighet följer med varje fråga utan att du behöver minnas dem.</p>
+</div></aside>
+<h2 id="ovning-3"><span class="ex-num">Övning 3</span><span class="ex-title">Första vertikala skivan</span></h2><p class="ex-meta"><span class="level level-bas">Bas</span><span>ca 20 min</span><span>Lärandemål 5, 9</span></p>
+<p>En vertikal skiva är den minsta möjliga funktion som går hela vägen: indata, logik, utdata. Den är ofta inte särskilt imponerande, men den visar att kedjan håller.</p>
+<ol>
+<li>Välj den minsta funktionen i projektet som går att köra från början till slut.</li>
+<li>Be verktyget föreslå en plan först och godkänn den innan någon kod skrivs.</li>
+<li>Låt det implementera.</li>
+<li>Skriv ett test som bevisar att funktionen gör det du ville. Du får gärna be AI:n skriva det, men läs det och fråga dig om det verkligen testar något.</li>
+<li>Committa med ett meddelande som säger vad och varför.</li>
+<li>Logga i <code>AI-logg.md</code>: prompt, resultat och din bedömning.</li>
+</ol>
+<aside class="callout callout-why" data-callout="why"><p class="callout-label">Varför börja smalt?</p><div class="callout-body">
+<p>Problem som upptäcks tidigt är små. Ett projekt där allt byggs först och sätts ihop sist brukar upptäcka sina problem när det inte längre finns tid att lösa dem.</p>
+</div></aside>
+<h2 id="ovning-4"><span class="ex-num">Övning 4</span><span class="ex-title">Granska diffen</span></h2><p class="ex-meta"><span class="level level-fordjupning">Fördjupning</span><span>ca 15 min</span><span>Lärandemål 9, 10</span></p>
+<ol>
+<li>Ta den senaste ändringen AI:n gjort och öppna <code>git diff</code> eller pull request-vyn.</li>
+<li>Läs rad för rad med de här frågorna:
+<ul>
+<li>Gör koden det jag bad om, och inget mer?</li>
+<li>Finns det funktioner, metoder eller paket som inte finns på riktigt?</li>
+<li>Finns hårdkodade värden, nycklar eller sökvägar som inte ska vara där?</li>
+<li>Hanteras felfall och tomma indata?</li>
+<li>Följer den instruktionsfilen från övning 2?</li>
+</ul>
+</li>
+<li>Hitta minst en sak att ändra, även om koden fungerar. Hittar du inget, läs en gång till, långsammare.</li>
+<li>Skriv i loggen vad du ändrade och varför.</li>
+</ol>
+<h3 id="reflektera-skriv-35-meningar">Reflektera (skriv 3–5 meningar)</h3>
+<ul>
+<li>Hur lång tid tog granskningen jämfört med att generera koden?</li>
+<li>Var det värt det? Vad hade du missat annars?</li>
+</ul>
+<h2 id="ovning-5"><span class="ex-num">Övning 5</span><span class="ex-title">Be om motstånd</span></h2><p class="ex-meta"><span class="level level-utmaning">Utmaning</span><span>ca 15 min</span><span>Lärandemål 7, 9</span></p>
+<p>AI-verktyg är ofta för artiga. Här ber du dem uttryckligen vara kritiska.</p>
+<ol>
+<li>Ge verktyget din projektplan och ditt första stycke kod. Be det agera granskare: “Vilka är de tre största riskerna i den här planen? Vad har jag missat? Var är jag för optimistisk?”</li>
+<li>Gå igenom svaret punkt för punkt. Vilka invändningar är giltiga? Vilka är brus eller generiska råd som passar vilket projekt som helst?</li>
+<li>Bestäm vad du gör åt de giltiga och skriv ner resten som “bedömt, inte åtgärdat”.</li>
+<li>Logga hela utbytet i <code>AI-logg.md</code>.</li>
+</ol>
+<aside class="callout callout-why" data-callout="why"><p class="callout-label">Vad övar du här?</p><div class="callout-body">
+<p>Att bedöma AI:ns svar, inte bara ta emot dem. Det är kärnan i lärandemål 9, och Väl Godkänt kräver att du kan utvärdera <em>utförligt</em>.</p>
+</div></aside>
+<h2 id="tre-saker-att-ta-med-dig">Tre saker att ta med dig</h2>
+<ul>
+<li>Skriv instruktionsfilen en gång och förbättra den löpande.</li>
+<li>Bygg en smal skiva hela vägen innan du bygger bredden.</li>
+<li>Läs diffen innan du committar, varje gång.</li>
+</ul>
+<h2 id="spara-ditt-projekt">Spara ditt projekt</h2>
+<p>Nästa lektion handlar om felsökning och refaktorisering. Ta med en riktig bugg eller en funktion som blivit rörig. Har du ingen, titta på koden som gick lite för lätt att generera. Där brukar det gömma sig något. Kör du fast innan dess? Skriv via meddelanden i Omniway.</p></div><nav class="pager" aria-label="Fler övningar"><a class="prev" href="/ovningar/14/"><span class="dir">← Föregående</span>Från idé till plan</a><a class="next" href="/ovningar/16/"><span class="dir">Nästa →</span>Felsökning och refaktorisering</a></nav></main></div><script type="module">document.addEventListener(`click`,async e=>{let t=e.target.closest(`[data-copy]`);if(!t)return;let n=t.closest(`figure, aside`)?.querySelector(`pre, .callout-body`);if(n){try{await navigator.clipboard.writeText(n.innerText.replace(/\n+$/,``)),t.textContent=`Kopierat`}catch{t.textContent=`Markera och kopiera`}setTimeout(()=>t.textContent=`Kopiera`,1800)}});</script></body></html>

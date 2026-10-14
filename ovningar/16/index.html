@@ -1,0 +1,65 @@
+<!DOCTYPE html><html lang="sv"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex, nofollow"><meta name="color-scheme" content="dark"><meta name="theme-color" content="#14130f"><meta name="description" content="Övningar: Felsökning och refaktorisering."><link rel="icon" type="image/svg+xml" href="/favicon.svg"><title>Felsökning och refaktorisering · AI-verktyg för systemutvecklare</title><script>document.documentElement.classList.add("js");</script><link rel="stylesheet" href="/_astro/Layout.BIaf-YTx.css"></head><body><a class="skip" href="#innehall">Till innehållet</a><div class="shell"><header class="side"><a class="mark" href="/"><span class="mark-kicker">Kursmaterial</span><span class="mark-name">AI-verktyg för systemutvecklare</span></a><nav aria-label="Huvudmeny"><ul class="nav"><li><a href="/">Start</a></li><li><a href="/installation/">Installation</a></li><li><a href="/videos/">Videos</a></li><li><a href="/ovningar/" aria-current="page">Övningar</a></li><li><a href="/lasanvisningar/">Läsanvisningar</a></li><li><a href="/ordlista/">Ordlista</a></li><li><a href="/vanliga-fragor/">Vanliga frågor</a></li></ul></nav></header><main id="innehall"><p class="eyebrow"><a href="/ovningar/">Övningar</a><span class="sep">/</span>Modul 16</p><p class="big-num" aria-hidden="true">16</p><h1>Felsökning och refaktorisering</h1><p class="lead">Fem övningar, ca 80 minuter sammanlagt.</p><div class="prose">
+<p>Övningarna bygger på varandra, så gör dem i ordning. Övning 1–3 är grunden och görs under passet. Övning 4 och 5 är fördjupning du kan göra efteråt. Ingen av övningarna betygsätts, men de tränar exakt det du behöver kunna i Kunskapskontroll B.</p>
+<p>Du arbetar i ditt eget projekt. Felsökning och refaktorisering är två av de områden där AI gör mest nytta, och där det är lättast att lura sig själv. Den här lektionen handlar om att göra båda på ett sätt du kan försvara i redovisningen.</p>
+</div><div class="table-wrap"><table class="overview"><thead><tr><th>Övning</th><th>Nivå</th><th>Tid</th><th>Du tränar</th></tr></thead><tbody><tr><td><span class="n">1</span><a href="#ovning-1">Felsök med hypoteser</a></td><td><span class="level level-bas">Bas</span></td><td>15 min</td><td>Förstå före du fixar</td></tr><tr><td><span class="n">2</span><a href="#ovning-2">Skydda innan du rör</a></td><td><span class="level level-bas">Bas</span></td><td>15 min</td><td>Tester som säkerhetsnät</td></tr><tr><td><span class="n">3</span><a href="#ovning-3">Refaktorisera i små steg</a></td><td><span class="level level-bas">Bas</span></td><td>20 min</td><td>Tydliga instruktioner, verifiering</td></tr><tr><td><span class="n">4</span><a href="#ovning-4">När AI:n har fel</a></td><td><span class="level level-fordjupning">Fördjupning</span></td><td>15 min</td><td>Kritisk utvärdering</td></tr><tr><td><span class="n">5</span><a href="#ovning-5">Bygg din felsökningsmall</a></td><td><span class="level level-utmaning">Utmaning</span></td><td>15 min</td><td>Återanvändbarhet (KK B)</td></tr></tbody></table></div><div class="prose"><h2 id="ovning-1"><span class="ex-num">Övning 1</span><span class="ex-title">Felsök med hypoteser</span></h2><p class="ex-meta"><span class="level level-bas">Bas</span><span>ca 15 min</span><span>Lärandemål 5, 9</span></p>
+<ol>
+<li>Välj en bugg i ditt projekt. Har du ingen just nu, skapa en gren och plantera en medvetet, t.ex. ett fel i en villkorssats eller ett off-by-one-fel.</li>
+<li>Ge AI:n felmeddelandet, den relevanta koden, vad du förväntade dig och vad som faktiskt hände.</li>
+<li>Be om hypoteser, inte om en fix: “Ge tre möjliga orsaker, ordnade efter sannolikhet, och berätta hur jag kan testa var och en. Ändra ingen kod än.”</li>
+<li>Testa hypoteserna själv. Vilken stämde?</li>
+<li>Be först nu om en fix, och be den peka på vilken hypotes den bygger på.</li>
+</ol>
+<aside class="callout callout-why" data-callout="why"><p class="callout-label">Varför hypoteser före fix?</p><div class="callout-body">
+<p>En fix direkt ger ofta ett plåster som döljer symptomet. Hypoteser tvingar dig att förstå orsaken, och du ser om AI:n resonerar rätt eller bara gissar med självförtroende.</p>
+</div></aside>
+<h2 id="ovning-2"><span class="ex-num">Övning 2</span><span class="ex-title">Skydda innan du rör</span></h2><p class="ex-meta"><span class="level level-bas">Bas</span><span>ca 15 min</span><span>Lärandemål 5, 9</span></p>
+<p>Refaktorisering betyder att ändra strukturen utan att ändra beteendet. Utan tester vet du inte om beteendet ändrades.</p>
+<ol>
+<li>Välj en funktion i projektet som är lite rörig men som du vill behålla.</li>
+<li>Be AI:n skriva tester som fångar hur funktionen beter sig <em>just nu</em>, även om beteendet är lite konstigt. Kör dem, de ska vara gröna.</li>
+<li>Granska testerna. Testar de verkligen beteende, eller bara att koden körs?</li>
+<li>Sabotera funktionen medvetet, t.ex. ändra ett jämförelsetecken. Blir ett test rött? Om inte, saknas ett test. Ångra sabotaget.</li>
+</ol>
+<aside class="callout callout-why" data-callout="why"><p class="callout-label">Varför tester först?</p><div class="callout-body">
+<p>De är ditt säkerhetsnät. Att refaktorisera utan dem är som att byta däck på en bil som rullar.</p>
+</div></aside>
+<h2 id="ovning-3"><span class="ex-num">Övning 3</span><span class="ex-title">Refaktorisera i små steg</span></h2><p class="ex-meta"><span class="level level-bas">Bas</span><span>ca 20 min</span><span>Lärandemål 5, 6, 9</span></p>
+<ol>
+<li>Be AI:n <em>föreslå</em> refaktoriseringar för funktionen från övning 2, men inte genomföra dem. Du vill ha en lista.</li>
+<li>Välj en. Ge en tydlig och avgränsad instruktion, t.ex. “Extrahera valideringen till en egen funktion. Ändra inte beteendet. Rör inga andra filer.”</li>
+<li>Kör testerna.</li>
+<li>Läs diffen.</li>
+<li>Committa med ett meddelande som beskriver ändringen.</li>
+<li>Upprepa med ytterligare en refaktorisering.</li>
+</ol>
+<h3 id="reflektera-skriv-35-meningar">Reflektera (skriv 3–5 meningar)</h3>
+<ul>
+<li>Vad hände med instruktionen “ändra inte beteendet”? Följdes den?</li>
+<li>Hur hade det gått om du bett om “städa upp hela filen” i ett enda steg?</li>
+</ul>
+<h2 id="ovning-4"><span class="ex-num">Övning 4</span><span class="ex-title">När AI:n har fel</span></h2><p class="ex-meta"><span class="level level-fordjupning">Fördjupning</span><span>ca 15 min</span><span>Lärandemål 9, 10</span></p>
+<p>Du ska hitta ett riktigt exempel på att verktyget har fel. Det är ett resultat, inte ett misslyckande.</p>
+<ol>
+<li>Be AI:n lösa något i ditt projekt som har ett gränsfall: tom indata, negativa tal, specialtecken, tid och tidszoner eller mycket stora värden.</li>
+<li>Läs lösningen kritiskt och testa gränsfallet. Fungerar det?</li>
+<li>Prova också att fråga “Är du säker?” på ett rätt svar. Byter verktyget svar utan att du gett nya fakta? Då säger det något om hur mycket du kan förlita dig på att det står fast vid rätt svar.</li>
+<li>Dokumentera i loggen: vad gick fel, hur upptäckte du det och vad hade hänt om du litat på svaret?</li>
+</ol>
+<aside class="callout callout-why" data-callout="why"><p class="callout-label">Varför samla på felen?</p><div class="callout-body">
+<p>De är dina bästa belägg. En redovisning som bara beskriver vad AI:n gjorde bra är misstänkt tunn. Att visa var den har fel är att visa att du utvärderar och analyserar.</p>
+</div></aside>
+<h2 id="ovning-5"><span class="ex-num">Övning 5</span><span class="ex-title">Bygg din felsökningsmall</span></h2><p class="ex-meta"><span class="level level-utmaning">Utmaning</span><span>ca 15 min</span><span>Lärandemål 6, 8, 9</span></p>
+<ol>
+<li>Skriv en återanvändbar prompt för felsökning med platser för: felmeddelande, förväntat beteende, faktiskt beteende, relevant kod och en tydlig regel att inte ändra kod förrän du fått hypoteser.</li>
+<li>Testa mallen på en andra bugg, eller på samma bugg med en ny gren.</li>
+<li>Jämför med hur du felsökte i övning 1. Blev resultatet bättre, snabbare, eller bara annorlunda?</li>
+<li>Spara mallen i projektet (t.ex. <code>prompts/felsokning.md</code>) och notera den i loggen.</li>
+</ol>
+<h2 id="tre-saker-att-ta-med-dig">Tre saker att ta med dig</h2>
+<ul>
+<li>Be om hypoteser innan du ber om en fix.</li>
+<li>Skriv eller kontrollera tester före en refaktorisering.</li>
+<li>Små steg, ett test och en commit per steg.</li>
+</ul>
+<h2 id="spara-ditt-projekt">Spara ditt projekt</h2>
+<p>Nästa lektion handlar om testning, dokumentation och att automatisera en uppgift med en enklare agent. Fundera på en repetitiv uppgift i ditt projekt som skulle passa en agent: återkom gärna till övning 5 från agentlektionen om du sparade den. Kör du fast innan dess? Skriv via meddelanden i Omniway.</p></div><nav class="pager" aria-label="Fler övningar"><a class="prev" href="/ovningar/15/"><span class="dir">← Föregående</span>Kom igång med bygget</a><a class="next" href="/ovningar/17/"><span class="dir">Nästa →</span>Testning, dokumentation och automatisering</a></nav></main></div><script type="module">document.addEventListener(`click`,async e=>{let t=e.target.closest(`[data-copy]`);if(!t)return;let n=t.closest(`figure, aside`)?.querySelector(`pre, .callout-body`);if(n){try{await navigator.clipboard.writeText(n.innerText.replace(/\n+$/,``)),t.textContent=`Kopierat`}catch{t.textContent=`Markera och kopiera`}setTimeout(()=>t.textContent=`Kopiera`,1800)}});</script></body></html>

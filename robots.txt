@@ -1,0 +1,3 @@
+# Kurssajten ska inte indexeras. Se också _headers och metataggen i Layout.astro.
+User-agent: *
+Disallow: /
