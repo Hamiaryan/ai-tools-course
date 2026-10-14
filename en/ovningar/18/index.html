@@ -1,0 +1,117 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex, nofollow"><meta name="color-scheme" content="dark"><meta name="theme-color" content="#14130f"><meta name="description" content="Övningar: Kvalitetssäkring."><link rel="icon" type="image/svg+xml" href="/favicon.svg"><title>Kvalitetssäkring · AI Tools for Software Developers</title><script>document.documentElement.classList.add("js");</script><link rel="stylesheet" href="/_astro/Layout.BIaf-YTx.css"></head><body><a class="skip" href="#innehall">Skip to content</a><div class="shell"><header class="side"><div class="lang-switch" role="group" aria-label="Språk"><a href="/en/ovningar/18/" class="lang-btn active" data-lang="sv">SV</a><a href="/en/ovningar/18/" class="lang-btn" data-lang="en">EN</a><a href="/fa/ovningar/18/" class="lang-btn" data-lang="fa">فا</a></div><a class="mark" href="/en/"><span class="mark-kicker">Course Material</span><span class="mark-name">AI Tools for Software Developers</span></a><nav aria-label="Huvudmeny"><ul class="nav"><li><a href="/en/">Home</a></li><li><a href="/en/installation/">Installation</a></li><li><a href="/en/videos/">Videos</a></li><li><a href="/en/ovningar/" aria-current="page">Exercises</a></li><li><a href="/en/lasanvisningar/">Reading Guide</a></li><li><a href="/en/ordlista/">Glossary</a></li><li><a href="/en/vanliga-fragor/">FAQ</a></li></ul></nav></header><main id="innehall"><p class="eyebrow"><a href="/en/ovningar/">Exercises</a><span class="sep">/</span>Modul 18</p><p class="big-num" aria-hidden="true">18</p><h1>Quality Assurance</h1><p class="lead">Five exercises, ~85 minutes total.</p><div class="prose">
+<p>Övningarna bygger på varandra, så gör dem i ordning. Exercise 1–3 är grunden och görs under passet. Exercise 4 och 5 är fördjupning du kan göra efteråt. Ingen av övningarna betygsätts, men de tränar exakt det du behöver kunna i Kunskapskontroll B.</p>
+<p>Nu byter arbetet karaktär: du bygger inte längre så mycket nytt, du säkrar det du har. Det är här skillnaden mellan Godkänt och Väl Godkänt ofta avgörs, eftersom kriterierna handlar mycket om <em>hur</em> du utvärderar, analyserar och dokumenterar.</p>
+</div><div class="table-wrap"><table class="overview"><thead><tr><th>Exercise</th><th>Level</th><th>Time</th><th>Skills</th></tr></thead><tbody><tr><td><span class="n">1</span><a href="#ovning-1">Granska hela projektet</a></td><td><span class="level level-bas">Basic</span></td><td>15 min</td><td>Kvalitetskontroll med checklista</td></tr><tr><td><span class="n">2</span><a href="#ovning-2">Hemligheter och beroenden</a></td><td><span class="level level-bas">Basic</span></td><td>15 min</td><td>Säkerhet, påhittade paket</td></tr><tr><td><span class="n">3</span><a href="#ovning-3">Regelverk och etik</a></td><td><span class="level level-bas">Basic</span></td><td>20 min</td><td>EU:s AI-förordning, data, licens</td></tr><tr><td><span class="n">4</span><a href="#ovning-4">Kamratgranskning</a></td><td><span class="level level-fordjupning">In-depth</span></td><td>20 min</td><td>Granska och bli granskad</td></tr><tr><td><span class="n">5</span><a href="#ovning-5">Gapanalys mot kriterierna</a></td><td><span class="level level-utmaning">Challenge</span></td><td>15 min</td><td>Självbedömning mot VG (KK B)</td></tr></tbody></table></div><div class="prose"><h2 id="ovning-1"><span class="ex-num">Exercise 1</span><span class="ex-title">Granska hela projektet</span></h2><p class="ex-meta"><span class="level level-bas">Basic</span><span>ca 15 min</span><span>Learning Goals 5, 9</span></p>
+<ol>
+<li>Gå igenom checklistan och markera ✔, ✘ eller “åtgärd behövs”:
+<ul>
+<li>Kan en utomstående klona projektet, installera och köra det med bara README?</li>
+<li>Går alla tester igenom?</li>
+<li>Har du kört linter eller formatterare?</li>
+<li>Finns det död kod, oanvända filer eller utkommenterad kod?</li>
+<li>Är instruktionsfilen uppdaterad efter allt du ändrat?</li>
+<li>Går commit-historiken att läsa som en berättelse?</li>
+</ul>
+</li>
+<li>Be AI:n agera kodgranskare på en eller två centrala filer. Läs dess kommentarer kritiskt: vilka tar du till dig, vilka ignorerar du, och varför?</li>
+<li>Åtgärda det som är ✘ och logga vad du gjorde.</li>
+</ol>
+<aside class="callout callout-why" data-callout="why"><p class="callout-label">Varför en checklista?</p><div class="callout-body">
+<p>För att det du glömmer att kontrollera är det du annars missar. Samma disciplin som code review i ett riktigt team.</p>
+</div></aside>
+<h2 id="ovning-2"><span class="ex-num">Exercise 2</span><span class="ex-title">Hemligheter och beroenden</span></h2><p class="ex-meta"><span class="level level-bas">Basic</span><span>ca 15 min</span><span>Learning Goals 9, 10</span></p>
+<ol>
+<li>Sök igenom projektet efter nycklar, tokens och lösenord. Titta även i commit-historiken (<code>git log -p</code>), inte bara i filerna. Kontrollera att <code>.env</code> och liknande ligger i <code>.gitignore</code>.</li>
+<li>Hittar du en hemlighet som har checkats in: byt ut den hos tjänsten. Att bara ta bort den från koden räcker inte, den finns kvar i historiken.</li>
+<li>Lista alla beroenden i projektet. För varje paket: finns det på det officiella paketregistret, är det underhållet och gör det det du tror? Har du något paket AI:n föreslog som du inte hört talas om, kolla det extra noga.</li>
+<li>Notera licenserna för beroendena och vad de innebär för ditt projekt.</li>
+</ol>
+<aside class="callout callout-why" data-callout="why"><p class="callout-label">Varför är det extra viktigt med AI-föreslagna paket?</p><div class="callout-body">
+<p>AI-verktyg kan föreslå paket som inte finns. Någon kan ha registrerat just det namnet med skadlig kod. Det är en verklig risk, inte teori.</p>
+</div></aside>
+<h2 id="ovning-3"><span class="ex-num">Exercise 3</span><span class="ex-title">Regelverk och etik</span></h2><p class="ex-meta"><span class="level level-bas">Basic</span><span>ca 20 min</span><span>Learning Goals 3, 10</span></p>
+<p>Skriv ett halvt A4 med rubriken <em>Regelverk och etik</em> som du kan återanvända i redovisningen.</p>
+<ol>
+<li><strong>EU:s AI-förordning.</strong> Vilken roll har du (leverantör eller tillhandahållare), och vilken risknivå hamnar projektet troligen i? Motivera konkret: vad gör systemet, vem påverkar det?</li>
+<li><strong>Data.</strong> Vilken data har du skickat till AI-verktygen? Fanns det personuppgifter? Hur hanterade du det?</li>
+<li><strong>Licens och upphovsrätt.</strong> Vad gäller för AI-genererad kod och för beroenden?</li>
+<li><strong>Transparens.</strong> Hur markerar du vad som är AI-genererat och vad som är skrivet av dig?</li>
+<li>Kontrollera aktuellt läge på <a href="https://artificialintelligenceact.eu/">https://artificialintelligenceact.eu/</a> och notera vilket datum du kollade.</li>
+</ol>
+<h2 id="ovning-4"><span class="ex-num">Exercise 4</span><span class="ex-title">Kamratgranskning</span></h2><p class="ex-meta"><span class="level level-fordjupning">In-depth</span><span>ca 20 min</span><span>Learning Goals 8, 9</span></p>
+<p>Byt projekt med en kurskompis, till exempel under fredagens handledningstillfälle.</p>
+<ol>
+<li><strong>Granskare:</strong> klona projektet och följ bara README. Mät hur länge det tar tills det körs. Skriv tre observationer: en sak som är bra och två saker som kan bli bättre.</li>
+<li>Bedöm projektet mot lärandemål 8 och 9: hur professionellt används AI, och hur väl är kvalitet, risker och begränsningar bedömda?</li>
+<li><strong>Den som granskas:</strong> ta emot synpunkterna utan att försvara dig. Fråga bara för att förstå.</li>
+<li>Åtgärda minst en sak innan nästa pass och logga den.</li>
+</ol>
+<aside class="callout callout-why" data-callout="why"><p class="callout-label">Varför byta?</p><div class="callout-body">
+<p>Du ser inte dina egna blinda fläckar, och en README som är “tydlig” för dig som skrev den är sällan tydlig för någon annan.</p>
+</div></aside>
+<h2 id="ovning-5"><span class="ex-num">Exercise 5</span><span class="ex-title">Gapanalys mot kriterierna</span></h2><p class="ex-meta"><span class="level level-utmaning">Challenge</span><span>ca 15 min</span><span>Learning Goals 5, 6, 7, 8, 9, 10</span></p>
+<p>Gå tillbaka till kriterietabellen från lektion 14 och fyll i en egen tabell:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-wrap"><table class="fill-in"><thead><tr><th>Learning Goals</th><th>Mitt belägg (var finns det?)</th><th>Räcker det för G? För VG?</th><th>Vad saknas</th><th>Åtgärd</th></tr></thead><tbody><tr><td>5</td><td></td><td></td><td></td><td></td></tr><tr><td>6</td><td></td><td></td><td></td><td></td></tr><tr><td>7</td><td></td><td></td><td></td><td></td></tr><tr><td>8</td><td></td><td></td><td></td><td></td></tr><tr><td>9</td><td></td><td></td><td></td><td></td></tr><tr><td>10</td><td></td><td></td><td></td><td></td></tr></tbody></table></div>
+<p>Skriv den själv. Den ska spegla <em>din</em> bedömning. Du kan gärna be AI:n läsa den efteråt och peka ut var beläggen är svaga, men då bedömer du hur rimlig kritiken är.</p>
+<h2 id="tre-saker-att-ta-med-dig">Tre saker att ta med dig</h2>
+<ul>
+<li>Kan någon annan köra projektet med bara README? Då är du nästan klar.</li>
+<li>Verifiera beroenden och hemligheter, särskilt allt AI:n föreslagit.</li>
+<li>Gapanalysen visar vad du ska lägga sista tiden på. Använd den.</li>
+</ul>
+<h2 id="spara-ditt-projekt">Spara ditt projekt</h2>
+<p>Next lektion förbereder vi redovisningen. Ta med din gapanalys, <code>AI-logg.md</code> och det du hunnit åtgärda. Min rekommendation är att du nu fixar och dokumenterar i stället för att bygga nytt. Kör du fast innan dess? Skriv via meddelanden i Omniway.</p></div><nav class="pager" aria-label="Fler övningar"><a class="prev" href="/en/ovningar/17/"><span class="dir">← Previous</span>Testning, dokumentation och automatisering</a><a class="next" href="/en/ovningar/19/"><span class="dir">Next →</span>Förbered redovisningen</a></nav></main></div><script type="module">document.addEventListener(`click`,async e=>{let t=e.target.closest(`[data-copy]`);if(!t)return;let n=t.closest(`figure, aside`)?.querySelector(`pre, .callout-body`);if(n){try{await navigator.clipboard.writeText(n.innerText.replace(/\n+$/,``)),t.textContent=`Copyt`}catch{t.textContent=`Select and copy`}setTimeout(()=>t.textContent=`Copy`,1800)}});</script></body></html>

@@ -1,0 +1,463 @@
+<!DOCTYPE html><html lang="fa" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex, nofollow"><meta name="color-scheme" content="dark"><meta name="theme-color" content="#14130f"><meta name="description" content="Länkar att läsa, modul för modul. Sidan fylls på under kursen."><link rel="icon" type="image/svg+xml" href="/favicon.svg"><title>Läsanvisningar · ابزارهای هوش مصنوعی برای توسعه‌دهندگان سیستم</title><script>document.documentElement.classList.add("js");</script><link rel="stylesheet" href="/_astro/Layout.BIaf-YTx.css"></head><body><a class="skip" href="#innehall">پرش به محتوا</a><div class="shell"><header class="side"><div class="lang-switch" role="group" aria-label="Språk"><a href="/lasanvisningar/" class="lang-btn active" data-lang="sv">SV</a><a href="/en/lasanvisningar/" class="lang-btn" data-lang="en">EN</a><a href="/fa/lasanvisningar/" class="lang-btn" data-lang="fa">فا</a></div><a class="mark" href="/fa/"><span class="mark-kicker">محتوای دوره</span><span class="mark-name">ابزارهای هوش مصنوعی برای توسعه‌دهندگان سیستم</span></a><nav aria-label="Huvudmeny"><ul class="nav"><li><a href="/fa/">شروع</a></li><li><a href="/fa/installation/">راهنمای نصب</a></li><li><a href="/fa/videos/">ویدیوها</a></li><li><a href="/fa/ovningar/">تمرین‌ها</a></li><li><a href="/fa/lasanvisningar/" aria-current="page">راهنمای مطالعه</a></li><li><a href="/fa/ordlista/">واژه‌نامه تخصصی</a></li><li><a href="/fa/vanliga-fragor/">پرسش‌های متداول</a></li></ul></nav></header><main id="innehall"><p class="eyebrow">راهنمای مطالعه</p><h1>راهنمای مطالعه</h1><p class="lead">Länkar att läsa, modul för modul. Sidan fylls på under kursen.</p><div class="prose">
+<p>Här är några länkar värda att bekanta sig med, modul för modul. Läs eller bläddra i egen takt.</p>
+<h2 id="modul-01">Modul 01</h2>
+<p><em>Kursintroduktion &#x26; AI-verktyg och kodassistenter – översikt</em></p>
+<h3 id="bekanta-dig-med-de-tre-verktyg-vi-anvander-i-kursen">Bekanta dig med de tre verktyg vi använder i kursen</h3>
+<p>Du behöver inte förstå allt på djupet redan nu — målet är att känna igen namnen och grovt veta vad som skiljer dem åt.</p>
+<ul>
+<li><strong><a href="https://docs.github.com/en/copilot/get-started/about-github-copilot">GitHub Copilot — Vad är GitHub Copilot?</a></strong> (~5 min)<br>
+Officiell introduktion till Copilot: inline-komplettering, chatt och var verktyget används. Det mest spridda verktyget i sin kategori.</li>
+<li><strong><a href="https://cursor.com/docs">Cursor — Introduktion</a></strong> (~5 min)<br>
+Cursor är en hel kodredigerare byggd kring AI. Sidan ger en snabb översikt av Tab-komplettering, Chat och Agent-läge.</li>
+<li><strong><a href="https://code.claude.com/docs/en/overview">Claude Code — Översikt</a></strong> (~5 min)<br>
+Anthropics terminalbaserade, agentbaserade kodverktyg. Fungerar annorlunda än de två ovan — ingen inline-komplettering, mer självständigt agerande.</li>
+</ul>
+<h3 id="nya-ord-i-den-har-modulen">اصطلاحات جدید این ماژول</h3>
+<p>De begrepp som introduceras i den här modulen finns i <a href="/fa/ordlista/">Ordlistan</a>, som växer modul för modul genom hela kursen. I den här modulen tillkom:</p>
+<ul>
+<li>AI-kodassistent, Inline-komplettering, Chattbaserad assistent, Agent, LLM/språkmodell, IDE, Prompt</li>
+</ul>
+<h3 id="infor-nasta-modul">آمادگی برای ماژول بعدی</h3>
+<p>Nästa moduls video handlar om att faktiskt installera och konfigurera ett av verktygen ovan. Fundera redan nu på vilket du vill börja med — har du tillgång till en gratisnivå, en studentlicens, eller ska du välja det som är enklast att komma igång med snabbt?</p>
+<h2 id="modul-02">Modul 02</h2>
+<p><em>Fördjupning: konfiguration, arbetsflöden och val av verktyg utifrån uppgift</em></p>
+<h3 id="konfigurera-dina-verktyg">Konfigurera dina verktyg</h3>
+<p>Samtliga tre handlar om samma grundidé — att ge AI-verktyget kontext om just ditt projekt — men lösningen ser lite olika ut beroende på verktyg.</p>
+<ul>
+<li><strong><a href="https://agents.md/">AGENTS.md — officiell standard</a></strong> (~5 min)<br>
+Ett öppet, verktygsoberoende format för att ge AI-agenter projektinstruktioner i en enda fil. Stöds i dag av de flesta verktyg, bland annat Cursor, Copilot och OpenCode.</li>
+<li><strong><a href="https://code.claude.com/docs/en/memory">Claude Code — Memory &#x26; CLAUDE.md</a></strong> (~5–10 min)<br>
+Hur Claude Code läser och använder CLAUDE.md-filer för projekt- och användarinställningar. Samma grundidé som AGENTS.md, men Claude Codes eget format.</li>
+<li><strong><a href="https://docs.github.com/en/copilot/how-tos/copilot-on-github/customize-copilot/add-custom-instructions/add-repository-instructions">GitHub Copilot — Repository custom instructions</a></strong> (~5 min)<br>
+Hur du skapar en .github/copilot-instructions.md-fil som ger Copilot kontext om ditt repo.</li>
+</ul>
+<h3 id="nya-ord-i-den-har-modulen-1">اصطلاحات جدید این ماژول</h3>
+<p>Begreppen förklaras i <a href="/fa/ordlista/">Ordlistan</a>. I den här modulen tillkom:</p>
+<ul>
+<li>AGENTS.md/CLAUDE.md (konfigurationsfil), Planläge, Repository (repo), Arbetsflöde, Agentläge, Gren</li>
+</ul>
+<h3 id="infor-nasta-modul-1">آمادگی برای ماژول بعدی</h3>
+<p>Nästa modul handlar om att låta AI skriva, felsöka och refaktorisera kod. Spara projektet från övningarna och din AGENTS.md, eftersom du bygger vidare på dem.</p>
+<h2 id="modul-03">Modul 03</h2>
+<p><em>AI-stödd programmering och systemutveckling: kodgenerering, felsökning och refaktorisering</em></p>
+<h3 id="kodgenerering-felsokning-och-refaktorisering-i-respektive-verktyg">Kodgenerering, felsökning och refaktorisering i respektive verktyg</h3>
+<p>Tre olika infallsvinklar på samma sak — se gärna på mer än en, eftersom de visar lite olika sidor av arbetssättet.</p>
+<ul>
+<li><strong><a href="https://code.claude.com/docs/en/common-workflows">Claude Code — Common workflows</a></strong> (~10 min)<br>
+Konkreta exempel på hur man ber Claude Code hitta buggar, föreslå och verifiera refaktorisering, och generera kod — med riktiga promptmönster.</li>
+<li><strong><a href="https://docs.github.com/en/get-started/learning-to-code/learning-to-debug-with-github-copilot">GitHub Copilot — Learning to debug with GitHub Copilot</a></strong> (~10 min)<br>
+Steg-för-steg-exempel på att felsöka med Copilot Chat: hur man beskriver ett fel och tolkar förslagen man får tillbaka.</li>
+<li><strong><a href="https://cursor.com/docs/agent/overview">Cursor — Agent</a></strong> (~5 min)<br>
+Hur Cursors Agent (tidigare Chat) används för att förstå, ändra och refaktorisera kod i flera filer samtidigt.</li>
+</ul>
+<h3 id="nya-ord-i-den-har-modulen-2">اصطلاحات جدید این ماژول</h3>
+<p>Begreppen förklaras i <a href="/fa/ordlista/">Ordlistan</a>. I den här modulen tillkom:</p>
+<ul>
+<li>Kodgenerering, Felsökning (debugging), Refaktorisering, Diff, Kantfall, Specifikation</li>
+</ul>
+<h3 id="infor-nasta-modul-2">آمادگی برای ماژول بعدی</h3>
+<p>Nästa modul handlar om tester och dokumentation. Titta redan nu på testerna du skrev i den här modulen: vad kontrollerar de egentligen?</p>
+<h2 id="modul-04">Modul 04</h2>
+<p><em>Testning och dokumentation med AI-stöd</em></p>
+<h3 id="tester-som-faktiskt-kontrollerar-nagot">Tester som faktiskt kontrollerar något</h3>
+<p>Gröna tester betyder att koden gör det testerna kontrollerar, inte att den gör rätt. De här sidorna handlar om att skriva tester och dokumentation som går att lita på. Alla tre är på engelska.</p>
+<ul>
+<li><strong><a href="https://code.visualstudio.com/docs/agents/guides/test-code-with-ai">VS Code: Test existing code with AI</a></strong> (~15 min)<br>
+Steg för steg: låt en agent föreslå testfall utifrån kraven, låt den skriva testerna utan att ändra koden, och granska sedan att testerna kontrollerar rätt sak. Sidan förklarar också varför det förväntade värdet inte ska räknas ut med funktionen som testas.</li>
+<li><strong><a href="https://martinfowler.com/bliki/TestCoverage.html">Martin Fowler: Test Coverage</a></strong> (~5 min)<br>
+Testtäckning visar vilka delar av koden som inte testas alls. Fowler förklarar varför en hög siffra ändå inte betyder att testerna är bra.</li>
+<li><strong><a href="https://peps.python.org/pep-0257/">PEP 257: Docstring Conventions</a></strong> (~10 min)<br>
+Pythons riktlinjer för docstrings, kommentaren som beskriver vad en funktion gör. Läs avsnitten om enradiga och flerradiga docstrings. Skriver du C# eller Java finns motsvarande regler för XML-kommentarer och Javadoc.</li>
+</ul>
+<h3 id="nya-ord-i-den-har-modulen-3">اصطلاحات جدید این ماژول</h3>
+<p>Begreppen förklaras i <a href="/fa/ordlista/">Ordlistan</a>. I den här modulen tillkom:</p>
+<ul>
+<li>Enhetstest, Grönt och rött test, Testtäckning, Docstring</li>
+</ul>
+<h3 id="infor-nasta-modul-3">آمادگی برای ماژول بعدی</h3>
+<p>Nästa modul handlar om hur du skriver instruktioner som en AI kan arbeta efter. Spara en prompt som inte gav det du ville ha, så har du något att arbeta med.</p>
+<h2 id="modul-05">Modul 05</h2>
+<p><em>Promptbaserad interaktion: tydliga instruktioner, krav och mål</em></p>
+<h3 id="skriv-instruktioner-som-gar-att-arbeta-efter">Skriv instruktioner som går att arbeta efter</h3>
+<p>En bra prompt är en bra beställning. De här sidorna visar samma principer som modulens videor, med andra ord och andra exempel. Alla fyra är på engelska.</p>
+<ul>
+<li><strong><a href="https://docs.github.com/en/copilot/concepts/prompting/prompt-engineering">GitHub Copilot: Prompt engineering</a></strong> (~10 min)<br>
+Konkreta råd om att skriva promptar: börja med målet och lägg sedan till kraven, ge exempel, dela upp stora uppgifter och undvik tvetydighet. Råden gäller alla AI-verktyg, inte bara Copilot.</li>
+<li><strong><a href="https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#be-clear-and-direct">Claude: Be clear and direct</a></strong> (~5 min)<br>
+Ett kort avsnitt med samma tanke som kollegatestet: visa prompten för en kollega som inte vet något om uppgiften. Blir kollegan förvirrad, blir modellen det också.</li>
+<li><strong><a href="https://martinfowler.com/bliki/GivenWhenThen.html">Martin Fowler: Given When Then</a></strong> (~5 min)<br>
+Förklarar formatet Givet–När–Då, som du använder när du skriver acceptanskriterier: utgångsläget, det som händer och resultatet du väntar dig.</li>
+<li><strong><a href="https://code.claude.com/docs/en/best-practices#let-claude-interview-you">Claude Code: Let Claude interview you</a></strong> (~5 min)<br>
+Ett kort avsnitt om att låta verktyget ställa frågor innan det börjar bygga, så att oklarheterna kommer fram tidigt. Samma idé som i övningen Låt AI:n fråga.</li>
+</ul>
+<h3 id="nya-ord-i-den-har-modulen-4">اصطلاحات جدید این ماژول</h3>
+<p>Begreppen förklaras i <a href="/fa/ordlista/">Ordlistan</a>. I den här modulen tillkom:</p>
+<ul>
+<li>Kontext, Instruktionsmall, Acceptanskriterium, Givet–När–Då, Antagande</li>
+</ul>
+<h3 id="infor-nasta-modul-4">آمادگی برای ماژول بعدی</h3>
+<p>I nästa modul övar du på att göra om dåliga promptar till bra. Ta med ett eget exempel på en prompt som inte gav det du ville ha.</p>
+<h2 id="modul-06">Modul 06</h2>
+<p><em>Promptteknik i praktiken</em></p>
+<h3 id="exempel-iteration-och-promptar-du-sparar">Exempel, iteration och promptar du sparar</h3>
+<p>Den här modulen är praktisk övning, så läsningen är kort. Alla tre sidor är på engelska.</p>
+<ul>
+<li><strong><a href="https://code.visualstudio.com/docs/agents/best-practices#_write-effective-prompts">VS Code: Write effective prompts</a></strong> (~5 min)<br>
+Ett kort avsnitt med vanor som fungerar: var tydlig med indata, utdata och begränsningar, dela upp stora uppgifter, ge förväntat resultat så att AI:n kan kontrollera sig själv, och förfina med korta uppföljningar i stället för att börja om.</li>
+<li><strong><a href="https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/claude-prompting-best-practices#use-examples-effectively">Claude: Use examples effectively</a></strong> (~5 min)<br>
+Varför några väl valda exempel i prompten styr format och ton bättre än en lång beskrivning, och hur bra exempel ser ut.</li>
+<li><strong><a href="https://code.visualstudio.com/docs/agent-customization/prompt-files">VS Code: Use prompt files</a></strong> (~10 min)<br>
+Hur du sparar en prompt som fungerar som en fil i projektet, och kör den igen med ett kort kommando. Ett sätt att göra din promptmall återanvändbar.</li>
+</ul>
+<h3 id="nya-ord-i-den-har-modulen-5">اصطلاحات جدید این ماژول</h3>
+<p>Begreppen förklaras i <a href="/fa/ordlista/">Ordlistan</a>. I den här modulen tillkom:</p>
+<ul>
+<li>Few-shot prompting, Iteration, Promptmall</li>
+</ul>
+<h3 id="infor-nasta-modul-5">آمادگی برای ماژول بعدی</h3>
+<p>Nästa modul går från chatt till agent: ett verktyg som får ett mål och själv tar sig igenom flera steg för att nå det.</p>
+<h2 id="modul-07">Modul 07</h2>
+<p><em>Vad är en AI-agent?</em></p>
+<h3 id="agentloopen-verktygen-och-hur-mycket-agenten-far-gora-sjalv">Agentloopen, verktygen och hur mycket agenten får göra själv</h3>
+<p>De två första sidorna är korta förklaringar av begreppen. Den tredje är längre och går djupare. Alla tre är på engelska.</p>
+<ul>
+<li><strong><a href="https://code.visualstudio.com/docs/agents/concepts/agents">VS Code: Understand AI agents</a></strong> (~10 min)<br>
+Förklarar agentloopen: agenten samlar information, gör något, kontrollerar resultatet och upprepar tills målet är nått. Sidan visar också hur du behåller kontrollen.</li>
+<li><strong><a href="https://code.visualstudio.com/docs/agents/concepts/tools">VS Code: Understand tools in AI agents</a></strong> (~10 min)<br>
+Vad ett verktyg är för en agent, till exempel att läsa filer eller köra kommandon. Sidan visar hur du styr vilka verktyg agenten får använda, och när den måste fråga dig först.</li>
+<li><strong><a href="https://www.anthropic.com/engineering/building-effective-agents">Anthropic: Building effective agents</a></strong> (~15 min)<br>
+Skillnaden mellan ett fast arbetsflöde och en agent som själv väljer sina steg. Läs början och avsnittet om agenter: när de passar, och varför ett fel kan följa med genom flera steg om agenten får gå för långt utan kontroll.</li>
+</ul>
+<h3 id="nya-ord-i-den-har-modulen-6">اصطلاحات جدید این ماژول</h3>
+<p>Begreppen förklaras i <a href="/fa/ordlista/">Ordlistan</a>. I den här modulen tillkom:</p>
+<ul>
+<li>Agentloop, Verktygsanrop, Autonomi, Sandlåda</li>
+</ul>
+<h3 id="infor-nasta-modul-6">آمادگی برای ماژول بعدی</h3>
+<p>I nästa modul ger du en agent ett mål och tillgång till en mapp. Ta med idén från övningen Hitta en kandidatuppgift.</p>
+<h2 id="modul-08">Modul 08</h2>
+<p><em>Bygg din första enkla AI-agent</em></p>
+<h3 id="ge-agenten-en-mapp-godkann-stegen-och-spara-arbetssattet">Ge agenten en mapp, godkänn stegen och spara arbetssättet</h3>
+<p>De två första sidorna handlar om att behålla kontrollen över en agent. De två sista handlar om färdigheter (<em>skills</em>), alltså arbetssätt som agenten kan använda igen. Alla fyra är på engelska.</p>
+<ul>
+<li><strong><a href="https://code.visualstudio.com/docs/agents/concepts/trust-and-safety">VS Code: Trust and safety for AI agents</a></strong> (~10 min)<br>
+Hur du behåller kontrollen: granska ändringar innan du sparar dem, godkänn känsliga steg och begränsa vad agenten får göra. Sidan tar också upp vanliga misstag som AI gör.</li>
+<li><strong><a href="https://opencode.ai/docs/permissions/">OpenCode: Permissions</a></strong> (~5 min)<br>
+Ett tydligt exempel på hur behörigheter fungerar: varje handling är antingen tillåten, kräver ditt godkännande eller är blockerad.</li>
+<li><strong><a href="https://agentskills.io/home">Agent Skills: Overview</a></strong> (~5 min)<br>
+En färdighet är en mapp med en fil, SKILL.md, som beskriver hur en agent ska göra en viss uppgift. Sidan förklarar formatet, som flera AI-verktyg använder.</li>
+<li><strong><a href="https://code.claude.com/docs/en/skills">Claude Code: Extend Claude with skills</a></strong> (~10 min)<br>
+När det lönar sig att spara ett arbetssätt som en färdighet, och hur en sådan fil ser ut. Läs inledningen och exemplet där en första färdighet skapas. Resten av sidan är fördjupning.</li>
+</ul>
+<h3 id="nya-ord-i-den-har-modulen-7">اصطلاحات جدید این ماژول</h3>
+<p>Begreppen förklaras i <a href="/fa/ordlista/">Ordlistan</a>. I den här modulen tillkom:</p>
+<ul>
+<li>Behörighet, Godkänna ett steg, Färdighet</li>
+</ul>
+<h3 id="infor-nasta-modul-7">آمادگی برای ماژول بعدی</h3>
+<p>Nästa modul handlar om var AI hör hemma i ett utvecklingsflöde med automatiska tester, pull requests och teamarbete.</p>
+<h2 id="modul-09">Modul 09</h2>
+<p><em>AI i utvecklingsflödet: CI/CD och teamarbete</em></p>
+<h3 id="ai-foreslar-pipelinen-verifierar-du-avgor">AI föreslår, pipelinen verifierar, du avgör</h3>
+<p>Två sidor om hur automatiska tester och leveranser fungerar, och två om att granska kod innan den slås ihop med resten. Alla fyra är på engelska.</p>
+<ul>
+<li><strong><a href="https://docs.github.com/en/actions/get-started/understand-github-actions">GitHub Docs: Understanding GitHub Actions</a></strong> (~10 min)<br>
+Vad en pipeline är och hur den byggs upp i GitHub Actions: arbetsflöden, händelserna som startar dem, jobb och steg. En bra grund för att förstå vad som händer när ett test blir rött i CI.</li>
+<li><strong><a href="https://dora.dev/capabilities/continuous-integration/">DORA: Continuous integration</a></strong> (~10 min)<br>
+Varför team som slår ihop sin kod ofta, och kör automatiska tester vid varje ändring, levererar bättre. DORA är ett forskningsprogram om hur utvecklingsteam arbetar.</li>
+<li><strong><a href="https://google.github.io/eng-practices/review/reviewer/standard.html">Google: The Standard of Code Review</a></strong> (~10 min)<br>
+Googles riktlinjer för kodgranskning. Målet är att kodbasen blir bättre över tid, inte att varje ändring är perfekt. Det gäller lika mycket när koden är skriven av en AI.</li>
+<li><strong><a href="https://docs.github.com/en/copilot/concepts/agents/code-review">GitHub Copilot: About code review</a></strong> (~10 min)<br>
+Hur en AI kan granska en pull request och föreslå ändringar. Läs med frågan: vad kan den hitta, och vad måste en människa fortfarande avgöra? Som standard räknas AI:ns granskning inte som ett godkännande.</li>
+</ul>
+<h3 id="nya-ord-i-den-har-modulen-8">اصطلاحات جدید این ماژول</h3>
+<p>Begreppen förklaras i <a href="/fa/ordlista/">Ordlistan</a>. I den här modulen tillkom:</p>
+<ul>
+<li>CI/CD, Pipeline, Pull request, Kodgranskning, Kvalitetsgrind</li>
+</ul>
+<h3 id="infor-nasta-modul-8">آمادگی برای ماژول بعدی</h3>
+<p>Nästa modul handlar om hur jobbet som utvecklare förändras när en stor del av koden skrivs av en AI.</p>
+<h2 id="modul-10">Modul 10</h2>
+<p><em>Hur AI förändrar utvecklarrollen</em></p>
+<h3 id="vad-forskningen-och-utvecklarna-sjalva-sager">Vad forskningen och utvecklarna själva säger</h3>
+<p>Det finns inget facit för hur utvecklarrollen förändras, men det finns data. De här tre sidorna ger olika bilder. Alla är på engelska.</p>
+<ul>
+<li><strong><a href="https://survey.stackoverflow.co/2025/ai">Stack Overflow Developer Survey 2025: AI</a></strong> (~10 min)<br>
+Svar från tiotusentals utvecklare om hur de använder AI och hur mycket de litar på svaren. Titta särskilt på frågorna om förtroende: fler misstror än litar på att AI:ns svar stämmer.</li>
+<li><strong><a href="https://metr.org/blog/2025-07-10-early-2025-ai-experienced-os-dev-study/">METR: AI and experienced open-source developers</a></strong> (~10 min)<br>
+En studie från början av 2025. Erfarna utvecklare var långsammare med AI, fast de själva trodde att de var snabbare. Verktygen har blivit bättre sedan dess, och sidan länkar till en uppföljning. Läs den för skillnaden mellan hur snabb man känner sig och hur snabb man är.</li>
+<li><strong><a href="https://dora.dev/insights/managing-ai-dependency/">DORA: Managing AI dependency</a></strong> (~10 min)<br>
+Hur studenter som lär sig programmera sätter egna gränser för sin AI-användning, så att de fortfarande lär sig själva. Hör ihop med frågan om hur du håller din egen kunskap vid liv.</li>
+</ul>
+<h3 id="nya-ord-i-den-har-modulen-9">اصطلاحات جدید این ماژول</h3>
+<p>Begreppen förklaras i <a href="/fa/ordlista/">Ordlistan</a>. I den här modulen tillkom:</p>
+<ul>
+<li>Människa i loopen, Överförlitan, Kompetensförlust</li>
+</ul>
+<h3 id="infor-nasta-modul-9">آمادگی برای ماژول بعدی</h3>
+<p>Nästa modul handlar om etik och säkerhet: vad du skickar till en AI, vad du får tillbaka och vem som ansvarar.</p>
+<h2 id="modul-11">Modul 11</h2>
+<p><em>Etik och säkerhet</em></p>
+<h3 id="vad-du-skickar-vad-du-far-tillbaka-och-vem-som-ansvarar">Vad du skickar, vad du får tillbaka och vem som ansvarar</h3>
+<p>Den första sidan är på svenska, de andra på engelska.</p>
+<ul>
+<li><strong><a href="https://www.imy.se/verksamhet/dataskydd/det-har-galler-enligt-gdpr/introduktion-till-gdpr/personuppgifter/">IMY: Personuppgifter</a></strong> (~5 min)<br>
+Integritetsskyddsmyndigheten förklarar vad som räknas som en personuppgift enligt GDPR, med exempel. Bra att veta innan du klistrar in data i en AI-assistent.</li>
+<li><strong><a href="https://docs.github.com/en/code-security/concepts/secret-security/secret-leakage-risks">GitHub Docs: Secret leakage risks</a></strong> (~5 min)<br>
+Vad en hemlighet är, till exempel en API-nyckel eller ett lösenord. Sidan förklarar varför den finns kvar i Git-historiken även när du har tagit bort den, och att den då måste bytas ut.</li>
+<li><strong><a href="https://genai.owasp.org/llmrisk/llm092025-misinformation/">OWASP: LLM09 Misinformation</a></strong> (~10 min)<br>
+Varför en språkmodell kan hitta på saker som låter rätt. Ett av exemplen gäller kod: AI-assistenter föreslår paket som inte finns, och angripare publicerar skadliga paket med just de namnen.</li>
+<li><strong><a href="https://genai.owasp.org/llmrisk/llm01-prompt-injection/">OWASP: LLM01 Prompt Injection</a></strong> (~10 min)<br>
+Hur text som en AI läser, till exempel i en fil eller på en webbsida, kan få den att göra något annat än du bad om. Läs beskrivningen och exemplen. Resten av sidan är fördjupning.</li>
+</ul>
+<h3 id="nya-ord-i-den-har-modulen-10">اصطلاحات جدید این ماژول</h3>
+<p>Begreppen förklaras i <a href="/fa/ordlista/">Ordlistan</a>. I den här modulen tillkom:</p>
+<ul>
+<li>Personuppgift, GDPR, Hemlighet, Beroende, Hallucination, Prompt injection</li>
+</ul>
+<h3 id="infor-nasta-modul-10">آمادگی برای ماژول بعدی</h3>
+<p>Nästa modul handlar om EU:s AI-förordning: vem den gäller, hur AI-system delas in efter risk och vad det betyder för dig som utvecklare.</p>
+<h2 id="modul-12">Modul 12</h2>
+<p><em>EU:s AI-förordning</em></p>
+<h3 id="roller-risknivaer-och-krav">Roller, risknivåer och krav</h3>
+<p>Börja med den svenska sammanfattningen. De två andra sidorna är på engelska, från en oberoende sajt som följer förordningen.</p>
+<ul>
+<li><strong><a href="https://digital-strategy.ec.europa.eu/sv/policies/regulatory-framework-ai">Europeiska kommissionen: AI-akten</a></strong> (~10 min)<br>
+EU:s egen sammanfattning på svenska: de fyra risknivåerna med exempel, och vad som krävs av ett högrisksystem. Sidan använder andra ord än kursen på två ställen: tillhandahållaren kallas <em>spridare</em>, och begränsad risk kallas <em>öppenhetsrisk</em>.</li>
+<li><strong><a href="https://artificialintelligenceact.eu/high-level-summary/">AI Act: High-level summary</a></strong> (~15 min)<br>
+En sammanfattning av hela förordningen. Läs de fyra punkterna högst upp: där står vilka risknivåer som finns, och att de flesta skyldigheter ligger på leverantören. På engelska heter leverantören <em>provider</em> och tillhandahållaren <em>deployer</em>.</li>
+<li><strong><a href="https://artificialintelligenceact.eu/implementation-timeline/">AI Act: Implementation timeline</a></strong> (~5 min)<br>
+När de olika delarna av förordningen börjar gälla. Datumen har ändrats och kan ändras igen, så det är här du kontrollerar vad som gäller just nu.</li>
+</ul>
+<h3 id="nya-ord-i-den-har-modulen-11">اصطلاحات جدید این ماژول</h3>
+<p>Begreppen förklaras i <a href="/fa/ordlista/">Ordlistan</a>. I den här modulen tillkom:</p>
+<ul>
+<li>AI-förordningen, Leverantör, Tillhandahållare, Risknivå, Högrisksystem, Mänsklig tillsyn</li>
+</ul>
+<h3 id="infor-nasta-modul-11">آمادگی برای ماژول بعدی</h3>
+<p>Nästa modul är repetition inför Kunskapskontroll A. Spara dina anteckningar och checklistor från övningarna, de är bra underlag.</p>
+<h2 id="modul-13">Modul 13</h2>
+<p><em>Repetition och Kunskapskontroll A</em></p>
+<h3 id="granska-kod-kritiskt">Granska kod kritiskt</h3>
+<p>Två checklistor för att granska kod, bra att ha bredvid sig när du repeterar. Båda är på engelska. Gå också igenom <a href="/fa/ordlista/">Ordlistan</a> från början.</p>
+<ul>
+<li><strong><a href="https://docs.github.com/en/copilot/tutorials/review-ai-generated-code">GitHub Docs: Review AI-generated code</a></strong> (~10 min)<br>
+Åtta steg för att granska kod som en AI har skrivit: kör testerna först, kontrollera att koden gör det du bad om, och se upp för paket och funktioner som inte finns.</li>
+<li><strong><a href="https://google.github.io/eng-practices/review/reviewer/looking-for.html">Google: What to look for in a code review</a></strong> (~10 min)<br>
+Vad en granskare tittar efter: design, funktion, komplexitet, tester, namn och kommentarer. Sammanfattningen längst ner passar bra att repetera med.</li>
+</ul>
+<h3 id="nya-ord-i-den-har-modulen-12">اصطلاحات جدید این ماژول</h3>
+<p>Begreppen förklaras i <a href="/fa/ordlista/">Ordlistan</a>. I den här modulen tillkom:</p>
+<ul>
+<li>Kunskapskontroll, Statisk analys, Mutationstestning</li>
+</ul>
+<h3 id="infor-nasta-modul-12">آمادگی برای ماژول بعدی</h3>
+<p>Efter den här modulen börjar kursens projektdel, Kunskapskontroll B, i Modul 14.</p>
+<h2 id="modul-14">Modul 14</h2>
+<p><em>Praktiskt AI-assisterat utvecklingsarbete: introduktion och planering av projektuppgiften</em></p>
+<h3 id="planera-och-avgransa-ett-ai-assisterat-projekt">Planera och avgränsa ett AI-assisterat projekt</h3>
+<p>I den här modulen börjar projektet på riktigt. Texterna handlar om att planera innan du bygger: hur du delar upp arbetet, hur du säger vad “klart” betyder och hur du ger AI-verktyget rätt förutsättningar.</p>
+<ul>
+<li><strong><a href="https://code.claude.com/docs/en/best-practices">Claude Code — Best practices for agentic coding</a></strong> (~15 min)<br>
+Anthropics egna rekommendationer för hur man arbetar med en kodagent. Titta särskilt på arbetsgången utforska, planera, koda och committa. Det är samma ordning som din projektplan bör ha, även om du använder ett annat verktyg.</li>
+<li><strong><a href="https://www.atlassian.com/work-management/project-management/acceptance-criteria">Atlassian — Acceptance criteria</a></strong> (~7 min)<br>
+Förklarar vad acceptanskriterier är, hur man skriver dem så att de går att kontrollera och visar exempel. Direkt användbart när du ska definiera vad “klart” betyder för ditt projekt.</li>
+<li><strong><a href="https://docs.github.com/en/copilot/get-started/best-practices">GitHub Copilot — Best practices for using GitHub Copilot</a></strong> (~5 min)<br>
+Vad Copilot är bra på, när du ska använda inline-förslag och när chatt, och hur du ger rätt kontext. Rådet gäller i stort sett oavsett vilket verktyg du har valt.</li>
+</ul>
+<h3 id="las-mer">Läs mer</h3>
+<p>Fler länkar om samma sak, om du vill gå djupare.</p>
+<ul>
+<li><strong><a href="https://martinfowler.com/bliki/Yagni.html">Martin Fowler: Yagni</a></strong> (~10 min)<br>
+<em>You aren’t gonna need it</em>: bygg inte det du tror att du behöver senare. Fowler visar att en funktion som byggs för tidigt kostar tid och gör koden krångligare, även om den till slut behövs. Bra att ha i bakhuvudet när du skriver <em>Utanför scope</em>.</li>
+<li><strong><a href="https://scrumguides.org/scrum-guide.html#commitment-definition-of-done">Scrum Guide: Definition of Done</a></strong> (~3 min)<br>
+Ett kort avsnitt om att bestämma i förväg vad “klart” betyder, så att det inte går att diskutera efteråt. Samma tanke som när du skriver acceptanskriterier för ditt projekt.</li>
+<li><strong><a href="https://docs.github.com/en/repositories/creating-and-managing-repositories/quickstart-for-repositories">GitHub Docs: Quickstart for repositories</a></strong> (~5 min)<br>
+Hur du skapar ett repo på GitHub och gör din första ändring, både i webbläsaren och från terminalen. Bra om du vill ha projektet på GitHub från början.</li>
+</ul>
+<h3 id="nya-ord-i-den-har-modulen-13">اصطلاحات جدید این ماژول</h3>
+<p>Begreppen förklaras i <a href="/fa/ordlista/">Ordlistan</a>. I den här modulen tillkom:</p>
+<ul>
+<li>AI-logg, Avgränsning, Definition av klart, Kravspecifikation, Projektplan</li>
+</ul>
+<p>Repetera också: Acceptanskriterium (modul 05).</p>
+<h3 id="infor-nasta-modul-13">آمادگی برای ماژول بعدی</h3>
+<p>Nästa lektion är första handledningspasset. Ta med <code>projektplan.md</code>, <code>AI-logg.md</code> och minst en fråga. Har du hunnit skapa ett repo går det ännu bättre, då kan vi börja bygga direkt.</p>
+<h2 id="modul-15">Modul 15</h2>
+<p><em>Praktiskt AI-assisterat utvecklingsarbete: handledning</em></p>
+<h3 id="granska-kod-du-inte-skrivit-sjalv">Granska kod du inte skrivit själv</h3>
+<p>Kod som AI:n genererat ska granskas på samma sätt som kod från en kollega. Två texter som visar hur ett vanligt granskningsarbete går till.</p>
+<ul>
+<li><strong><a href="https://google.github.io/eng-practices/review/reviewer/looking-for.html">Google Engineering Practices — What to look for in a code review</a></strong> (~10 min)<br>
+Googles beskrivning av vad en granskare ska titta på: om ändringen gör det den ska, hur den är designad, om testerna räcker, och om namn, kommentarer och dokumentation är begripliga. En bra checklista att ha bredvid dig när du läser en diff.</li>
+<li><strong><a href="https://docs.github.com/en/pull-requests/how-tos/review-pull-requests/reviewing-proposed-changes-in-a-pull-request">GitHub Docs — Reviewing proposed changes in a pull request</a></strong> (~5 min)<br>
+Steg för steg hur du granskar ändringar fil för fil och lämnar kommentarer. Även när du jobbar ensam är arbetssättet användbart: läs din egen diff som om någon annan hade skrivit den.</li>
+</ul>
+<h3 id="repetera">Repetera</h3>
+<p>Har du ännu inte lagt en instruktionsfil i ditt projekt? Gå tillbaka till <a href="#modul-02">läsanvisningarna för modul 02</a> (AGENTS.md, CLAUDE.md och Copilots repository instructions). Det är den enklaste förbättringen du kan göra i den här modulen.</p>
+<h3 id="las-mer-1">Läs mer</h3>
+<p>Fler länkar om samma sak, om du vill gå djupare.</p>
+<ul>
+<li><strong><a href="https://git-scm.com/book/en/v2/Git-Basics-Recording-Changes-to-the-Repository">Pro Git: Recording Changes to the Repository</a></strong> (~10 min)<br>
+Pro Git är Gits officiella bok, gratis på nätet. Läs avsnitten <em>Viewing Your Staged and Unstaged Changes</em> och <em>Committing Your Changes</em>: hur du ser exakt vad som har ändrats med <code>git diff</code>, och hur du sedan sparar ändringen.</li>
+<li><strong><a href="https://google.github.io/eng-practices/review/developer/cl-descriptions.html">Google: Writing good CL descriptions</a></strong> (~10 min)<br>
+Google kallar en ändring för CL. Sidan visar vad ett bra meddelande till en ändring innehåller: en kort första rad om vad ändringen gör, och sedan varför. Samma råd gäller ditt commit-meddelande.</li>
+</ul>
+<h3 id="nya-ord-i-den-har-modulen-14">اصطلاحات جدید این ماژول</h3>
+<p>Begreppen förklaras i <a href="/fa/ordlista/">Ordlistan</a>. I den här modulen tillkom:</p>
+<ul>
+<li>Commit, Commit-meddelande, Hårdkodat värde, Vertikal skiva</li>
+</ul>
+<p>Repetera också: Kodgranskning och Pull request (modul 09).</p>
+<h3 id="infor-nasta-modul-14">آمادگی برای ماژول بعدی</h3>
+<p>Nästa lektion handlar om felsökning och refaktorisering i ditt eget projekt. Ta med en riktig bugg eller en funktion som blivit rörig.</p>
+<h2 id="modul-16">Modul 16</h2>
+<p><em>Praktiskt AI-assisterat utvecklingsarbete: handledning</em></p>
+<h3 id="refaktorisera-med-ett-skyddsnat">Refaktorisera med ett skyddsnät</h3>
+<p>Båda texterna handlar om samma sak: du ska kunna ändra kod utan att behöva hoppas att allt fortfarande fungerar. Därför kommer testerna först.</p>
+<ul>
+<li><strong><a href="https://www.martinfowler.com/bliki/DefinitionOfRefactoring.html">Martin Fowler — Definition of Refactoring</a></strong> (~3 min)<br>
+En kort och exakt definition av vad refaktorisering är, och framför allt vad det inte är: att ändra strukturen utan att ändra beteendet. Bra att ha i bakhuvudet varje gång du instruerar AI:n att “städa upp”.</li>
+<li><strong><a href="https://code.visualstudio.com/docs/agents/guides/test-code-with-ai">VS Code — Test existing code with AI</a></strong> (~5 min)<br>
+Hur du genererar, kör och rättar tester med Copilot i VS Code, och hur du ger instruktioner så att testerna följer projektets stil. Principen är densamma i andra verktyg.</li>
+</ul>
+<h3 id="repetera-1">Repetera</h3>
+<p>Felsökning från <a href="#modul-03">modul 03</a> är fortfarande aktuell. Titta om på <em>Claude Code — Common workflows</em> och <em>Learning to debug with GitHub Copilot</em> med frågan: ber jag om hypoteser, eller bara om en fix?</p>
+<h3 id="las-mer-2">Läs mer</h3>
+<p>Fler länkar om samma sak, om du vill gå djupare.</p>
+<ul>
+<li><strong><a href="https://michaelfeathers.silvrback.com/characterization-testing">Michael Feathers: Characterization Testing</a></strong> (~10 min)<br>
+Idén med karakteriseringstester kommer från Michael Feathers. Här visar han hur du skriver tester som fångar vad koden faktiskt gör i dag, inte vad den borde göra. Exemplet är i Java, men arbetssättet fungerar i alla språk.</li>
+<li><strong><a href="https://www.anthropic.com/research/towards-understanding-sycophancy-in-language-models">Anthropic: Towards understanding sycophancy in language models</a></strong> (~5 min)<br>
+En kort sammanfattning av en studie: AI-assistenter håller ofta med användaren, även när svaret då blir fel. Läs den innan du provar att fråga “Är du säker?” i övningen. Hela studien finns länkad från sidan.</li>
+</ul>
+<h3 id="nya-ord-i-den-har-modulen-15">اصطلاحات جدید این ماژول</h3>
+<p>Begreppen förklaras i <a href="/fa/ordlista/">Ordlistan</a>. I den här modulen tillkom:</p>
+<ul>
+<li>Hypotes, Inställsamhet, Karakteriseringstest, Off-by-one-fel, Regressionstest</li>
+</ul>
+<h3 id="infor-nasta-modul-15">آمادگی برای ماژول بعدی</h3>
+<p>Nästa lektion handlar om testning, dokumentation och att automatisera en uppgift med en enklare agent. Fundera på en repetitiv uppgift i ditt projekt som skulle passa.</p>
+<h2 id="modul-17">Modul 17</h2>
+<p><em>Praktiskt AI-assisterat utvecklingsarbete: handledning</em></p>
+<h3 id="tester-med-ai">Tester med AI</h3>
+<p>AI skriver tester snabbt. Frågan är om testerna faktiskt kontrollerar något.</p>
+<ul>
+<li><strong><a href="https://docs.github.com/en/copilot/tutorials/copilot-cookbook/testing-code">GitHub Docs — Copilot Chat cookbook: Testing code</a></strong> (~5 min)<br>
+Exempel på prompts för att generera enhetstester, skapa mockar, skriva end-to-end-tester och uppdatera tester när koden ändras. Använd dem som utgångspunkt, och testa sedan testerna som i modulens övning.</li>
+</ul>
+<h3 id="sakerhet-nar-agenter-laser-text">Säkerhet när agenter läser text</h3>
+<p>En agent läser filer, webbsidor och felmeddelanden. Allt det kan innehålla instruktioner som inte kommer från dig.</p>
+<ul>
+<li><strong><a href="https://genai.owasp.org/llmrisk/llm01-prompt-injection/">OWASP — LLM01: Prompt Injection</a></strong> (~10 min)<br>
+Förklarar skillnaden mellan direkt och indirekt promptinjektion och hur man kan begränsa skadan. Läs den med övning 4 i åtanke, där du testar vad din egen agent gör med oväntad text.</li>
+<li><strong><a href="https://www.anthropic.com/engineering/building-effective-agents">Anthropic — Building effective agents</a></strong> (~30 min, skumma)<br>
+Har du redan läst den under agentmodulerna (<a href="#modul-07">modul 07</a>) räcker det att titta om på avsnittet om när en agent är rätt val och när ett enklare arbetsflöde räcker. Bra utgångspunkt när du ska motivera hur stor frihet din agent fick.</li>
+</ul>
+<h3 id="las-mer-3">Läs mer</h3>
+<p>Fler länkar om samma sak, om du vill gå djupare.</p>
+<ul>
+<li><strong><a href="https://stryker-mutator.io/docs/">Stryker: Introduction</a></strong> (~5 min)<br>
+Mutationstestning förklarad: ett verktyg lägger in små fel i koden, och om testerna ändå är gröna har felet “överlevt”. Det är samma sak som du gör för hand när du saboterar koden i övningen. Stryker finns för JavaScript, TypeScript, C# och Scala, och andra språk har egna verktyg.</li>
+<li><strong><a href="https://keepachangelog.com/sv/1.1.0/">Keep a Changelog</a></strong> (~10 min)<br>
+Hur en bra ändringslogg ser ut: den senaste versionen först, ändringarna sorterade efter typ, och skriven för människor. Sidan förklarar också varför en kopia av commit-historiken inte är en ändringslogg. Bra att läsa om din agent ska sammanfatta commits.</li>
+<li><strong><a href="https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-readmes">GitHub Docs: About READMEs</a></strong> (~5 min)<br>
+Vad en README brukar innehålla: vad projektet gör, varför det är användbart, hur man kommer igång, var man får hjälp och vem som underhåller det. Använd listan när du kontrollerar den README som AI:n skrev.</li>
+<li><strong><a href="https://genai.owasp.org/llmrisk/llm062025-excessive-agency/">OWASP: LLM06 Excessive Agency</a></strong> (~10 min)<br>
+Vad som kan gå fel när en agent har fler verktyg, fler behörigheter eller mer frihet än uppgiften kräver. Läs avsnittet om hur risken minskas: ge agenten så lite behörighet som möjligt, och kräv ditt godkännande för det som har stora följder. Hör ihop med prompt injection från Modul 11.</li>
+</ul>
+<h3 id="nya-ord-i-den-har-modulen-16">اصطلاحات جدید این ماژول</h3>
+<p>Begreppen förklaras i <a href="/fa/ordlista/">Ordlistan</a>. I den här modulen tillkom:</p>
+<ul>
+<li>Klona, Minsta möjliga behörighet, README, Ändringslogg</li>
+</ul>
+<p>Repetera också: Enhetstest och Testtäckning (modul 04), Prompt injection (modul 11).</p>
+<h3 id="infor-nasta-modul-16">آمادگی برای ماژول بعدی</h3>
+<p>Nästa lektion handlar om kvalitetssäkring. Då städar vi snarare än bygger, så försök ha huvudfunktionaliteten på plats.</p>
+<h2 id="modul-18">Modul 18</h2>
+<p><em>Praktiskt AI-assisterat utvecklingsarbete: handledning och kvalitetssäkring</em></p>
+<h3 id="hemligheter-personuppgifter-och-regelverk">Hemligheter, personuppgifter och regelverk</h3>
+<p>Tre texter som hänger ihop med avsnittet <em>Regelverk och etik</em> i din redovisning.</p>
+<ul>
+<li><strong><a href="https://docs.github.com/en/code-security/concepts/secret-security/secret-scanning">GitHub Docs — About secret scanning</a></strong> (~5 min)<br>
+Förklarar hur GitHub söker igenom hela Git-historiken efter nycklar och tokens. Det är en bra påminnelse om att en hemlighet som en gång checkats in finns kvar i historiken, även om du tar bort den ur koden.</li>
+<li><strong><a href="https://www.imy.se/publikationer/gdpr-vid-anvandning-av-generativ-ai/">IMY — GDPR vid användning av generativ AI</a></strong> (~15 min)<br>
+Integritetsskyddsmyndighetens rapport om hur GDPR gäller när man använder generativ AI. Den är framför allt skriven med offentlig sektor i tankarna, men frågorna är allmängiltiga. Läs med en fråga i huvudet: vilken data har jag skickat till mina AI-verktyg?</li>
+<li><strong><a href="https://artificialintelligenceact.eu/">EU:s AI-förordning — artificialintelligenceact.eu</a></strong> (~10 min)<br>
+Du använde sidan i övningarna om förordningen. Gå tillbaka dit och kontrollera aktuellt läge för just din typ av projekt, och notera dagens datum. Det är den sortens källhantering som gör en motivering trovärdig.</li>
+</ul>
+<h3 id="las-mer-4">Läs mer</h3>
+<p>Fler länkar om samma sak, om du vill gå djupare.</p>
+<ul>
+<li><strong><a href="https://docs.github.com/en/get-started/git-basics/ignoring-files">GitHub Docs: Ignoring files</a></strong> (~5 min)<br>
+Hur <code>.gitignore</code> fungerar, och var du hittar färdiga mallar för ditt språk. Lägg märke till en sak: en fil som redan är incheckad ignoreras inte. Den måste du först sluta spåra med <code>git rm --cached</code>.</li>
+<li><strong><a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/removing-sensitive-data-from-a-repository">GitHub Docs: Removing sensitive data from a repository</a></strong> (~10 min)<br>
+Har en hemlighet hamnat i Git är första steget att byta ut den hos tjänsten, och ofta räcker det. Sidan förklarar också hur man skriver om historiken och varför det är krångligt. Läs inledningen. Resten är fördjupning.</li>
+<li><strong><a href="https://choosealicense.com/">Choose a License</a></strong> (~5 min)<br>
+Vanliga licenser för öppen källkod förklarade kort, bland annat MIT och GPL. Bra när du tar reda på vad licenserna för dina beroenden betyder, och vad som gäller för kod som saknar licens.</li>
+<li><strong><a href="https://artificialintelligenceact.eu/implementation-timeline/">AI Act: Implementation timeline</a></strong> (~5 min)<br>
+Samma sida som i Modul 12. Kontrollera vad som gäller i dag när du skriver ditt avsnitt om regelverk och etik, och skriv upp vilket datum du kollade.</li>
+</ul>
+<h3 id="nya-ord-i-den-har-modulen-17">اصطلاحات جدید این ماژول</h3>
+<p>Begreppen förklaras i <a href="/fa/ordlista/">Ordlistan</a>. I den här modulen tillkom:</p>
+<ul>
+<li>Gapanalys, .gitignore, Kamratgranskning, Licens, Linter</li>
+</ul>
+<p>Repetera också: Hemlighet, Beroende och GDPR (modul 11).</p>
+<h3 id="infor-nasta-modul-17">آمادگی برای ماژول بعدی</h3>
+<p>Nästa lektion förbereder vi redovisningen. Ta med din gapanalys och <code>AI-logg.md</code>.</p>
+<h2 id="modul-19">Modul 19</h2>
+<p><em>Förberedelse och genomgång inför redovisning av Kunskapskontroll B</em></p>
+<h3 id="las-ditt-eget-material-forst">Läs ditt eget material först</h3>
+<p>I den här modulen är det mest ditt eget material som gäller. Läs det i den här ordningen innan passet: <code>projektplan.md</code>, <code>AI-logg.md</code>, din gapanalys och kriterietabellen i kursplanen. Du ska kunna peka på ett konkret belägg för varje lärandemål.</p>
+<h3 id="skriv-sa-att-andra-forstar">Skriv så att andra förstår</h3>
+<p>En redovisning och en README har samma problem: läsaren har inte varit med. En extern text kan hjälpa dig formulera dig tydligare.</p>
+<ul>
+<li><strong><a href="https://developers.google.com/tech-writing/one">Google — Technical Writing One</a></strong> (~30 min, valfritt)<br>
+Googles gratiskurs i teknisk skrivning, på engelska. De första avsnitten om att använda termer konsekvent, skriva i aktiv form och hålla meningar korta räcker långt. Särskilt användbart för README och redovisningsmaterial.</li>
+</ul>
+<h3 id="las-mer-5">Läs mer</h3>
+<p>Fler länkar om samma sak, om du vill gå djupare.</p>
+<ul>
+<li><strong><a href="https://studentportal.gu.se/service-och-stod/guide-till-att-soka-lasa-och-skriva/presentera-muntligt">Göteborgs universitet: Presentera muntligt</a></strong> (~10 min)<br>
+En guide till muntliga presentationer: börja med ditt huvudbudskap, dela in i inledning, huvuddel och avslutning, och öva högt med tidtagning. Samma sak som du gör när du torrtränar.</li>
+<li><strong><a href="https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository">Pro Git: Getting a Git Repository</a></strong> (~5 min)<br>
+Avsnittet <em>Cloning an Existing Repository</em> visar hur <code>git clone</code> hämtar en egen kopia av ett repo. Gör det i en tom mapp innan du övar demon, så ser du om projektet går att köra utan dina egna inställningar.</li>
+<li><strong><a href="https://platform.claude.com/docs/en/about-claude/glossary#temperature">Claude: Glossary, Temperature</a></strong> (~3 min)<br>
+Ett kort avsnitt om varför en språkmodell inte ger exakt samma svar två gånger, inte ens på samma prompt. Därför ska demon inte hänga på att AI:n svarar på ett visst sätt.</li>
+</ul>
+<h3 id="nya-ord-i-den-har-modulen-18">اصطلاحات جدید این ماژول</h3>
+<p>Begreppen förklaras i <a href="/fa/ordlista/">Ordlistan</a>. I den här modulen tillkom:</p>
+<ul>
+<li>Belägg, Demomanus, Reservplan, Temperatur, Torrträning</li>
+</ul>
+<p>Repetera också: Gapanalys (modul 18).</p>
+<h3 id="infor-nasta-modul-18">آمادگی برای ماژول بعدی</h3>
+<p>Nästa lektion är redovisning och inlämning. Se till att allt är incheckat, att README stämmer och att <code>AI-logg.md</code> är komplett.</p>
+<h2 id="modul-20">Modul 20</h2>
+<p><em>Redovisning och inlämning av Kunskapskontroll B, kursavslutning</em></p>
+<p>Sista modulen har ingen tung läsning, eftersom det mesta av tiden går åt till redovisningarna.</p>
+<h3 id="blicka-framat">Blicka framåt</h3>
+<p>Kursen slutar, men verktygen och arbetssätten fortsätter att förändras. En bra källa för att följa utvecklingen är den årliga undersökningen av hur utvecklare faktiskt arbetar.</p>
+<ul>
+<li><strong><a href="https://survey.stackoverflow.co/">Stack Overflow Developer Survey</a></strong> (~10 min)<br>
+Den årliga undersökningen av hur utvecklare arbetar, med ett eget avsnitt om AI. Bra för att jämföra dina egna erfarenheter från kursen med vad andra utvecklare säger om förtroende, produktivitet och oro. Kolla vilket år som är senast tillgängligt.</li>
+</ul>
+<h3 id="las-mer-6">Läs mer</h3>
+<p>Fler länkar om samma sak, om du vill gå djupare.</p>
+<ul>
+<li><strong><a href="https://dora.dev/capabilities/clear-and-communicated-ai-stance/">DORA: Clear and communicated AI stance</a></strong> (~10 min)<br>
+Varför ett team behöver tydliga regler för AI: vilka verktyg som är tillåtna, vilken data som får användas och vad som förväntas av var och en. Sidan föreslår att dela in användningen i tre grupper: förbjudet, tillåtet med försiktighet, och fritt. Bra underlag när du skriver dina fem regler.</li>
+<li><strong><a href="https://github.blog/changelog/label/copilot/">GitHub Changelog: Copilot</a></strong> (~5 min)<br>
+GitHubs nyheter om Copilot, med datum och den senaste först.</li>
+<li><strong><a href="https://cursor.com/changelog">Cursor: Changelog</a></strong> (~5 min)<br>
+Cursors nyheter, med datum och den senaste först.</li>
+<li><strong><a href="https://code.claude.com/docs/en/changelog">Claude Code: Changelog</a></strong> (~5 min)<br>
+Vad som har ändrats i varje version av Claude Code. Kör <code>claude --version</code> för att se vilken version du har. Använder du ett annat verktyg, leta efter en sida som heter <em>changelog</em> eller <em>release notes</em>.</li>
+</ul>
+<h3 id="nya-ord-i-den-har-modulen-19">اصطلاحات جدید این ماژول</h3>
+<p>Begreppen förklaras i <a href="/fa/ordlista/">Ordlistan</a>. I den här modulen tillkom:</p>
+<ul>
+<li>AI-policy, Komplettering, Omprov, Release notes</li>
+</ul>
+<p>Gå igenom hela Ordlistan från början till slut och markera de begrepp du fortfarande känner dig osäker på. Det är en bra förberedelse inför eventuella omprov eller kompletteringar. Ordlistan finns kvar även efter kursen.</p></div></main></div><script type="module">document.addEventListener(`click`,async e=>{let t=e.target.closest(`[data-copy]`);if(!t)return;let n=t.closest(`figure, aside`)?.querySelector(`pre, .callout-body`);if(n){try{await navigator.clipboard.writeText(n.innerText.replace(/\n+$/,``)),t.textContent=`Kopierat`}catch{t.textContent=`Markera och kopiera`}setTimeout(()=>t.textContent=`Kopiera`,1800)}});</script></body></html>

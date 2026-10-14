@@ -1,0 +1,167 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex, nofollow"><meta name="color-scheme" content="dark"><meta name="theme-color" content="#14130f"><meta name="description" content="Övningar: Konfiguration, arbetsflöden och val av verktyg."><link rel="icon" type="image/svg+xml" href="/favicon.svg"><title>Konfiguration, arbetsflöden och val av verktyg · AI Tools for Software Developers</title><script>document.documentElement.classList.add("js");</script><link rel="stylesheet" href="/_astro/Layout.BIaf-YTx.css"></head><body><a class="skip" href="#innehall">Skip to content</a><div class="shell"><header class="side"><div class="lang-switch" role="group" aria-label="Språk"><a href="/en/ovningar/02/" class="lang-btn active" data-lang="sv">SV</a><a href="/en/ovningar/02/" class="lang-btn" data-lang="en">EN</a><a href="/fa/ovningar/02/" class="lang-btn" data-lang="fa">فا</a></div><a class="mark" href="/en/"><span class="mark-kicker">Course Material</span><span class="mark-name">AI Tools for Software Developers</span></a><nav aria-label="Huvudmeny"><ul class="nav"><li><a href="/en/">Home</a></li><li><a href="/en/installation/">Installation</a></li><li><a href="/en/videos/">Videos</a></li><li><a href="/en/ovningar/" aria-current="page">Exercises</a></li><li><a href="/en/lasanvisningar/">Reading Guide</a></li><li><a href="/en/ordlista/">Glossary</a></li><li><a href="/en/vanliga-fragor/">FAQ</a></li></ul></nav></header><main id="innehall"><p class="eyebrow"><a href="/en/ovningar/">Exercises</a><span class="sep">/</span>Modul 02</p><p class="big-num" aria-hidden="true">02</p><h1>Configuration, Workflows, and Tool Selection</h1><p class="lead">Five exercises, ~80 minutes total.</p><div class="watch"><span class="watch-label">Video 02</span><a href="https://www.youtube.com/watch?v=fY-skJ0v-aQ" rel="noopener">Konfigurera AI-verktyg: instruktionsfiler, planläge och val av verktyg<span class="ext" aria-hidden="true">↗</span></a><span class="watch-meta">29 min på YouTube · Hur du ställer in AI-verktyg så att de arbetar som du vill, och hur du väljer rätt verktyg för uppgiften.</span></div><div class="prose">
+<p>Övningarna bygger på varandra, så gör dem i ordning. Exercise 1–3 är grunden och görs under passet. Exercise 4 och 5 är fördjupning du kan göra efteråt. Ingen av övningarna betygsätts, men de tränar exakt det du behöver kunna i Kunskapskontroll A och B.</p>
+<p>Du väljer själv språk: Python, C# eller Java. Exemplen nedan visar Python, men byt till ditt språks motsvarighet.</p>
+</div><div class="table-wrap"><table class="overview"><thead><tr><th>Exercise</th><th>Level</th><th>Time</th><th>Skills</th></tr></thead><tbody><tr><td><span class="n">1</span><a href="#ovning-1">Bygg grunden</a></td><td><span class="level level-bas">Basic</span></td><td>10 min</td><td>Git som skyddsnät</td></tr><tr><td><span class="n">2</span><a href="#ovning-2">Skriv en AGENTS.md</a></td><td><span class="level level-bas">Basic</span></td><td>15 min</td><td>Konfiguration, tydliga instruktioner</td></tr><tr><td><span class="n">3</span><a href="#ovning-3">Samma uppgift, tre kompisar</a></td><td><span class="level level-bas">Basic</span></td><td>20 min</td><td>Agentläge, jämföra verktyg</td></tr><tr><td><span class="n">4</span><a href="#ovning-4">Planera före du kör</a></td><td><span class="level level-fordjupning">In-depth</span></td><td>20 min</td><td>Planläge, arbetsflöde</td></tr><tr><td><span class="n">5</span><a href="#ovning-5">Välj rätt kompis</a></td><td><span class="level level-utmaning">Challenge</span></td><td>15 min</td><td>Val av verktyg, motivering (KK A)</td></tr></tbody></table></div><div class="prose"><h2 id="ovning-1"><span class="ex-num">Exercise 1</span><span class="ex-title">Bygg grunden</span></h2><p class="ex-meta"><span class="level level-bas">Basic</span><span>ca 10 min</span><span>Learning Goals 5, 8</span></p>
+<p>Du ska bygga en minimal version av Kvittoräknaren, ett litet program som räknar ut summan för ett kvitto inklusive moms. Det ska vara litet med flit, eftersom vi ska ha något att bygga vidare på.</p>
+<ol>
+<li>
+<p>Skapa en ny mapp och initiera Git:</p>
+<figure class="code code-bash"><figcaption><span>Terminal</span><button type="button" class="copy" data-copy="">Copy</button></figcaption><pre class="astro-code github-dark-dimmed" style="background-color:#22272e;color:#adbac7; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#F69D50">mkdir</span><span style="color:#96D0FF"> kvittoraknaren</span></span>
+<span class="line"><span style="color:#6CB6FF">cd</span><span style="color:#96D0FF"> kvittoraknaren</span></span>
+<span class="line"><span style="color:#F69D50">git</span><span style="color:#96D0FF"> init</span></span></code></pre></figure>
+</li>
+<li>
+<p>Öppna mappen i VS Code (<code>code .</code>).</p>
+</li>
+<li>
+<p>Skriv en funktion som tar emot en lista med varor (namn, pris exklusive moms, momssats) och returnerar totalsumman inklusive moms. Använd gärna Copilots inline-förslag, alltså <strong>Axelklapparen</strong>, men inget agentläge än.</p>
+</li>
+<li>
+<p>Lägg till ett enkelt test som kontrollerar att två varor à 100 kr med 25 % moms blir 250 kr.</p>
+</li>
+<li>
+<p>Kör testet och checka in:</p>
+<figure class="code code-bash"><figcaption><span>Terminal</span><button type="button" class="copy" data-copy="">Copy</button></figcaption><pre class="astro-code github-dark-dimmed" style="background-color:#22272e;color:#adbac7; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#F69D50">git</span><span style="color:#96D0FF"> add</span><span style="color:#96D0FF"> .</span></span>
+<span class="line"><span style="color:#F69D50">git</span><span style="color:#96D0FF"> commit</span><span style="color:#6CB6FF"> -m</span><span style="color:#96D0FF"> "Grundversion av kvittoräknaren"</span></span></code></pre></figure>
+</li>
+</ol>
+<aside class="callout callout-why" data-callout="why"><p class="callout-label">Varför börja så här?</p><div class="callout-body">
+<p>Den här commiten är din ångra-knapp. Allt du gör med AI-agenter i resten av övningarna kan du backa till hit.</p>
+</div></aside>
+<h2 id="ovning-2"><span class="ex-num">Exercise 2</span><span class="ex-title">Skriv en AGENTS.md</span></h2><p class="ex-meta"><span class="level level-bas">Basic</span><span>ca 15 min</span><span>Learning Goals 6</span></p>
+<p>Nu ska du ge dina AI-kompisar en introduktion till projektet.</p>
+<ol>
+<li>
+<p>Starta OpenCode i projektmappen (<code>opencode</code>) och kör <code>/init</code>. Den skriver ett utkast till <code>AGENTS.md</code>. Du kan också använda Claude Code, men då heter filen <code>CLAUDE.md</code>. Döp i så fall om den till <code>AGENTS.md</code>.</p>
+</li>
+<li>
+<p>Läs utkastet. Stryk allt som är uppenbart eller som inte stämmer.</p>
+</li>
+<li>
+<p>Se till att filen innehåller minst de här delarna, och håll den på max ca 20 rader:</p>
+<figure class="code code-markdown"><figcaption><span>Markdown</span><button type="button" class="copy" data-copy="">Copy</button></figcaption><pre class="astro-code github-dark-dimmed" style="background-color:#22272e;color:#adbac7; overflow-x: auto;" tabindex="0" data-language="markdown"><code><span class="line"><span style="color:#6CB6FF;font-weight:bold"># Kvittoräknaren</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6CB6FF;font-weight:bold">## Om projektet</span></span>
+<span class="line"><span style="color:#ADBAC7">Ett litet program som räknar ut summa och moms för ett kvitto.</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6CB6FF;font-weight:bold">## Teknik</span></span>
+<span class="line"><span style="color:#F69D50">-</span><span style="color:#ADBAC7"> Språk: &#x3C;Python 3.13 / C# .NET / Java 21></span></span>
+<span class="line"><span style="color:#F69D50">-</span><span style="color:#ADBAC7"> Tester: &#x3C;pytest / xUnit / JUnit></span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6CB6FF;font-weight:bold">## Regler</span></span>
+<span class="line"><span style="color:#F69D50">-</span><span style="color:#ADBAC7"> Svara mig på svenska. Kod och variabelnamn på engelska.</span></span>
+<span class="line"><span style="color:#F69D50">-</span><span style="color:#ADBAC7"> Gör små ändringar. Fråga innan du lägger till nya beroenden.</span></span>
+<span class="line"><span style="color:#F69D50">-</span><span style="color:#ADBAC7"> Skriv eller uppdatera tester för all ny logik.</span></span>
+<span class="line"><span style="color:#F69D50">-</span><span style="color:#ADBAC7"> Kör testerna innan du säger att du är klar.</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6CB6FF;font-weight:bold">## Kommandon</span></span>
+<span class="line"><span style="color:#F69D50">-</span><span style="color:#ADBAC7"> Kör tester: &#x3C;pytest / dotnet test / mvn test></span></span></code></pre></figure>
+</li>
+<li>
+<p>Lägg till en egen regel som är lätt att kontrollera, till exempel ”Alla publika funktioner ska ha en docstring” eller ”Belopp hanteras som Decimal, aldrig float”. Den använder vi i övning 3 för att se om verktygen faktiskt läser filen.</p>
+</li>
+<li>
+<p>Checka in filen:</p>
+<figure class="code code-bash"><figcaption><span>Terminal</span><button type="button" class="copy" data-copy="">Copy</button></figcaption><pre class="astro-code github-dark-dimmed" style="background-color:#22272e;color:#adbac7; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#F69D50">git</span><span style="color:#96D0FF"> add</span><span style="color:#96D0FF"> AGENTS.md</span></span>
+<span class="line"><span style="color:#F69D50">git</span><span style="color:#96D0FF"> commit</span><span style="color:#6CB6FF"> -m</span><span style="color:#96D0FF"> "Lägg till AGENTS.md"</span></span></code></pre></figure>
+</li>
+</ol>
+<aside class="callout callout-why" data-callout="why"><p class="callout-label">Läser verktygen verkligen filen?</p><div class="callout-body">
+<p>Testa genom att fråga varje verktyg: ”Vilka regler gäller i det här projektet?” Om Claude Code inte svarar med dina regler, kontrollera att det inte finns någon <code>CLAUDE.md</code> i mappen och att inställningen för projektinstruktioner i <code>/config</code> är på. Om Copilot inte verkar läsa filen, sök på ”AGENTS” i VS Code:s inställningar.</p>
+</div></aside>
+<h2 id="ovning-3"><span class="ex-num">Exercise 3</span><span class="ex-title">Samma uppgift, tre kompisar</span></h2><p class="ex-meta"><span class="level level-bas">Basic</span><span>ca 20 min</span><span>Learning Goals 1, 5, 9</span></p>
+<p>Nu får alla tre verktygen exakt samma uppgift. Varje verktyg jobbar på en egen gren i Git, så att resultaten inte blandas ihop och du kan jämföra dem efteråt.</p>
+<h3 id="uppgiften-du-ger-alla-tre">Uppgiften du ger alla tre</h3>
+<aside class="callout callout-prompt" data-callout="prompt"><p class="callout-label">Prompt</p><div class="callout-body">
+<p>Lägg till stöd för en rabattkod som ger 10 % rabatt på hela kvittot. Rabatten ska dras innan momsen räknas. Skriv tester för det nya.</p>
+</div><button type="button" class="copy" data-copy="">Copy</button></aside>
+<h3 id="gor-sa-har-for-varje-verktyg">Gör så här för varje verktyg</h3>
+<ol>
+<li>
+<p>Skapa en ny gren från din grundversion:</p>
+<figure class="code code-bash"><figcaption><span>Terminal</span><button type="button" class="copy" data-copy="">Copy</button></figcaption><pre class="astro-code github-dark-dimmed" style="background-color:#22272e;color:#adbac7; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#F69D50">git</span><span style="color:#96D0FF"> switch</span><span style="color:#96D0FF"> main</span><span style="color:#768390">      # eller master, beroende på hur Git är inställt</span></span>
+<span class="line"><span style="color:#F69D50">git</span><span style="color:#96D0FF"> switch</span><span style="color:#6CB6FF"> -c</span><span style="color:#96D0FF"> med-copilot</span></span></code></pre></figure>
+</li>
+<li>
+<p>Ge verktyget prompten ovan. Copilot ska köra i agentläge (välj läge i chattens rullgardin). I Claude Code och OpenCode kör du det vanliga läget.</p>
+</li>
+<li>
+<p>Godkänn ändringar och kommandon själv, ett i taget. Läs vad som händer.</p>
+</li>
+<li>
+<p>Kör testerna. Titta på <code>git diff main</code>. Checka in resultatet på grenen.</p>
+</li>
+<li>
+<p>Upprepa från steg 1 med grenarna <code>med-claude</code> och <code>med-opencode</code>.</p>
+</li>
+</ol>
+<h3 id="fyll-i-din-logg">Fyll i din logg</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-wrap"><table class="fill-in"><thead><tr><th>Verktyg</th><th>Antal promptar</th><th>Följde din egna regel?</th><th>Testerna gröna?</th><th>Vad fick du rätta själv?</th></tr></thead><tbody><tr><td><strong>Copilot</strong></td><td></td><td></td><td></td><td></td></tr><tr><td><strong>Claude Code</strong></td><td></td><td></td><td></td><td></td></tr><tr><td><strong>OpenCode</strong></td><td></td><td></td><td></td><td></td></tr></tbody></table></div>
+<p><strong>Ta med till fredagens handledningstillfälle:</strong> din AGENTS.md och en mening om vilken kompis som följde den bäst, och varför du tror att det blev så.</p>
+<aside class="callout callout-tip" data-callout="tip"><p class="callout-label">Tips</p><div class="callout-body">
+<p>Kör <code>git log --oneline --all --graph</code> för att se alla tre grenarna sida vid sida.</p>
+</div></aside>
+<h2 id="ovning-4"><span class="ex-num">Exercise 4</span><span class="ex-title">Planera före du kör</span></h2><p class="ex-meta"><span class="level level-fordjupning">In-depth</span><span>ca 20 min</span><span>Learning Goals 5, 6, 9</span></p>
+<p>I övning 3 fick verktygen sätta igång direkt. Nu provar du planera först, för att se skillnaden.</p>
+<ol>
+<li>Gå tillbaka till grundversionen och skapa en ny gren: <code>git switch main</code> och sedan <code>git switch -c plan-forst</code>.</li>
+<li>Växla till planläge. I Claude Code trycker du Shift+Tab tills det står planläge. I OpenCode trycker du Tab för att byta till Plan-agenten.</li>
+<li>Ge prompten: <em>”Jag vill att kvittoräknaren ska klara flera valutor (SEK, EUR, USD). Föreslå en plan. Ändra inget än.”</em></li>
+<li>Läs planen kritiskt. Hittar du något du inte håller med om, säg det och be om en ny plan.</li>
+<li>När du är nöjd: växla till det vanliga läget och låt verktyget genomföra planen. Kör testerna och läs diffen.</li>
+</ol>
+<h3 id="reflektera-skriv-35-meningar">Reflection (skriv 3–5 meningar)</h3>
+<ul>
+<li>Ändrade du något i planen? Vad, och varför?</li>
+<li>Hur skilde sig resultatet från övning 3, där verktyget fick köra direkt?</li>
+<li>När tycker du att planläget är värt den extra tiden, och när är det inte det?</li>
+</ul>
+<h2 id="ovning-5"><span class="ex-num">Exercise 5</span><span class="ex-title">Välj rätt kompis</span></h2><p class="ex-meta"><span class="level level-utmaning">Challenge</span><span>ca 15 min</span><span>Learning Goals 1, 9</span></p>
+<p>Den här övningen kräver ingen dator, bara att du tänker. Den liknar den typ av resonemang som Kunskapskontroll A efterfrågar.</p>
+<p>För varje scenario: välj vilken typ av AI-kompis (eller ingen alls) du skulle använda, och motivera i 2–3 meningar. Det finns inga helt rätta svar, men det finns bättre och sämre motiveringar.</p>
+<ol>
+<li>Du är ny på jobbet. Kodbasen har 40 000 rader och du ska förstå hur inloggningen fungerar innan mötet i eftermiddag.</li>
+<li>En metod som används i 30 filer ska byta namn, och dess parametrar ska byta ordning.</li>
+<li>Det finns ett stavfel i ett felmeddelande som visas för användaren.</li>
+<li>Projektets beroenden behöver uppdateras och testerna måste vara gröna efteråt. Det är inte bråttom, det ska bara vara klart till nästa vecka.</li>
+<li>Ditt team vill jämföra hur olika AI-modeller hanterar er kod, men har ingen budget för licenser just nu.</li>
+<li>Du ska skriva en klass med fem fält, en konstruktor och getters. Du har gjort det hundra gånger.</li>
+</ol>
+<aside class="callout callout-why" data-callout="why"><p class="callout-label">Vad gör en motivering bra?</p><div class="callout-body">
+<p>En bra motivering nämner vad uppgiften kräver (läsa, ändra en fil, ändra många filer, köra tester), vad verktyget är bra på, och vilken risk du tar. ”Jag valde agentläge för att det är bäst” är svagt. ”Jag valde agentläge eftersom ändringen spänner över 30 filer och agenten kan köra testerna efteråt, men jag kör planläge först för att se att den hittat alla anrop” är starkt.</p>
+</div></aside>
+<h2 id="spara-ditt-projekt">Spara ditt projekt</h2>
+<p>Next lektion handlar om kodgenerering, felsökning och refaktorisering, och då bygger vi vidare på Kvittoräknaren och din AGENTS.md. Kör du fast? Skriv via meddelanden i Omniway.</p></div><nav class="pager" aria-label="Fler övningar"><a class="next" href="/en/ovningar/03/"><span class="dir">Next →</span>Kodgenerering, felsökning och refaktorisering</a></nav></main></div><script type="module">document.addEventListener(`click`,async e=>{let t=e.target.closest(`[data-copy]`);if(!t)return;let n=t.closest(`figure, aside`)?.querySelector(`pre, .callout-body`);if(n){try{await navigator.clipboard.writeText(n.innerText.replace(/\n+$/,``)),t.textContent=`Copyt`}catch{t.textContent=`Select and copy`}setTimeout(()=>t.textContent=`Copy`,1800)}});</script></body></html>

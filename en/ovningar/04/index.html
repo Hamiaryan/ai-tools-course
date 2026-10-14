@@ -1,0 +1,105 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex, nofollow"><meta name="color-scheme" content="dark"><meta name="theme-color" content="#14130f"><meta name="description" content="Övningar: Så fungerar en bra prompt."><link rel="icon" type="image/svg+xml" href="/favicon.svg"><title>Så fungerar en bra prompt · AI Tools for Software Developers</title><script>document.documentElement.classList.add("js");</script><link rel="stylesheet" href="/_astro/Layout.BIaf-YTx.css"></head><body><a class="skip" href="#innehall">Skip to content</a><div class="shell"><header class="side"><div class="lang-switch" role="group" aria-label="Språk"><a href="/en/ovningar/04/" class="lang-btn active" data-lang="sv">SV</a><a href="/en/ovningar/04/" class="lang-btn" data-lang="en">EN</a><a href="/fa/ovningar/04/" class="lang-btn" data-lang="fa">فا</a></div><a class="mark" href="/en/"><span class="mark-kicker">Course Material</span><span class="mark-name">AI Tools for Software Developers</span></a><nav aria-label="Huvudmeny"><ul class="nav"><li><a href="/en/">Home</a></li><li><a href="/en/installation/">Installation</a></li><li><a href="/en/videos/">Videos</a></li><li><a href="/en/ovningar/" aria-current="page">Exercises</a></li><li><a href="/en/lasanvisningar/">Reading Guide</a></li><li><a href="/en/ordlista/">Glossary</a></li><li><a href="/en/vanliga-fragor/">FAQ</a></li></ul></nav></header><main id="innehall"><p class="eyebrow"><a href="/en/ovningar/">Exercises</a><span class="sep">/</span>Modul 05</p><p class="big-num" aria-hidden="true">04</p><h1>How a Good Prompt Works</h1><p class="lead">Five exercises, ~75 minutes total.</p><div class="watch"><span class="watch-label">Video 04</span><a href="https://www.youtube.com/watch?v=pvMi-MvmKVA" rel="noopener">Vad är en bra prompt?<span class="ext" aria-hidden="true">↗</span></a><span class="watch-meta">18 min på YouTube · En prompt är instruktionen du ger en AI-modell, och kvaliteten på svaret hänger direkt ihop med kvaliteten på det du skriver.</span></div><div class="prose">
+<p>Övningarna bygger på varandra, så gör dem i ordning. Exercise 1–3 är grunden och görs under passet. Exercise 4 och 5 är fördjupning du kan göra efteråt. Ingen av övningarna betygsätts, men de tränar exakt det du behöver kunna i Kunskapskontroll A och B.</p>
+<p>Du väljer själv AI-verktyg (Copilot, Claude, Cursor, ChatGPT m.fl.) och språk. Flera av övningarna utgår från ditt kvittoräknare-projekt från Lektion 2 — har du inte kvar det går det lika bra med valfri egen kodfil.</p>
+</div><div class="table-wrap"><table class="overview"><thead><tr><th>Exercise</th><th>Level</th><th>Time</th><th>Skills</th></tr></thead><tbody><tr><td><span class="n">1</span><a href="#ovning-1">Känn igen principerna</a></td><td><span class="level level-bas">Basic</span></td><td>10 min</td><td>Identifiera vad som saknas i en vag prompt</td></tr><tr><td><span class="n">2</span><a href="#ovning-2">Lägg till kontext</a></td><td><span class="level level-bas">Basic</span></td><td>15 min</td><td>Kontext, jämföra resultat</td></tr><tr><td><span class="n">3</span><a href="#ovning-3">Tydlighet och exempel</a></td><td><span class="level level-bas">Basic</span></td><td>20 min</td><td>Format, few-shot, jämförelse</td></tr><tr><td><span class="n">4</span><a href="#ovning-4">Iterera dig fram</a></td><td><span class="level level-fordjupning">In-depth</span></td><td>15 min</td><td>Förfina istället för att börja om</td></tr><tr><td><span class="n">5</span><a href="#ovning-5">Bygg din promptmall</a></td><td><span class="level level-utmaning">Challenge</span></td><td>15 min</td><td>Återanvändbarhet, kritisk läsning (KK A)</td></tr></tbody></table></div><div class="prose"><h2 id="ovning-1"><span class="ex-num">Exercise 1</span><span class="ex-title">Känn igen principerna</span></h2><p class="ex-meta"><span class="level level-bas">Basic</span><span>ca 10 min</span><span>Learning Goals 1, 6</span></p>
+<p>Du ska uppleva vad som händer när en prompt saknar de flesta av de fyra principerna — kontext, tydlighet, exempel och iteration.</p>
+<aside class="callout callout-prompt" data-callout="prompt"><p class="callout-label">Prompt att testa</p><div class="callout-body">
+<p>Skriv en funktion som hanterar användare.</p>
+</div><button type="button" class="copy" data-copy="">Copy</button></aside>
+<ol>
+<li>Copy prompten ovan rakt av och klistra in den i ditt AI-verktyg. Läs svaret du får.</li>
+<li>Lista vilka av de fyra principerna — kontext, tydlighet, exempel, iteration — som saknas helt i prompten.</li>
+<li>Konkretisera: vilket språk antog verktyget? Vad betydde “hantera” i svaret du fick — skapa, uppdatera, radera, visa?</li>
+<li>Jämför med en kurskompis som körde samma prompt i samma eller ett annat verktyg. Fick ni olika lösningar?</li>
+</ol>
+<aside class="callout callout-why" data-callout="why"><p class="callout-label">Varför blir resultaten så olika?</p><div class="callout-body">
+<p>En vag prompt tvingar modellen att gissa — om språk, format och syfte. Olika gissningar ger olika svar. Det är precis det som menas med “garbage in, garbage out”: modellen vet bara det du faktiskt skrev, inte vad du menade.</p>
+</div></aside>
+<h2 id="ovning-2"><span class="ex-num">Exercise 2</span><span class="ex-title">Lägg till kontext</span></h2><p class="ex-meta"><span class="level level-bas">Basic</span><span>ca 15 min</span><span>Learning Goals 6</span></p>
+<p>Nu lägger du till precis en av de fyra principerna — kontext — och ser hur mycket det förändrar resultatet.</p>
+<ol>
+<li>Skriv om prompten från övning 1 och lägg bara till kontext: vilket språk, vilken typ av “hantera” du menar (t.ex. lägga till, ta bort och lista användare i en enkel lista), och var koden ska användas.</li>
+<li>Kör den nya prompten i samma verktyg som förut.</li>
+<li>Lägg de två svaren bredvid varandra. Vad blev annorlunda tack vare kontexten?</li>
+<li>Skriv ner: vilken enskild detalj i kontexten tror du gjorde störst skillnad?</li>
+</ol>
+<aside class="callout callout-tip" data-callout="tip"><p class="callout-label">Tips</p><div class="callout-body">
+<p>mer kontext är inte alltid bättre kontext. Lägg till det som faktiskt är relevant — för mycket onödig information kan dränka det viktiga i brus, precis en av fallgroparna från videon.</p>
+</div></aside>
+<h2 id="ovning-3"><span class="ex-num">Exercise 3</span><span class="ex-title">Tydlighet och exempel</span></h2><p class="ex-meta"><span class="level level-bas">Basic</span><span>ca 20 min</span><span>Learning Goals 6, 9</span></p>
+<p>Nu testar du tydlighet och exempel på riktig kod — gärna ditt kvittoräknare-projekt från Lektion 2.</p>
+<ol>
+<li>Öppna en fil i ditt projekt (t.ex. kvittoräknaren) och be, utan vidare detaljer: “Skriv kommentarer för den här koden.” Notera resultatet (Version 1).</li>
+<li>Skriv om med tydlighet: specificera formatet (t.ex. docstrings enligt PEP 257, eller XML-kommentarer i C#) och vad varje kommentar ska innehålla — syfte, parametrar, returvärde (Version 2).</li>
+<li>Lägg nu till ett exempel: visa en docstring du själv skrivit som mall, och be verktyget följa samma struktur för resten av filen (Version 3).</li>
+<li>Fyll i tabellen nedan utifrån de tre körningarna.</li>
+</ol>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-wrap"><table class="fill-in"><thead><tr><th>Version</th><th>Vad du beskrev</th><th>Vad fick du?</th><th>Behövde du redigera manuellt?</th></tr></thead><tbody><tr><td>1 — inget</td><td></td><td></td><td></td></tr><tr><td>2 — tydlighet</td><td></td><td></td><td></td></tr><tr><td>3 — + exempel</td><td></td><td></td><td></td></tr></tbody></table></div>
+<aside class="callout callout-why" data-callout="why"><p class="callout-label">Varför hjälper ett exempel mer än en längre beskrivning?</p><div class="callout-body">
+<p>Ett konkret exempel lämnar mindre rum för feltolkning än en beskrivning i ord. Det är samma anledning till att det är lättare att visa en ny kollega “gör så här” än att bara förklara i teorin.</p>
+</div></aside>
+<h2 id="ovning-4"><span class="ex-num">Exercise 4</span><span class="ex-title">Iterera dig fram</span></h2><p class="ex-meta"><span class="level level-fordjupning">In-depth</span><span>ca 15 min</span><span>Learning Goals 6, 9</span></p>
+<p>I stället för att formulera en perfekt prompt direkt, tränar du nu på att förfina stegvis — den fjärde principen.</p>
+<ol>
+<li>Be ditt AI-verktyg lägga till felhantering i en funktion i ditt projekt (t.ex. totalsumman i kvittoräknaren), utan att specificera några detaljer om hur.</li>
+<li>Läs svaret. Hitta minst en sak som inte blev som du ville — fel typ av felhantering, fel namnkonvention, saknad testtäckning, eller liknande.</li>
+<li>Skriv INTE om hela prompten från grunden. Ge istället en kort, uppföljande instruktion som bara adresserar det du hittade, t.ex. “Bra, men använd ett eget undantag istället för ett generiskt fel.”</li>
+<li>Upprepa steg 2–3 ytterligare en gång om det behövs.</li>
+</ol>
+<h3 id="reflektera-skriv-35-meningar">Reflection (skriv 3–5 meningar)</h3>
+<ul>
+<li>Hur många steg behövde du för att bli nöjd?</li>
+<li>Hade det gått snabbare att skriva en mer detaljerad prompt redan från början, eller var iterationen effektivare här?</li>
+<li>En vanlig fallgrop är att ge upp efter ett enda dåligt svar. Vad hade du missat om du gjort det här?</li>
+</ul>
+<h2 id="ovning-5"><span class="ex-num">Exercise 5</span><span class="ex-title">Bygg din promptmall</span></h2><p class="ex-meta"><span class="level level-utmaning">Challenge</span><span>ca 15 min</span><span>Learning Goals 6, 8, 9</span></p>
+<p>Den här övningen tränar precis den typ av resonemang som Kunskapskontroll A efterfrågar: att medvetet motivera hur du formulerar en instruktion.</p>
+<ol>
+<li>Välj en uppgift du förväntar dig göra ofta under kursen, t.ex. “skriv enhetstester”, “förklara ett felmeddelande” eller “skriv ett commit-meddelande”.</li>
+<li>Bygg en promptmall för uppgiften som medvetet innehåller alla fyra principer: en plats för kontext (t.ex. “[språk/ramverk]”), tydliga instruktioner om format, minst ett inbyggt exempel, och en mening som bjuder in till iteration (t.ex. “fråga om du behöver mer information”).</li>
+<li>Testa mallen på en verklig uppgift i ditt projekt.</li>
+<li>Läs svaret kritiskt — inte bara “ser bra ut”: matchar det verkligen det du bad om?</li>
+<li>Spara mallen någonstans du hittar den igen till nästa gång du behöver samma sak.</li>
+</ol>
+<aside class="callout callout-why" data-callout="why"><p class="callout-label">Vad gör en promptmall bra?</p><div class="callout-body">
+<p>En bra mall bygger på de tre vanorna från videon: den är återanvändbar så du inte uppfinner hjulet varje gång, den sparas när den väl fungerar, och du fortsätter läsa resultaten kritiskt i stället för att lita blint på dem bara för att du har en mall.</p>
+</div></aside>
+<h2 id="avslutande-reflektion">Avslutande reflektion</h2>
+<p>Tänk på en gång ett AI-verktyg svarade på ett sätt du inte alls var ute efter. Vilken av de fyra principerna — kontext, tydlighet, exempel eller iteration — saknades i din prompt? Skriv några meningar och ta gärna med dem till fredagens handledningstillfälle.</p>
+<h2 id="tre-vanor-att-ta-med-dig">Tre vanor att ta med dig</h2>
+<ul>
+<li>Bygg egna promptmallar för uppgifter du gör ofta.</li>
+<li>Spara promptar som fungerade bra, precis som en bra kodsnutt.</li>
+<li>Läs svaren kritiskt: vad i din instruktion ledde till begränsningen eller felet?</li>
+</ul>
+<h2 id="spara-ditt-projekt">Spara ditt projekt</h2>
+<p>Next lektion fortsätter med promptbaserad interaktion, men mer praktiskt: vi övar tillsammans på att omvandla dåliga promptar till bra. Ta gärna med ett eget exempel på en prompt som inte gav det du ville ha. Kör du fast innan dess? Skriv via meddelanden i Omniway.</p></div><nav class="pager" aria-label="Fler övningar"><a class="prev" href="/en/ovningar/03/"><span class="dir">← Previous</span>Kodgenerering, felsökning och refaktorisering</a><a class="next" href="/en/ovningar/05/"><span class="dir">Next →</span>Promptbaserad interaktion</a></nav></main></div><script type="module">document.addEventListener(`click`,async e=>{let t=e.target.closest(`[data-copy]`);if(!t)return;let n=t.closest(`figure, aside`)?.querySelector(`pre, .callout-body`);if(n){try{await navigator.clipboard.writeText(n.innerText.replace(/\n+$/,``)),t.textContent=`Copyt`}catch{t.textContent=`Select and copy`}setTimeout(()=>t.textContent=`Copy`,1800)}});</script></body></html>

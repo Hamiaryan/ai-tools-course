@@ -1,0 +1,213 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex, nofollow"><meta name="color-scheme" content="dark"><meta name="theme-color" content="#14130f"><meta name="description" content="Installera kursens verktyg på Windows, macOS eller Linux."><link rel="icon" type="image/svg+xml" href="/favicon.svg"><title>Installation · AI Tools for Software Developers</title><script>document.documentElement.classList.add("js");</script><link rel="stylesheet" href="/_astro/Layout.BIaf-YTx.css"></head><body><a class="skip" href="#innehall">Skip to content</a><div class="shell"><header class="side"><div class="lang-switch" role="group" aria-label="Språk"><a href="/en/installation/" class="lang-btn active" data-lang="en">SV</a><a href="/en/installation/" class="lang-btn" data-lang="en">EN</a><a href="/fa/installation/" class="lang-btn" data-lang="fa">فا</a></div><a class="mark" href="/en/"><span class="mark-kicker">Course Material</span><span class="mark-name">AI Tools for Software Developers</span></a><nav aria-label="Huvudmeny"><ul class="nav"><li><a href="/en/">Home</a></li><li><a href="/en/installation/" aria-current="page">Installation</a></li><li><a href="/en/videos/">Videos</a></li><li><a href="/en/ovningar/">Exercises</a></li><li><a href="/en/lasanvisningar/">Reading Guide</a></li><li><a href="/en/ordlista/">Glossary</a></li><li><a href="/en/vanliga-fragor/">FAQ</a></li></ul></nav></header><main id="innehall"><p class="eyebrow">Installation</p><h1>Installationsguide</h1><p class="lead">Windows, macOS och Linux. Gör det här innan första lektionen.</p><div class="os-switch" role="group" aria-label="Visa stegen för"><button type="button" data-show="windows">Windows</button><button type="button" data-show="macos">macOS</button><button type="button" data-show="linux">Linux</button><button type="button" data-show="all">Alla tre</button></div><p class="os-hint" data-os-hint></p><div class="prose">
+<p>Hej! Här är allt du behöver installera inför kursen, uppdelat per operativsystem. Leta upp ditt eget system, följ stegen uppifrån och ned, och hoppa över resten. Räkna med 30–45 minuter, varav det mesta är att vänta på nedladdningar.</p>
+<p>Det är helt normalt att något strular. Om du kör fast: ta en skärmdump på felmeddelandet och skicka den via meddelanden i Omniway. Hellre det än att du sitter en kväll och svär åt en PATH-variabel.</p>
+<section><h2 id="innan-du-borjar--tre-konton">Before You Begin – Three Accounts</h2>
+<p>Programmen är gratis att installera, men några av dem kräver att du loggar in. Skapa kontona först så går resten smidigare.</p>
+<ul>
+<li><strong>GitHub-konto (gratis).</strong> Hemmet för din kod och inloggningen till Copilot. <a href="https://github.com/signup">github.com/signup</a></li>
+<li><strong>Claude-konto med Pro-abonnemang.</strong> Claude Code kräver ett betalt konto (Pro räcker) eller ett API-konto i Claude Console. Gratiskontot fungerar inte i Claude Code. <a href="https://claude.ai">claude.ai</a></li>
+<li><strong>GitHub Copilot.</strong> Copilot Free räcker för att komma igång. Som studerande kan du även ansöka om GitHub Education, som kan ge dig Copilot Pro utan kostnad: <a href="https://education.github.com">education.github.com</a></li>
+</ul>
+<aside class="callout callout-note" data-callout="note"><p class="callout-label">Ett ord om terminalkommandon</p><div class="callout-body">
+<p>Flera steg nedan går ut på att klistra in ett kommando i terminalen. Copy hela raden, klistra in, tryck Enter. Rader som börjar med # är kommentarer – dem behöver du inte köra.</p>
+<p>Allmänt tips: kör aldrig ett installationsskript från internet om du inte vet vem som står bakom det. Alla skript i den här guiden kommer direkt från respektive tillverkare.</p>
+</div></aside>
+</section><section><h2 id="oversikt--vad-installeras-hur">Overview – What is Installed and How?</h2>
+<p>Samma fem saker på alla system, men vägen dit skiljer sig lite:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="table-wrap"><table><thead><tr><th>Verktyg</th><th>Windows</th><th>macOS</th><th>Linux</th></tr></thead><tbody><tr><td><strong>Terminal</strong></td><td>PowerShell (Windows Terminal)</td><td>Terminal</td><td>Din vanliga terminal</td></tr><tr><td><strong>Pakethanterare</strong></td><td>winget (finns redan)</td><td>Homebrew</td><td>apt / dnf / pacman</td></tr><tr><td><strong>Git</strong></td><td>winget</td><td>brew</td><td>apt / dnf</td></tr><tr><td><strong>VS Code + Copilot</strong></td><td>winget + tillägg</td><td>brew + tillägg</td><td>.deb/.rpm eller snap + tillägg</td></tr><tr><td><strong>Claude Code</strong></td><td>PowerShell-skript</td><td>curl-skript</td><td>curl-skript</td></tr><tr><td><strong>OpenCode</strong></td><td>npm, scoop eller choco</td><td>curl-skript eller brew</td><td>curl-skript</td></tr></tbody></table></div>
+</section><section data-os="windows"><h2 id="windows-10--11">Windows 10 / 11</h2>
+<p>Vi använder winget, Windows inbyggda pakethanterare, för det mesta. Öppna Windows Terminal eller PowerShell (sök på ”Terminal” i Start-menyn). Du behöver inte köra som administratör om inget annat sägs.</p>
+<p><em>Krav: Windows 10 (version 1809 eller senare) eller Windows 11.</em></p>
+<h3 id="steg-1--git">Step 1 – Git</h3>
+<p>Installera Git först. Claude Code på Windows använder Git Bash i bakgrunden, så ordningen spelar roll.</p>
+<figure class="code code-powershell"><figcaption><span>PowerShell</span><button type="button" class="copy" data-copy="">Copy</button></figcaption><pre class="astro-code github-dark-dimmed" style="background-color:#22272e;color:#adbac7; overflow-x: auto;" tabindex="0" data-language="powershell"><code><span class="line"><span style="color:#ADBAC7">winget install </span><span style="color:#F47067">--</span><span style="color:#ADBAC7">id Git.Git </span><span style="color:#F47067">-</span><span style="color:#ADBAC7">e</span></span></code></pre></figure>
+<p><em>Föredrar du klick? Ladda ner installationsprogrammet från <a href="https://git-scm.com/downloads">git-scm.com/downloads</a> och kör med standardinställningarna.</em></p>
+<h3 id="steg-2--vs-code-och-github-copilot">Step 2 – VS Code and GitHub Copilot</h3>
+<figure class="code code-powershell"><figcaption><span>PowerShell</span><button type="button" class="copy" data-copy="">Copy</button></figcaption><pre class="astro-code github-dark-dimmed" style="background-color:#22272e;color:#adbac7; overflow-x: auto;" tabindex="0" data-language="powershell"><code><span class="line"><span style="color:#ADBAC7">winget install </span><span style="color:#F47067">--</span><span style="color:#ADBAC7">id Microsoft.VisualStudioCode </span><span style="color:#F47067">-</span><span style="color:#ADBAC7">e</span></span></code></pre></figure>
+<ol>
+<li>Starta VS Code.</li>
+<li>Öppna Extensions (Ctrl+Shift+X), sök på ”GitHub Copilot” och installera.</li>
+<li>Klicka på kontoikonen nere till vänster och logga in med ditt GitHub-konto.</li>
+</ol>
+<h3 id="steg-3--claude-code">Step 3 – Claude Code</h3>
+<figure class="code code-powershell"><figcaption><span>PowerShell</span><button type="button" class="copy" data-copy="">Copy</button></figcaption><pre class="astro-code github-dark-dimmed" style="background-color:#22272e;color:#adbac7; overflow-x: auto;" tabindex="0" data-language="powershell"><code><span class="line"><span style="color:#ADBAC7">irm https:</span><span style="color:#F47067">//</span><span style="color:#ADBAC7">claude.ai</span><span style="color:#F47067">/</span><span style="color:#ADBAC7">install.ps1 </span><span style="color:#F47067">|</span><span style="color:#ADBAC7"> iex</span></span></code></pre></figure>
+<p>Stäng terminalen och öppna en ny. Skriv sedan claude och följ inloggningen i webbläsaren med ditt Claude-konto.</p>
+<p><em>Använder du hellre winget: winget install Anthropic.ClaudeCode. Kör du vanliga cmd i stället för PowerShell finns ett cmd-kommando på <a href="https://docs.claude.com">docs.claude.com</a>.</em></p>
+<h3 id="steg-4--opencode">Step 4 – OpenCode</h3>
+<p>Välj ett av alternativen. Har du redan Node.js installerat är npm enklast.</p>
+<figure class="code code-powershell"><figcaption><span>PowerShell</span><button type="button" class="copy" data-copy="">Copy</button></figcaption><pre class="astro-code github-dark-dimmed" style="background-color:#22272e;color:#adbac7; overflow-x: auto;" tabindex="0" data-language="powershell"><code><span class="line"><span style="color:#768390"># Alternativ A: npm (kräver Node.js)</span></span>
+<span class="line"><span style="color:#ADBAC7">npm install </span><span style="color:#F47067">-</span><span style="color:#ADBAC7">g opencode</span><span style="color:#F47067">-</span><span style="color:#ADBAC7">ai</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#768390"># Alternativ B: Scoop</span></span>
+<span class="line"><span style="color:#ADBAC7">scoop install opencode</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#768390"># Alternativ C: Chocolatey</span></span>
+<span class="line"><span style="color:#ADBAC7">choco install opencode</span></span></code></pre></figure>
+<p><em>Har du varken Node.js, Scoop eller Chocolatey? Installera Node.js med: winget install OpenJS.NodeJS.LTS – öppna en ny terminal och kör alternativ A.</em></p>
+<h3 id="steg-5--kontrollera-att-allt-funkar">Step 5 – Verify Everything Works</h3>
+<p>Öppna en ny PowerShell (viktigt – gamla fönster har inte fått den nya PATH:en) och kör:</p>
+<figure class="code code-powershell"><figcaption><span>PowerShell</span><button type="button" class="copy" data-copy="">Copy</button></figcaption><pre class="astro-code github-dark-dimmed" style="background-color:#22272e;color:#adbac7; overflow-x: auto;" tabindex="0" data-language="powershell"><code><span class="line"><span style="color:#ADBAC7">git </span><span style="color:#F47067">--</span><span style="color:#ADBAC7">version</span></span>
+<span class="line"><span style="color:#ADBAC7">code </span><span style="color:#F47067">--</span><span style="color:#ADBAC7">version</span></span>
+<span class="line"><span style="color:#ADBAC7">claude </span><span style="color:#F47067">--</span><span style="color:#ADBAC7">version</span></span>
+<span class="line"><span style="color:#ADBAC7">claude doctor</span></span>
+<span class="line"><span style="color:#ADBAC7">opencode </span><span style="color:#F47067">--</span><span style="color:#ADBAC7">version</span></span></code></pre></figure>
+<p>Får du ett versionsnummer på varje rad är du klar. claude doctor ger dig en liten hälsorapport – står det något i rött, ta en skärmdump och skicka till mig.</p>
+<aside class="callout callout-tip" data-callout="tip"><p class="callout-label">Valfritt: WSL</p><div class="callout-body">
+<p>Om du redan jobbar i WSL (Linux inuti Windows) kan du installera allt där i stället, enligt Linux-avsnittet. Det är inget krav – vanliga Windows fungerar utmärkt för kursen.</p>
+</div></aside>
+</section><section data-os="macos"><h2 id="macos">macOS</h2>
+<p>På Mac använder vi Homebrew, den pakethanterare som nästan alla utvecklare på Mac kör. Öppna Terminal (Cmd+Mellanslag, skriv ”Terminal”).</p>
+<h3 id="steg-1--homebrew">Step 1 – Homebrew</h3>
+<p>Har du redan Homebrew? Kör brew —version. Får du ett versionsnummer kan du hoppa till steg 2.</p>
+<figure class="code code-bash"><figcaption><span>Terminal</span><button type="button" class="copy" data-copy="">Copy</button></figcaption><pre class="astro-code github-dark-dimmed" style="background-color:#22272e;color:#adbac7; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#F69D50">/bin/bash</span><span style="color:#6CB6FF"> -c</span><span style="color:#96D0FF"> "$(</span><span style="color:#F69D50">curl</span><span style="color:#6CB6FF"> -fsSL</span><span style="color:#96D0FF"> https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"</span></span></code></pre></figure>
+<p>Installationen ber om ditt Mac-lösenord (inga tecken syns när du skriver – det är meningen). Läs det installationen skriver i slutet: på Apple Silicon-Macar visar den två rader du ska köra för att lägga till brew i din PATH. Kör dem.</p>
+<h3 id="steg-2--git">Steg 2 – Git</h3>
+<figure class="code code-bash"><figcaption><span>Terminal</span><button type="button" class="copy" data-copy="">Copy</button></figcaption><pre class="astro-code github-dark-dimmed" style="background-color:#22272e;color:#adbac7; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#F69D50">brew</span><span style="color:#96D0FF"> install</span><span style="color:#96D0FF"> git</span></span></code></pre></figure>
+<p><em>macOS kan fråga om att installera ”Command Line Developer Tools”. Säg ja – det är helt i sin ordning.</em></p>
+<h3 id="steg-3--vs-code-och-github-copilot">Steg 3 – VS Code och GitHub Copilot</h3>
+<figure class="code code-bash"><figcaption><span>Terminal</span><button type="button" class="copy" data-copy="">Copy</button></figcaption><pre class="astro-code github-dark-dimmed" style="background-color:#22272e;color:#adbac7; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#F69D50">brew</span><span style="color:#96D0FF"> install</span><span style="color:#6CB6FF"> --cask</span><span style="color:#96D0FF"> visual-studio-code</span></span></code></pre></figure>
+<ol>
+<li>Starta VS Code från Program-mappen.</li>
+<li>Öppna Extensions (Cmd+Shift+X), sök på ”GitHub Copilot” och installera.</li>
+<li>Logga in med ditt GitHub-konto via kontoikonen nere till vänster.</li>
+<li>Tryck Cmd+Shift+P, skriv ”Shell Command: Install ‘code’ command in PATH” och kör. Då kan du öppna mappar med code . i terminalen.</li>
+</ol>
+<h3 id="steg-4--claude-code">Steg 4 – Claude Code</h3>
+<figure class="code code-bash"><figcaption><span>Terminal</span><button type="button" class="copy" data-copy="">Copy</button></figcaption><pre class="astro-code github-dark-dimmed" style="background-color:#22272e;color:#adbac7; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#F69D50">curl</span><span style="color:#6CB6FF"> -fsSL</span><span style="color:#96D0FF"> https://claude.ai/install.sh</span><span style="color:#F47067"> |</span><span style="color:#F69D50"> bash</span></span></code></pre></figure>
+<p>Öppna ett nytt terminalfönster, skriv claude och logga in med ditt Claude-konto.</p>
+<p><em>Alternativ via Homebrew: brew install —cask claude-code. Notera att brew-versionen inte uppdaterar sig själv – kör brew upgrade då och då.</em></p>
+<h3 id="steg-5--opencode">Steg 5 – OpenCode</h3>
+<figure class="code code-bash"><figcaption><span>Terminal</span><button type="button" class="copy" data-copy="">Copy</button></figcaption><pre class="astro-code github-dark-dimmed" style="background-color:#22272e;color:#adbac7; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#F69D50">curl</span><span style="color:#6CB6FF"> -fsSL</span><span style="color:#96D0FF"> https://opencode.ai/install</span><span style="color:#F47067"> |</span><span style="color:#F69D50"> bash</span></span></code></pre></figure>
+<p><em>Alternativ via Homebrew: brew install anomalyco/tap/opencode</em></p>
+<h3 id="steg-6--kontrollera-att-allt-funkar">Step 6 – Verify Everything Works</h3>
+<p>Öppna en ny Terminal (viktigt – gamla fönster har inte fått den nya PATH:en) och kör:</p>
+<figure class="code code-bash"><figcaption><span>Terminal</span><button type="button" class="copy" data-copy="">Copy</button></figcaption><pre class="astro-code github-dark-dimmed" style="background-color:#22272e;color:#adbac7; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#F69D50">git</span><span style="color:#6CB6FF"> --version</span></span>
+<span class="line"><span style="color:#F69D50">code</span><span style="color:#6CB6FF"> --version</span></span>
+<span class="line"><span style="color:#F69D50">claude</span><span style="color:#6CB6FF"> --version</span></span>
+<span class="line"><span style="color:#F69D50">claude</span><span style="color:#96D0FF"> doctor</span></span>
+<span class="line"><span style="color:#F69D50">opencode</span><span style="color:#6CB6FF"> --version</span></span></code></pre></figure>
+<p>Får du ett versionsnummer på varje rad är du klar. claude doctor ger dig en liten hälsorapport – står det något i rött, ta en skärmdump och skicka till mig.</p>
+</section><section data-os="linux"><h2 id="linux">Linux</h2>
+<p>Kommandona nedan är skrivna för Ubuntu/Debian (apt) med Fedora-varianter (dnf) där det skiljer sig. Kör du något annat vet du förmodligen redan hur du översätter – och om inte, fråga.</p>
+<h3 id="steg-1--git-och-curl">Step 1 – Git och curl</h3>
+<figure class="code code-bash"><figcaption><span>Terminal</span><button type="button" class="copy" data-copy="">Copy</button></figcaption><pre class="astro-code github-dark-dimmed" style="background-color:#22272e;color:#adbac7; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#768390"># Ubuntu / Debian</span></span>
+<span class="line"><span style="color:#F69D50">sudo</span><span style="color:#96D0FF"> apt</span><span style="color:#96D0FF"> update</span><span style="color:#ADBAC7"> &#x26;&#x26; </span><span style="color:#F69D50">sudo</span><span style="color:#96D0FF"> apt</span><span style="color:#96D0FF"> install</span><span style="color:#6CB6FF"> -y</span><span style="color:#96D0FF"> git</span><span style="color:#96D0FF"> curl</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#768390"># Fedora</span></span>
+<span class="line"><span style="color:#F69D50">sudo</span><span style="color:#96D0FF"> dnf</span><span style="color:#96D0FF"> install</span><span style="color:#6CB6FF"> -y</span><span style="color:#96D0FF"> git</span><span style="color:#96D0FF"> curl</span></span></code></pre></figure>
+<h3 id="steg-2--vs-code-och-github-copilot-1">Step 2 – VS Code and GitHub Copilot</h3>
+<p>Enklast är att ladda ner .deb (Ubuntu/Debian) eller .rpm (Fedora) från <a href="https://code.visualstudio.com">code.visualstudio.com</a> och installera. Paketet lägger automatiskt till Microsofts paketkälla så att VS Code uppdateras med resten av systemet.</p>
+<figure class="code code-bash"><figcaption><span>Terminal</span><button type="button" class="copy" data-copy="">Copy</button></figcaption><pre class="astro-code github-dark-dimmed" style="background-color:#22272e;color:#adbac7; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#768390"># Ubuntu / Debian, i mappen där filen hamnade</span></span>
+<span class="line"><span style="color:#F69D50">sudo</span><span style="color:#96D0FF"> apt</span><span style="color:#96D0FF"> install</span><span style="color:#96D0FF"> ./code_</span><span style="color:#6CB6FF">*</span><span style="color:#96D0FF">.deb</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#768390"># Fedora</span></span>
+<span class="line"><span style="color:#F69D50">sudo</span><span style="color:#96D0FF"> dnf</span><span style="color:#96D0FF"> install</span><span style="color:#96D0FF"> ./code-</span><span style="color:#6CB6FF">*</span><span style="color:#96D0FF">.rpm</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#768390"># Alternativ: Snap</span></span>
+<span class="line"><span style="color:#F69D50">sudo</span><span style="color:#96D0FF"> snap</span><span style="color:#96D0FF"> install</span><span style="color:#96D0FF"> code</span><span style="color:#6CB6FF"> --classic</span></span></code></pre></figure>
+<ol>
+<li>Starta VS Code, öppna Extensions (Ctrl+Shift+X), sök på ”GitHub Copilot” och installera.</li>
+<li>Logga in med ditt GitHub-konto via kontoikonen nere till vänster.</li>
+</ol>
+<h3 id="steg-3--claude-code-1">Step 3 – Claude Code</h3>
+<figure class="code code-bash"><figcaption><span>Terminal</span><button type="button" class="copy" data-copy="">Copy</button></figcaption><pre class="astro-code github-dark-dimmed" style="background-color:#22272e;color:#adbac7; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#F69D50">curl</span><span style="color:#6CB6FF"> -fsSL</span><span style="color:#96D0FF"> https://claude.ai/install.sh</span><span style="color:#F47067"> |</span><span style="color:#F69D50"> bash</span></span></code></pre></figure>
+<p>Öppna en ny terminal (eller kör source ~/.bashrc), skriv claude och logga in med ditt Claude-konto.</p>
+<h3 id="steg-4--opencode-1">Step 4 – OpenCode</h3>
+<figure class="code code-bash"><figcaption><span>Terminal</span><button type="button" class="copy" data-copy="">Copy</button></figcaption><pre class="astro-code github-dark-dimmed" style="background-color:#22272e;color:#adbac7; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#F69D50">curl</span><span style="color:#6CB6FF"> -fsSL</span><span style="color:#96D0FF"> https://opencode.ai/install</span><span style="color:#F47067"> |</span><span style="color:#F69D50"> bash</span></span></code></pre></figure>
+<p><em>Arch-användare: sudo pacman -S opencode. Homebrew på Linux fungerar också: brew install anomalyco/tap/opencode</em></p>
+<h3 id="steg-5--kontrollera-att-allt-funkar-1">Step 5 – Verify Everything Works</h3>
+<p>Öppna en ny terminal (viktigt – gamla fönster har inte fått den nya PATH:en) och kör:</p>
+<figure class="code code-bash"><figcaption><span>Terminal</span><button type="button" class="copy" data-copy="">Copy</button></figcaption><pre class="astro-code github-dark-dimmed" style="background-color:#22272e;color:#adbac7; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#F69D50">git</span><span style="color:#6CB6FF"> --version</span></span>
+<span class="line"><span style="color:#F69D50">code</span><span style="color:#6CB6FF"> --version</span></span>
+<span class="line"><span style="color:#F69D50">claude</span><span style="color:#6CB6FF"> --version</span></span>
+<span class="line"><span style="color:#F69D50">claude</span><span style="color:#96D0FF"> doctor</span></span>
+<span class="line"><span style="color:#F69D50">opencode</span><span style="color:#6CB6FF"> --version</span></span></code></pre></figure>
+<p>Får du ett versionsnummer på varje rad är du klar. claude doctor ger dig en liten hälsorapport – står det något i rött, ta en skärmdump och skicka till mig.</p>
+</section><section><h2 id="alla-system--koppla-ihop-git-med-dig">All Systems – Configure Git with Your Identity</h2>
+<p>Git behöver veta vem du är innan din första commit. Kör detta en gång, med samma e-postadress som på GitHub:</p>
+<figure class="code code-bash"><figcaption><span>Terminal</span><button type="button" class="copy" data-copy="">Copy</button></figcaption><pre class="astro-code github-dark-dimmed" style="background-color:#22272e;color:#adbac7; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#F69D50">git</span><span style="color:#96D0FF"> config</span><span style="color:#6CB6FF"> --global</span><span style="color:#96D0FF"> user.name</span><span style="color:#96D0FF"> "Förnamn Efternamn"</span></span>
+<span class="line"><span style="color:#F69D50">git</span><span style="color:#96D0FF"> config</span><span style="color:#6CB6FF"> --global</span><span style="color:#96D0FF"> user.email</span><span style="color:#96D0FF"> "din.epost@exempel.se"</span></span>
+<span class="line"><span style="color:#F69D50">git</span><span style="color:#96D0FF"> config</span><span style="color:#6CB6FF"> --global</span><span style="color:#96D0FF"> init.defaultBranch</span><span style="color:#96D0FF"> main</span></span></code></pre></figure>
+<p>Första gången du gör git push mot GitHub dyker ett inloggningsfönster upp. På Windows och Mac sköts det automatiskt av Gits inbyggda inloggningshjälp. På Linux är det enklast att installera GitHub CLI (gh) och köra gh auth login – se <a href="https://cli.github.com">cli.github.com</a>.</p>
+</section><section><h2 id="beroende-pa-vilket-sprak-du-kor">Depending on Your Programming Language</h2>
+<p>Välj det som matchar det du faktiskt kommer koda i under kursen. Ingen anledning att installera alla tre.</p>
+<h3 id="python">Python</h3>
+<figure class="code code-bash"><figcaption><span>Terminal</span><button type="button" class="copy" data-copy="">Copy</button></figcaption><pre class="astro-code github-dark-dimmed" style="background-color:#22272e;color:#adbac7; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#768390"># Windows</span></span>
+<span class="line"><span style="color:#F69D50">winget</span><span style="color:#96D0FF"> install</span><span style="color:#6CB6FF"> --id</span><span style="color:#96D0FF"> Python.Python.3.13</span><span style="color:#6CB6FF"> -e</span></span>
+<span class="line"><span style="color:#768390"># macOS</span></span>
+<span class="line"><span style="color:#F69D50">brew</span><span style="color:#96D0FF"> install</span><span style="color:#96D0FF"> python</span></span>
+<span class="line"><span style="color:#768390"># Ubuntu / Debian</span></span>
+<span class="line"><span style="color:#F69D50">sudo</span><span style="color:#96D0FF"> apt</span><span style="color:#96D0FF"> install</span><span style="color:#6CB6FF"> -y</span><span style="color:#96D0FF"> python3</span><span style="color:#96D0FF"> python3-venv</span><span style="color:#96D0FF"> python3-pip</span></span></code></pre></figure>
+<p>I VS Code: installera tillägget ”Python” från Microsoft. Vill du ha en renodlad Python-IDE finns PyCharm på <a href="https://jetbrains.com/pycharm">jetbrains.com/pycharm</a>.</p>
+<h3 id="c--net">C# / .NET</h3>
+<p>Installera senaste LTS-versionen av .NET SDK från <a href="https://dotnet.microsoft.com/download">dotnet.microsoft.com/download</a> – där finns färdiga installationsprogram för alla tre systemen. I VS Code: tillägget ”C# Dev Kit”. Alternativ IDE: Visual Studio (endast Windows) eller Rider (alla system, <a href="https://jetbrains.com/rider">jetbrains.com/rider</a>).</p>
+<h3 id="java">Java</h3>
+<figure class="code code-bash"><figcaption><span>Terminal</span><button type="button" class="copy" data-copy="">Copy</button></figcaption><pre class="astro-code github-dark-dimmed" style="background-color:#22272e;color:#adbac7; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#768390"># Windows</span></span>
+<span class="line"><span style="color:#F69D50">winget</span><span style="color:#96D0FF"> install</span><span style="color:#6CB6FF"> --id</span><span style="color:#96D0FF"> EclipseAdoptium.Temurin.21.JDK</span><span style="color:#6CB6FF"> -e</span></span>
+<span class="line"><span style="color:#768390"># macOS</span></span>
+<span class="line"><span style="color:#F69D50">brew</span><span style="color:#96D0FF"> install</span><span style="color:#6CB6FF"> --cask</span><span style="color:#96D0FF"> temurin@21</span></span>
+<span class="line"><span style="color:#768390"># Ubuntu / Debian</span></span>
+<span class="line"><span style="color:#F69D50">sudo</span><span style="color:#96D0FF"> apt</span><span style="color:#96D0FF"> install</span><span style="color:#6CB6FF"> -y</span><span style="color:#96D0FF"> openjdk-21-jdk</span></span></code></pre></figure>
+<p>I VS Code: ”Extension Pack for Java”. Alternativ IDE: IntelliJ IDEA (Community-versionen är gratis, <a href="https://jetbrains.com/idea">jetbrains.com/idea</a>).</p>
+</section><section><h2 id="nar-nagot-strular">Troubleshooting and Common Issues</h2>
+<h3 id="command-not-found--kanns-inte-igen-som-ett-kommando">”command not found” / ”känns inte igen som ett kommando”</h3>
+<p>Nio gånger av tio: terminalen startades innan installationen. Stäng alla terminalfönster och öppna ett nytt. Hjälper inte det, starta om datorn – tråkigt, men effektivt.</p>
+<h3 id="windows-running-scripts-is-disabled-on-this-system">Windows: ”running scripts is disabled on this system”</h3>
+<p>PowerShell blockerar skript som standard. Kör detta en gång och försök igen:</p>
+<figure class="code code-powershell"><figcaption><span>PowerShell</span><button type="button" class="copy" data-copy="">Copy</button></figcaption><pre class="astro-code github-dark-dimmed" style="background-color:#22272e;color:#adbac7; overflow-x: auto;" tabindex="0" data-language="powershell"><code><span class="line"><span style="color:#6CB6FF">Set-ExecutionPolicy</span><span style="color:#F47067"> -</span><span style="color:#ADBAC7">Scope CurrentUser RemoteSigned</span></span></code></pre></figure>
+<h3 id="claude-code-sager-att-kontot-saknar-atkomst">Claude Code säger att kontot saknar åtkomst</h3>
+<p>Du är troligen inloggad med ett gratiskonto. Kontrollera att du har Pro (eller ett API-konto) och kör /login inne i Claude Code för att logga in igen.</p>
+<h3 id="copilot-svarar-inte-i-vs-code">Copilot svarar inte i VS Code</h3>
+<p>Kolla att du är inloggad med rätt GitHub-konto (kontoikonen nere till vänster) och att Copilot är aktiverat på <a href="https://github.com/settings/copilot">github.com/settings/copilot</a>.</p>
+<h3 id="npm-permission-denied-maclinux">npm: ”permission denied” (Mac/Linux)</h3>
+<p>Kör inte npm med sudo. Använd curl-skriptet för OpenCode i stället – det installerar i din hemkatalog och behöver inga extra rättigheter.</p>
+</section><section><h2 id="kort-fast-hor-av-dig">Stuck? Get in Touch</h2>
+<p>Skriv via meddelanden i Omniway. Skicka med <strong>vilket operativsystem</strong> du kör, <strong>vilket steg</strong> det gäller och en <strong>skärmdump på felet</strong>. Då kan jag oftast hjälpa dig direkt.</p>
+<p>Och lugn – vi tar en snabb koll tillsammans i början av första lektionen också.</p></section></div></main></div><script type="module">document.addEventListener(`click`,async e=>{let t=e.target.closest(`[data-copy]`);if(!t)return;let n=t.closest(`figure, aside`)?.querySelector(`pre, .callout-body`);if(n){try{await navigator.clipboard.writeText(n.innerText.replace(/\n+$/,``)),t.textContent=`Copyt`}catch{t.textContent=`Markera och kopiera`}setTimeout(()=>t.textContent=`Copy`,1800)}});</script></body></html><script type="module">var e=`aitools-os`,t=[...document.querySelectorAll(`.os-switch [data-show]`)],n=[...document.querySelectorAll(`section[data-os]`)],r=document.querySelector(`[data-os-hint]`),i={windows:`Windows`,macos:`macOS`,linux:`Linux`};function a(){let e=navigator.userAgent;return/Windows/.test(e)?`windows`:/Mac OS X|Macintosh/.test(e)&&!/iPhone|iPad/.test(e)?`macos`:/Linux/.test(e)&&!/Android/.test(e)?`linux`:`all`}function o(a,o){for(let e of n)e.hidden=a!==`all`&&e.dataset.os!==a;for(let e of t)e.setAttribute(`aria-pressed`,String(e.dataset.show===a));if(r&&(r.textContent=a===`all`?`Alla tre systemen visas. Välj ditt för att dölja de andra.`:`Visar stegen för ${i[a]}. Det som gäller alla system visas också.`),o)try{localStorage.setItem(e,a)}catch{}}var s=null;try{s=localStorage.getItem(e)}catch{}o(s??a(),!1);for(let e of t)e.addEventListener(`click`,()=>o(e.dataset.show,!0));</script>
