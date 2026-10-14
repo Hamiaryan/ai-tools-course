@@ -1,0 +1,16 @@
+{
+  "name": "omniway-student-portal",
+  "version": "1.0.0",
+  "description": "Standalone Omniway LMS Course Platform clone connected to kursrum-ai-verktyg",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "omniway",
+    "lms",
+    "course-portal"
+  ],
+  "author": "",
+  "license": "ISC"
+}

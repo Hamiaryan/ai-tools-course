@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI verktyg för systemutveccklare - Omniway</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --header-bg: #1b382b;
+      --header-text: #ffffff;
+      --header-hover: #264e3c;
+      --badge-green: #4caf50;
+      --page-bg: #f3f5f7;
+      --card-bg: #ffffff;
+      --line: #e2e6ea;
+      --line-dark: #ced4da;
+      --text-main: #212529;
+      --text-muted: #6c757d;
+      --text-link: #0066cc;
+      --week-header-bg: #e1ede5;
+      --week-header-text: #1b382b;
+      --assignment-bg: #e5eff9;
+      --assignment-border: #bcd5ed;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--page-bg);
+      color: var(--text-main);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    /* Top Global Header */
+    .global-header {
+      background-color: var(--header-bg);
+      color: var(--header-text);
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.5rem;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .brand-section {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+
+    .logo-box {
+      background-color: #ffffff;
+      color: #1b382b;
+      font-weight: 800;
+      font-size: 1.35rem;
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 2px;
+      letter-spacing: -0.05em;
+      text-decoration: none;
+    }
+
+    .progress-circle {
+      position: relative;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: conic-gradient(#4caf50 36deg, #2b5540 0deg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .progress-circle::after {
+      content: "";
+      position: absolute;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--header-bg);
+    }
+
+    .progress-number {
+      position: relative;
+      z-index: 1;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .nav-items {
+      display: flex;
+      align-items: center;
+      gap: 0.2rem;
+      list-style: none;
+    }
+
+    .nav-item {
+      position: relative;
+    }
+
+    .nav-link {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.2rem;
+      padding: 0.4rem 0.75rem;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.78rem;
+      border-radius: 4px;
+      transition: background 0.15s ease;
+    }
+
+    .nav-link:hover {
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    .nav-icon {
+      width: 17px;
+      height: 17px;
+      fill: currentColor;
+    }
+
+    .dropdown-caret {
+      margin-left: 2px;
+      font-size: 0.7rem;
+    }
+
+    /* Course Banner / Header */
+    .course-header {
+      background: #ffffff;
+      border-bottom: 1px solid var(--line);
+      padding: 1.5rem 2rem 0;
+    }
+
+    .course-title-wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .course-title {
+      font-size: 1.75rem;
+      font-weight: 600;
+      color: #212529;
+      margin-bottom: 1.25rem;
+      letter-spacing: -0.02em;
+    }
+
+    .course-tabs {
+      display: flex;
+      gap: 0.5rem;
+      list-style: none;
+      border-bottom: 1px solid #ced4da;
+    }
+
+    .tab-btn {
+      padding: 0.65rem 1.25rem;
+      font-size: 0.95rem;
+      color: var(--text-link);
+      background: transparent;
+      border: 1px solid transparent;
+      border-bottom: none;
+      border-top-left-radius: 4px;
+      border-top-right-radius: 4px;
+      cursor: pointer;
+      font-family: inherit;
+      margin-bottom: -1px;
+      transition: all 0.1s;
+    }
+
+    .tab-btn:hover {
+      color: #004085;
+      text-decoration: underline;
+    }
+
+    .tab-btn.active {
+      background: #ffffff;
+      color: #212529;
+      border-color: #ced4da;
+      border-bottom-color: #ffffff;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    /* Main Container */
+    .main-container {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1.5rem 5rem;
+    }
+
+    /* Week Accordion Header */
+    .week-card {
+      background: #ffffff;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      margin-bottom: 1.5rem;
+      overflow: hidden;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    }
+
+    .week-header {
+      background-color: var(--week-header-bg);
+      color: var(--week-header-text);
+      padding: 0.9rem 1.25rem;
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      user-select: none;
+      border-bottom: 1px solid #d3e2d7;
+      transition: background 0.15s ease;
+    }
+
+    .week-header:hover {
+      background-color: #d7e7dc;
+    }
+
+    .week-title {
+      font-size: 1.15rem;
+      font-weight: 600;
+    }
+
+    .week-date {
+      font-size: 0.85rem;
+      color: #3b5f4c;
+      font-weight: 400;
+    }
+
+    /* Module Rows */
+    .module-row {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 2rem;
+      padding: 1.75rem 1.5rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .module-row:last-child {
+      border-bottom: none;
+    }
+
+    .meta-col {
+      color: #666;
+      font-size: 0.9rem;
+    }
+
+    .meta-weekday {
+      font-style: italic;
+      display: block;
+    }
+
+    .meta-date {
+      font-size: 0.85rem;
+      color: #888;
+    }
+
+    .content-col h2 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #212529;
+      margin-bottom: 0.85rem;
+    }
+
+    .content-col p.lead-desc {
+      color: #333333;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 1.25rem;
+    }
+
+    .section-label {
+      font-weight: 700;
+      color: #212529;
+      margin-top: 1.25rem;
+      margin-bottom: 0.5rem;
+      font-size: 0.95rem;
+    }
+
+    .bullet-list {
+      list-style-type: square;
+      padding-left: 1.25rem;
+      margin-bottom: 1rem;
+    }
+
+    .bullet-list li {
+      margin-bottom: 0.4rem;
+      font-size: 0.95rem;
+    }
+
+    .bullet-list li a, .content-col a {
+      color: var(--text-link);
+      text-decoration: none;
+    }
+
+    .bullet-list li a:hover, .content-col a:hover {
+      text-decoration: underline;
+    }
+
+    /* Video Embed Card */
+    .video-card {
+      position: relative;
+      width: 100%;
+      max-width: 480px;
+      height: 270px;
+      background: #000000;
+      border-radius: 6px;
+      overflow: hidden;
+      margin: 0.75rem 0 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      cursor: pointer;
+    }
+
+    .video-thumb {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.85;
+      transition: opacity 0.2s;
+    }
+
+    .video-card:hover .video-thumb {
+      opacity: 1;
+    }
+
+    .play-btn {
+      position: absolute;
+      width: 68px;
+      height: 48px;
+      background: #ff0000;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .video-card:hover .play-btn {
+      transform: scale(1.1);
+      background: #cc0000;
+    }
+
+    .play-triangle {
+      width: 0;
+      height: 0;
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+      border-left: 18px solid #ffffff;
+      margin-left: 4px;
+    }
+
+    /* Live Session Meeting Box */
+    .meeting-box {
+      background: #f8f9fa;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 1.25rem;
+      margin-top: 1rem;
+    }
+
+    .meeting-box h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .meeting-details {
+      font-size: 0.9rem;
+      color: #495057;
+      line-height: 1.6;
+    }
+
+    /* Assignment Box */
+    .assignment-box {
+      background-color: var(--assignment-bg);
+      border: 1px solid var(--assignment-border);
+      border-radius: 4px;
+      padding: 1.25rem 1.5rem;
+      margin-top: 1.25rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .lock-icon {
+      width: 24px;
+      height: 24px;
+      fill: #2c3e50;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .assignment-info h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #1a252f;
+      margin-bottom: 0.25rem;
+    }
+
+    .assignment-status {
+      font-size: 0.85rem;
+      color: #606f7b;
+      margin-bottom: 0.5rem;
+    }
+
+    .assignment-deadline {
+      font-size: 0.9rem;
+      color: #333333;
+      margin-bottom: 0.5rem;
+    }
+
+    /* Kursrum Portal Link Bar */
+    .portal-banner {
+      background: #14130f;
+      color: #ebe5d9;
+      border-radius: 8px;
+      padding: 1rem 1.5rem;
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-left: 4px solid #f0b443;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .portal-banner-text h4 {
+      color: #f0b443;
+      font-size: 1.05rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .portal-banner-text p {
+      font-size: 0.88rem;
+      color: #b5ad9d;
+    }
+
+    .portal-jump-btn {
+      background: #f0b443;
+      color: #1b1508;
+      font-weight: 700;
+      padding: 0.6rem 1.2rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-size: 0.88rem;
+      transition: background 0.15s;
+      white-space: nowrap;
+    }
+
+    .portal-jump-btn:hover {
+      background: #ffd077;
+    }
+
+    /* Tab Content panels */
+    .tab-panel {
+      display: none;
+    }
+    .tab-panel.active {
+      display: block;
+    }
+
+    @media (max-width: 768px) {
+      .module-row {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+      }
+      .nav-items {
+        display: none;
+      }
+      .global-header {
+        padding: 0 1rem;
+      }
+      .course-header {
+        padding: 1rem 1rem 0;
+      }
+      .main-container {
+        padding: 0 1rem 3rem;
+      }
+      .portal-banner {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.75rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Global Header -->
+  <header class="global-header">
+    <div class="brand-section">
+      <a href="/" class="logo-box" title="Omniway / Academedia">th.</a>
+      <div class="progress-circle" title="Framsteg i kursen">
+        <span class="progress-number">1</span>
+      </div>
+    </div>
+
+    <ul class="nav-items">
+      <li class="nav-item">
+        <a href="#kurser" class="nav-link">
+          <svg class="nav-icon" viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H8V4h12v12z"/></svg>
+          <span>Kurser</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="#inkorg" class="nav-link">
+          <svg class="nav-icon" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          <span>Inkorg</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="#hjalpcenter" class="nav-link">
+          <svg class="nav-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 16h-2v-2h2v2zm1.07-7.75l-.9.92C12.45 11.9 12 12.5 12 14h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H7c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.04-.42 1.99-1.07 2.75z"/></svg>
+          <span>Hjälpcenter</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="#studieplan" class="nav-link">
+          <svg class="nav-icon" viewBox="0 0 24 24"><path d="M19 3h-1V1h-2v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V8h14v11zM7 10h5v5H7z"/></svg>
+          <span>Studieplan</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="#nyheter" class="nav-link">
+          <svg class="nav-icon" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+          <span>Nyheter</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="#bocker" class="nav-link">
+          <svg class="nav-icon" viewBox="0 0 24 24"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 9H9V9h10v2zm-4 4H9v-2h6v2zm4-8H9V5h10v2z"/></svg>
+          <span>Böcker</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="#forum" class="nav-link">
+          <svg class="nav-icon" viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 9h12v2H6V9zm8 5H6v-2h8v2zm4-6H6V6h12v2z"/></svg>
+          <span>Forum</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="#handelser" class="nav-link">
+          <svg class="nav-icon" viewBox="0 0 24 24"><path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.9 2 2 2zm6-6v-5c0-3.07-1.63-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.64 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2zm-2 1H8v-6c0-2.48 1.51-4.5 4-4.5s4 2.02 4 4.5v6z"/></svg>
+          <span>Händelser <span class="dropdown-caret">▾</span></span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a href="#profil" class="nav-link">
+          <svg class="nav-icon" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+          <span>Hamed <span class="dropdown-caret">▾</span></span>
+        </a>
+      </li>
+    </ul>
+  </header>
+
+  <!-- Course Banner & Title -->
+  <div class="course-header">
+    <div class="course-title-wrap">
+      <h1 class="course-title">AI verktyg för systemutveccklare</h1>
+      <ul class="course-tabs" role="tablist">
+        <li><button class="tab-btn active" data-tab="undervisning">Undervisning</button></li>
+        <li><button class="tab-btn" data-tab="uppgifter">Uppgifter</button></li>
+        <li><button class="tab-btn" data-tab="kurstillbehor">Kurstillbehör</button></li>
+        <li><button class="tab-btn" data-tab="larare">Lärare</button></li>
+        <li><button class="tab-btn" data-tab="kursnyheter">Nyheter</button></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Main Content Container -->
+  <main class="main-container">
+
+    <!-- Connected Platform Jump Banner -->
+    <div class="portal-banner">
+      <div class="portal-banner-text">
+        <h4>⚡ Ansluten till lokala AI-Verktyg sajten</h4>
+        <p>Alla övningar, videoguider och instruktioner i Omniway öppnas direkt på vår lokala kursplattform (localhost:3001).</p>
+      </div>
+      <a href="http://localhost:3001/" target="_blank" class="portal-jump-btn">Öppna Kurssajten (localhost:3001) →</a>
+    </div>
+
+    <!-- TAB 1: UNDERVISNING -->
+    <div id="undervisning" class="tab-panel active">
+
+      <!-- WEEKS LIST -->
+
+      <!-- VECKA 1 -->
+      <section class="week-card">
+        <div class="week-header" onclick="toggleWeek(this)">
+          <span class="week-title">Vecka 1</span>
+          <span class="week-date">5 okt - 9 okt</span>
+        </div>
+        <div class="week-content">
+          <div class="module-row">
+            <div class="meta-col">
+              <span class="meta-weekday">måndag</span>
+              <span class="meta-date">5 okt</span>
+            </div>
+            <div class="content-col">
+              <h2>Kursintroduktion &amp; Installation</h2>
+              <p class="lead-desc">Välkommen till kursen AI-verktyg för systemutvecklare! Denna vecka installerar vi alla nödvändiga verktyg och bekantar oss med kursupplägget.</p>
+              
+              <div class="section-label">Gör först</div>
+              <ul class="bullet-list">
+                <li><a href="http://localhost:3001/installation/" target="_blank">Följ installationsguiden (Windows, macOS, Linux)</a></li>
+                <li>Skaffa konto för GitHub Copilot, Claude Code och OpenCode</li>
+                <li><a href="http://localhost:3001/vanliga-fragor/" target="_blank">Läs vanliga frågor (FAQ) om handledning och kursupplägg</a></li>
+              </ul>
+
+              <div class="section-label">Titta</div>
+              <ul class="bullet-list">
+                <li><a href="https://www.youtube.com/watch?v=W_3SQiAYDFQ" target="_blank">Video 00: Introduktion till AI-verktyg för systemutvecklare (06:12) ↗</a></li>
+                <li><a href="https://www.youtube.com/watch?v=jaemV9jqSHc" target="_blank">Video 01: AI som stöd i systemutveckling: mål och upplägg (12:25) ↗</a></li>
+              </ul>
+
+              <div class="section-label">Läsanvisningar</div>
+              <ul class="bullet-list">
+                <li><a href="http://localhost:3001/lasanvisningar/#modul-01" target="_blank">Läsanvisningar Modul 01: Bekanta dig med de tre verktygen</a></li>
+                <li><a href="http://localhost:3001/ordlista/" target="_blank">Kursens ordlista över AI-begrepp</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- VECKA 2: MODUL 02 -->
+      <section class="week-card">
+        <div class="week-header" onclick="toggleWeek(this)">
+          <span class="week-title">Vecka 2</span>
+          <span class="week-date">12 okt - 16 okt</span>
+        </div>
+        <div class="week-content">
+          <div class="module-row">
+            <div class="meta-col">
+              <span class="meta-weekday">måndag</span>
+              <span class="meta-date">12 okt</span>
+            </div>
+            <div class="content-col">
+              <h2>Modul 02: Konfigurera AI-verktygen</h2>
+              <p class="lead-desc">I den här modulen ställer du in dina AI-verktyg, skriver en instruktionsfil och jämför verktygen på samma uppgift. Titta på videon först och gör sedan övningarna i ordning.</p>
+
+              <div class="section-label">Titta</div>
+              <ul class="bullet-list">
+                <li>Video 02: AI verktyg och kodassistenter, fördjupning (29 min)</li>
+              </ul>
+
+              <a href="https://www.youtube.com/watch?v=fY-skJ0v-aQ" target="_blank" class="video-card">
+                <img src="https://img.youtube.com/vi/fY-skJ0v-aQ/hqdefault.jpg" alt="Video 02 Thumbnail" class="video-thumb">
+                <div class="play-btn">
+                  <div class="play-triangle"></div>
+                </div>
+              </a>
+
+              <div class="section-label">Gör</div>
+              <ul class="bullet-list">
+                <li><a href="http://localhost:3001/ovningar/02/" target="_blank"><strong>Alla övningar i modulen</strong></a> (eller öppna på <a href="http://localhost:3001/fa/ovningar/02/" target="_blank">فارسی</a> / <a href="http://localhost:3001/en/ovningar/02/" target="_blank">English</a>)</li>
+                <li><a href="http://localhost:3001/ovningar/02/#ovning-1" target="_blank">Övning 1: Bygg grunden</a> (bas, 10 min)</li>
+                <li><a href="http://localhost:3001/ovningar/02/#ovning-2" target="_blank">Övning 2: Skriv en AGENTS.md</a> (bas, 15 min)</li>
+                <li><a href="http://localhost:3001/ovningar/02/#ovning-3" target="_blank">Övning 3: Samma uppgift, tre kompisar</a> (bas, 20 min)</li>
+                <li><a href="http://localhost:3001/ovningar/02/#ovning-4" target="_blank">Övning 4: Planera före du kör</a> (fördjupning, 20 min)</li>
+                <li><a href="http://localhost:3001/ovningar/02/#ovning-5" target="_blank">Övning 5: Välj rätt kompis</a> (utmaning, 15 min)</li>
+                <li><a href="http://localhost:3001/lasanvisningar/#modul-02" target="_blank">Läsanvisningar, modul 02</a></li>
+              </ul>
+
+              <div class="meeting-box">
+                <h3>Handledningstillfälle 2 (Fredag 16 okt kl. 13:00–15:00)</h3>
+                <div class="meeting-details">
+                  Digital workshop och genomgång på Microsoft Teams.<br>
+                  <strong>Länk:</strong> <a href="https://teams.microsoft.com/" target="_blank">Anslut till Teams-mötet här ↗</a><br>
+                  <strong>Mötes-ID:</strong> 312 849 501 223 | <strong>Lösenord:</strong> aK97xM
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- VECKA 3: MODUL 03 -->
+      <section class="week-card">
+        <div class="week-header" onclick="toggleWeek(this)">
+          <span class="week-title">Vecka 3</span>
+          <span class="week-date">19 okt - 23 okt</span>
+        </div>
+        <div class="week-content">
+          <div class="module-row">
+            <div class="meta-col">
+              <span class="meta-weekday">måndag</span>
+              <span class="meta-date">19 okt</span>
+            </div>
+            <div class="content-col">
+              <h2>Modul 03: Kodgenerering, felsökning och refaktorisering</h2>
+              <p class="lead-desc">Låt AI skriva, laga och städa kod. Lär dig varför en exakt teknisk specifikation alltid slår en vag prompt.</p>
+
+              <div class="section-label">Titta</div>
+              <ul class="bullet-list">
+                <li>Video 03: AI-stödd programmering: kodgenerering, felsökning och refaktorisering (28 min)</li>
+              </ul>
+
+              <a href="https://www.youtube.com/watch?v=Uuf3mkoEHIA" target="_blank" class="video-card">
+                <img src="https://img.youtube.com/vi/Uuf3mkoEHIA/hqdefault.jpg" alt="Video 03 Thumbnail" class="video-thumb">
+                <div class="play-btn">
+                  <div class="play-triangle"></div>
+                </div>
+              </a>
+
+              <div class="section-label">Gör</div>
+              <ul class="bullet-list">
+                <li><a href="http://localhost:3001/ovningar/03/" target="_blank"><strong>Alla övningar i Modul 03</strong></a> (eller öppna på <a href="http://localhost:3001/fa/ovningar/03/" target="_blank">فارسی</a> / <a href="http://localhost:3001/en/ovningar/03/" target="_blank">English</a>)</li>
+                <li><a href="http://localhost:3001/ovningar/03/#ovning-1" target="_blank">Övning 1: Specifikation slår prompt</a> (bas, 20 min)</li>
+                <li><a href="http://localhost:3001/ovningar/03/#ovning-2" target="_blank">Övning 2: Momsbuggen</a> (bas, 20 min)</li>
+                <li><a href="http://localhost:3001/ovningar/03/#ovning-3" target="_blank">Övning 3: Gör momsen datadriven</a> (bas, 20 min)</li>
+                <li><a href="http://localhost:3001/ovningar/03/#ovning-4" target="_blank">Övning 4: Granska dagens AI-kod</a> (bas, 15 min)</li>
+                <li><a href="http://localhost:3001/ovningar/03/#ovning-5" target="_blank">Övning 5: IDE mot AI</a> (fördjupning, 15 min)</li>
+                <li><a href="http://localhost:3001/lasanvisningar/#modul-03" target="_blank">Läsanvisningar, modul 03</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- VECKA 4: MODUL 04 -->
+      <section class="week-card">
+        <div class="week-header" onclick="toggleWeek(this)">
+          <span class="week-title">Vecka 4</span>
+          <span class="week-date">26 okt - 30 okt</span>
+        </div>
+        <div class="week-content">
+          <div class="module-row">
+            <div class="meta-col">
+              <span class="meta-weekday">måndag</span>
+              <span class="meta-date">26 okt</span>
+            </div>
+            <div class="content-col">
+              <h2>Modul 04: Vad är en bra prompt?</h2>
+              <p class="lead-desc">De fyra grundprinciperna: kontext, tydlighet, exempel och iteration. Bygg dina egna promptmallar.</p>
+
+              <div class="section-label">Gör</div>
+              <ul class="bullet-list">
+                <li><a href="http://localhost:3001/ovningar/04/" target="_blank">Öppna övningar för Modul 04</a></li>
+                <li><a href="https://www.youtube.com/watch?v=pvMi-MvmKVA" target="_blank">Video 04: Vad är en bra prompt? (17 min) ↗</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- VECKA 5: MODUL 05 -->
+      <section class="week-card">
+        <div class="week-header" onclick="toggleWeek(this)">
+          <span class="week-title">Vecka 5</span>
+          <span class="week-date">2 nov - 6 nov</span>
+        </div>
+        <div class="week-content">
+          <div class="module-row">
+            <div class="meta-col">
+              <span class="meta-weekday">måndag</span>
+              <span class="meta-date">2 nov</span>
+            </div>
+            <div class="content-col">
+              <h2>Modul 05: Promptbaserad interaktion</h2>
+              <p class="lead-desc">Tydliga instruktioner, krav och acceptanskriterier (Given/When/Then). Låt AI ställa frågor före den kodar.</p>
+
+              <div class="section-label">Gör</div>
+              <ul class="bullet-list">
+                <li><a href="http://localhost:3001/ovningar/05/" target="_blank">Öppna övningar för Modul 05</a></li>
+                <li><a href="https://www.youtube.com/watch?v=YkctDboL9eE" target="_blank">Video 05: Promptbaserad interaktion (39 min) ↗</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- VECKA 6: MODUL 06 -->
+      <section class="week-card">
+        <div class="week-header" onclick="toggleWeek(this)">
+          <span class="week-title">Vecka 6</span>
+          <span class="week-date">9 nov - 13 nov</span>
+        </div>
+        <div class="week-content">
+          <div class="module-row">
+            <div class="meta-col">
+              <span class="meta-weekday">måndag</span>
+              <span class="meta-date">9 nov</span>
+            </div>
+            <div class="content-col">
+              <h2>Modul 06: Vad är en AI-Agent?</h2>
+              <p class="lead-desc">Skillnaden mellan en chattassistent och en självständig agent. Agentloopen, verktygsanvändning och risker.</p>
+
+              <div class="section-label">Gör</div>
+              <ul class="bullet-list">
+                <li><a href="http://localhost:3001/ovningar/06/" target="_blank">Öppna övningar för Modul 06</a></li>
+                <li><a href="https://www.youtube.com/watch?v=JMldKsZCHkI" target="_blank">Video 06: Vad är en AI-Agent? (16 min) ↗</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- VECKA 7: MODUL 07 -->
+      <section class="week-card">
+        <div class="week-header" onclick="toggleWeek(this)">
+          <span class="week-title">Vecka 7</span>
+          <span class="week-date">16 nov - 20 nov</span>
+        </div>
+        <div class="week-content">
+          <div class="module-row">
+            <div class="meta-col">
+              <span class="meta-weekday">måndag</span>
+              <span class="meta-date">16 nov</span>
+            </div>
+            <div class="content-col">
+              <h2>Modul 07: Bygg din första AI-agent</h2>
+              <p class="lead-desc">Ge agenten en mapp, ett mål och en prompt. Bygg ett återanvändbart arbetsflöde.</p>
+
+              <div class="section-label">Gör</div>
+              <ul class="bullet-list">
+                <li><a href="http://localhost:3001/ovningar/07/" target="_blank">Öppna övningar för Modul 07</a></li>
+                <li><a href="https://www.youtube.com/watch?v=zrPMb4evBnw" target="_blank">Video 07: Bygg en första AI-Agent med Claude Cowork (13 min) ↗</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- VECKA 11: MODUL 11 (EU AI ACT) -->
+      <section class="week-card">
+        <div class="week-header" onclick="toggleWeek(this)">
+          <span class="week-title">Vecka 11</span>
+          <span class="week-date">14 dec - 18 dec</span>
+        </div>
+        <div class="week-content">
+          <div class="module-row">
+            <div class="meta-col">
+              <span class="meta-weekday">måndag</span>
+              <span class="meta-date">14 dec</span>
+            </div>
+            <div class="content-col">
+              <h2>Modul 11: EU:s AI-förordning (AI Act)</h2>
+              <p class="lead-desc">Leverantör eller tillhandahållare? Risknivåer, krav på högrisksystem och hur lagen påverkar systemutvecklare.</p>
+
+              <div class="section-label">Gör</div>
+              <ul class="bullet-list">
+                <li><a href="http://localhost:3001/ovningar/11/" target="_blank">Öppna övningar för Modul 11</a></li>
+                <li><a href="https://www.youtube.com/watch?v=W5_2HrUbXhk" target="_blank">Video 11: AI ACT, vad är det? (22 min) ↗</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- VECKA 13: KUNSKAPSKONTROLL A -->
+      <section class="week-card">
+        <div class="week-header" onclick="toggleWeek(this)">
+          <span class="week-title">Vecka 13</span>
+          <span class="week-date">18 jan - 22 jan</span>
+        </div>
+        <div class="week-content">
+          <div class="module-row">
+            <div class="meta-col">
+              <span class="meta-weekday">fredag</span>
+              <span class="meta-date">22 jan</span>
+            </div>
+            <div class="content-col">
+              <h2>Kunskapskontroll A (Individuell skriftlig inlämning)</h2>
+              <p class="lead-desc">Skriftlig inlämning som omfattar verktygsval, promptmetodik, säkerhetsrisker och regelverk.</p>
+              
+              <div class="assignment-box">
+                <svg class="lock-icon" viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>
+                <div class="assignment-info">
+                  <h3>Kunskapskontroll A</h3>
+                  <div class="assignment-status">Individuell inlämning</div>
+                  <div class="assignment-deadline">Deadline: fredag 22 jan kl. 23:59</div>
+                  <a href="#uppgifter" onclick="showTab('uppgifter')">Läs mer och se betygskriterier →</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- VECKA 14-19: PROJEKTMODULER -->
+      <section class="week-card">
+        <div class="week-header" onclick="toggleWeek(this)">
+          <span class="week-title">Vecka 14 – 19</span>
+          <span class="week-date">25 jan - 5 mar</span>
+        </div>
+        <div class="week-content">
+          <div class="module-row">
+            <div class="meta-col">
+              <span class="meta-weekday">Projektperiod</span>
+            </div>
+            <div class="content-col">
+              <h2>Modul 14–19: Praktiskt projektarbete (Kunskapskontroll B)</h2>
+              <p class="lead-desc">Du planerar, bygger, testar och kvalitetssäkrar ett AI-assisterat projekt med full versionshantering och AI-logg.</p>
+
+              <div class="section-label">Övningar och moduler</div>
+              <ul class="bullet-list">
+                <li><a href="http://localhost:3001/ovningar/14/" target="_blank">Modul 14: Från idé till plan</a></li>
+                <li><a href="http://localhost:3001/ovningar/15/" target="_blank">Modul 15: Kom igång med bygget</a></li>
+                <li><a href="http://localhost:3001/ovningar/16/" target="_blank">Modul 16: Felsökning och refaktorisering</a></li>
+                <li><a href="http://localhost:3001/ovningar/17/" target="_blank">Modul 17: Testning, dokumentation och automatisering</a></li>
+                <li><a href="http://localhost:3001/ovningar/18/" target="_blank">Modul 18: Kvalitetssäkring</a></li>
+                <li><a href="http://localhost:3001/ovningar/19/" target="_blank">Modul 19: Förbered redovisningen</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- VECKA 20: AVSLUT & KUNSKAPSKONTROLL B -->
+      <section class="week-card">
+        <div class="week-header" onclick="toggleWeek(this)">
+          <span class="week-title">Vecka 20</span>
+          <span class="week-date">15 feb - 19 feb</span>
+        </div>
+        <div class="week-content">
+          <div class="module-row">
+            <div class="meta-col">
+              <span class="meta-weekday">måndag</span>
+              <span class="meta-date">15 feb</span>
+            </div>
+            <div class="content-col">
+              <h2>Modul 20: Redovisning och avslut</h2>
+              <p class="lead-desc">I den här modulen redovisar och lämnar du in Kunskapskontroll B. Gör en sista kontroll innan inlämningen, lyssna på de andras redovisningar och ta med dig det som fungerat vidare.</p>
+
+              <div class="section-label">Gör</div>
+              <ul class="bullet-list">
+                <li><a href="http://localhost:3001/ovningar/20/" target="_blank">Alla övningar i modulen</a></li>
+                <li><a href="http://localhost:3001/ovningar/20/#ovning-1" target="_blank">Övning 1: Sista kontrollen (bas, 10 min)</a></li>
+                <li><a href="http://localhost:3001/ovningar/20/#ovning-2" target="_blank">Övning 2: Lyssna aktivt (bas, 20 min)</a></li>
+                <li><a href="http://localhost:3001/ovningar/20/#ovning-3" target="_blank">Övning 3: Din reflektion (bas, 15 min)</a></li>
+                <li><a href="http://localhost:3001/ovningar/20/#ovning-4" target="_blank">Övning 4: Din verktygslåda (fördjupning, 15 min)</a></li>
+                <li><a href="http://localhost:3001/ovningar/20/#ovning-5" target="_blank">Övning 5: Så här skulle jag vilja att vi jobbade (utmaning, 15 min)</a></li>
+                <li><a href="http://localhost:3001/lasanvisningar/#modul-20" target="_blank">Läsanvisningar, modul 20</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="module-row">
+            <div class="meta-col">
+              <span class="meta-weekday">fredag</span>
+              <span class="meta-date">19 feb</span>
+            </div>
+            <div class="content-col">
+              <h2>Handledningstillfälle 20 13:00-15:00 - Redovisning och inlämning Kunskapskontroll B. Kursavslutning.</h2>
+              <div class="meeting-details" style="margin-bottom: 1rem;">
+                Länk till Teams:<br>
+                <strong>Anslut till:</strong> <a href="https://teams.microsoft.com/meet/379217801181945?p=N2YKeNEkJ7leOrH8CY" target="_blank">Teams-möte för slutredovisning ↗</a><br>
+                Mötes-ID: 379 217 801 181 945<br>
+                Lösenord: er3Jf2TD
+              </div>
+
+              <div class="assignment-box">
+                <svg class="lock-icon" viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>
+                <div class="assignment-info">
+                  <h3>Praktisk individuell inlämningsuppgift (Kunskapskontroll B)</h3>
+                  <div class="assignment-status">Ej tillgänglig · Blir tillgänglig den 19 feb</div>
+                  <div class="assignment-deadline">Deadline: fre, 19 feb kl. 23:59</div>
+                  <a href="#uppgifter" onclick="showTab('uppgifter')">Mer information om uppgiften →</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- TAB 2: UPPGIFTER -->
+    <div id="uppgifter" class="tab-panel">
+      <div class="week-card" style="padding: 2rem;">
+        <h2 style="font-size: 1.5rem; margin-bottom: 1rem;">Examinerande moment</h2>
+        <p style="margin-bottom: 1.5rem; font-size: 0.95rem; color: #495057;">Kursen innehåller två obligatoriska examinationsuppgifter. Båda måste vara godkända (G eller VG) för att erhålla slutbetyg i kursen.</p>
+        
+        <div class="assignment-box" style="margin-bottom: 1.5rem;">
+          <svg class="lock-icon" viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>
+          <div class="assignment-info">
+            <h3>Kunskapskontroll A (Skriftlig inlämning)</h3>
+            <div class="assignment-status">Modul 13 · Betygsskala: IG / G / VG</div>
+            <div class="assignment-deadline">Deadline: 22 januari kl. 23:59</div>
+            <p style="font-size: 0.9rem; margin-top: 0.5rem; color: #333;">Teoretisk och reflekterande redogörelse för verktygsval, promptmetoder, AI Act och säkerhetsrisker.</p>
+          </div>
+        </div>
+
+        <div class="assignment-box">
+          <svg class="lock-icon" viewBox="0 0 24 24"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>
+          <div class="assignment-info">
+            <h3>Kunskapskontroll B (Praktiskt AI-assisterat projekt)</h3>
+            <div class="assignment-status">Modul 14–20 · Betygsskala: IG / G / VG</div>
+            <div class="assignment-deadline">Deadline: 19 februari kl. 23:59</div>
+            <p style="font-size: 0.9rem; margin-top: 0.5rem; color: #333;">Praktiskt utvecklingsprojekt genomfört med AI-stöd. Bedöms utifrån Git-historik, AI-logg, kodkvalitet och muntlig redovisning.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 3: KURSTILLBEHÖR -->
+    <div id="kurstillbehor" class="tab-panel">
+      <div class="week-card" style="padding: 2rem;">
+        <h2 style="font-size: 1.5rem; margin-bottom: 1rem;">Kurstillbehör &amp; Resurser</h2>
+        <ul class="bullet-list" style="font-size: 1rem; line-height: 1.8;">
+          <li><a href="http://localhost:3001/" target="_blank"><strong>AI-verktyg Kurssajt (Lokal portal) ↗</strong></a></li>
+          <li><a href="http://localhost:3001/installation/" target="_blank">Installationsguide för verktyg</a></li>
+          <li><a href="http://localhost:3001/videos/" target="_blank">Alla 13 videoföreläsningar</a></li>
+          <li><a href="http://localhost:3001/ordlista/" target="_blank">Ordlista över AI-begrepp</a></li>
+          <li><a href="https://www.youtube.com/playlist?list=PLHjqMelIay84" target="_blank">YouTube Spellista med alla kursvideor ↗</a></li>
+          <li><a href="https://artificialintelligenceact.eu/" target="_blank">EU AI Act officiell tidslinje ↗</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- TAB 4: LÄRARE -->
+    <div id="larare" class="tab-panel">
+      <div class="week-card" style="padding: 2rem;">
+        <h2 style="font-size: 1.5rem; margin-bottom: 1.5rem;">Kurslärare &amp; Handledare</h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+          <div style="background: #f8f9fa; border: 1px solid var(--line); border-radius: 6px; padding: 1.25rem;">
+            <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.3rem;">Marcus</h3>
+            <p style="color: #666; font-size: 0.85rem; margin-bottom: 0.75rem;">Huvudlärare &amp; Föreläsare</p>
+            <p style="font-size: 0.9rem;">Ansvarar för moduler inom konfiguration, kodgenerering, promptbaserad interaktion och projektledning.</p>
+          </div>
+          <div style="background: #f8f9fa; border: 1px solid var(--line); border-radius: 6px; padding: 1.25rem;">
+            <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.3rem;">Robin</h3>
+            <p style="color: #666; font-size: 0.85rem; margin-bottom: 0.75rem;">Lärare &amp; AI-Agent Specialist</p>
+            <p style="font-size: 0.9rem;">Ansvarar för moduler om promptteknik, AI-agenter (Claude Cowork) samt EU:s AI-förordning.</p>
+          </div>
+          <div style="background: #f8f9fa; border: 1px solid var(--line); border-radius: 6px; padding: 1.25rem;">
+            <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 0.3rem;">Zane</h3>
+            <p style="color: #666; font-size: 0.85rem; margin-bottom: 0.75rem;">Lärare &amp; CI/CD Specialist</p>
+            <p style="font-size: 0.9rem;">Ansvarar för AI i utvecklingsflödet (CI/CD), utvecklarrollen, etik och säkerhetsrisker.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB 5: NYHETER -->
+    <div id="kursnyheter" class="tab-panel">
+      <div class="week-card" style="padding: 2rem;">
+        <h2 style="font-size: 1.5rem; margin-bottom: 1rem;">Kursnyheter</h2>
+        <div style="border-bottom: 1px solid var(--line); padding-bottom: 1rem; margin-bottom: 1rem;">
+          <span style="font-size: 0.82rem; color: #888;">Postat 5 okt 2026</span>
+          <h3 style="font-size: 1.1rem; margin-top: 0.2rem;">Välkomna till kursstarten!</h3>
+          <p style="margin-top: 0.5rem; font-size: 0.92rem;">Glöm inte att gå igenom installationsguiden inför fredagens första handledningstillfälle.</p>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <script>
+    // Tab switching
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const tabPanels = document.querySelectorAll('.tab-panel');
+
+    function showTab(tabId) {
+      tabBtns.forEach(btn => {
+        if (btn.getAttribute('data-tab') === tabId) {
+          btn.classList.add('active');
+        } else {
+          btn.classList.remove('active');
+        }
+      });
+      tabPanels.forEach(panel => {
+        if (panel.id === tabId) {
+          panel.classList.add('active');
+        } else {
+          panel.classList.remove('active');
+        }
+      });
+    }
+
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        showTab(btn.getAttribute('data-tab'));
+      });
+    });
+
+    // Week Accordion Collapse/Expand
+    function toggleWeek(header) {
+      const content = header.nextElementSibling;
+      if (content.style.display === 'none') {
+        content.style.display = 'block';
+        header.style.opacity = '1';
+      } else {
+        content.style.display = 'none';
+        header.style.opacity = '0.75';
+      }
+    }
+  </script>
+</body>
+</html>
