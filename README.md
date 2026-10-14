@@ -50,26 +50,36 @@
 
 ---
 
-## 🚀 نحوه اجرای محلی (How to Run Locally)
+## 🌐 ساختار دو پلتفرم مستقل (Two Separate Platforms)
 
-### روش اول: با استفاده از Node.js (پیشنهادی)
-فقط کافیست در ترمینال دستور زیر را اجرا کنید (بدون نیاز به `npm install` چون سرور داخلی و بدون dependency است):
+این پروژه اکنون شامل دو پلتفرم مجزا و هماهنگ است:
 
+1. **پلتفرم ۱: سایت مرجع دوره‌ها (Kursrum AI-Verktyg)**
+   - پورت لوکال: 👉 **[http://localhost:3001](http://localhost:3001)**
+   - شامل تمام ۲۱ صفحه آموزشی، راهنمای نصب، ویدیوها و تمام تمرین‌ها به ۳ زبان (سوئدی، انگلیسی و فارسی با RTL).
+
+2. **پلتفرم ۲: پرتال آموزشی Omniway LMS**
+   - پوشه: `omniway-platform/`
+   - پورت لوکال: 👉 **[http://localhost:3002](http://localhost:3002)**
+   - ظاهر دقیق (Exact UI/UX) سامانه Omniway با تم سبز جنگلی (`#1b382b`)، تب‌های درسی، هفته‌های آموزشی، جعبه‌های تحویل تکالیف و لینک‌های متصل به پلتفرم ۱.
+
+---
+
+## 🚀 نحوه اجرای لوکال (Running Locally)
+
+### پلتفرم اصلی (Kursrum):
 ```bash
 npm start
+# یا node server.js -> پورت 3001
 ```
-یا:
-```bash
-node server.js
-```
-سپس در مرورگر آدرس زیر را باز کنید:
-👉 [http://localhost:3000](http://localhost:3000)
 
-### روش دوم: با Python
+### پلتفرم Omniway:
 ```bash
-python3 -m http.server 3000
+cd omniway-platform
+npm start
+# یا node server.js -> پورت 3002
 ```
-سپس به [http://localhost:3000](http://localhost:3000) بروید.
+
 
 ---
 
