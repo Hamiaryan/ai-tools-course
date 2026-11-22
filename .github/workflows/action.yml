@@ -1,0 +1,16 @@
+name: Amozesh GitHub Actions
+
+on: [push]
+
+jobs:
+  my-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Salam be Karbar
+        run: echo "Salam! GitHub Actions ba movafaghiat shoro shod."
+
+      - name: Daryafte Codeha
+        uses: actions/checkout@v4
+
+      - name: Didane File-haye Projeh
+        run: ls -la
